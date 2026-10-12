@@ -200,3 +200,6 @@ https://www.figma.com/proto/HNs8Ge4CJupGPpK6COlk8c/Adidas-SaaS-Dashboard?node-id
 Video loop of the prototype: record at build time (not possible from this environment).
 Edits (round 2): reality-check box removed; Goals measure box relabelled "What a quantitative round would measure"; Discovery reordered (Personalization last, next phase);
 Prioritisation (05, matrix centred, no how-to-read) now before Process (06); wireframe groups spaced +96px; Outcomes heading about usability.
+Restructure (round 3): beats removed. Order 01 Opening · 02 Context · 03 Goals · 04 Discovery · 05 Prioritisation · 06 Process · 07 First direction (3 wireframes, round-one findings, the turn, insight quote, pen arrow on alerts)
+· 08 Key decisions · 09 Final designs (5 screens + prototype, no wireframes) · 10 Visual language · 11 Outcomes · 12 Reflection. Hero: 500px screen, sketch boxes at 55%, redrawn pen paths.
+Pen highlights (Caveat, brick): hero, wireframe alerts, first-direction quote, two key decisions, final designs, outcomes. Note: user has hand-edited some Outcomes copy in Figma; don't overwrite.
