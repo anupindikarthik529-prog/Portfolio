@@ -167,3 +167,10 @@ S6 Needs attention 12:8 · S7 Reports 13:8 · S8 States 14:8 · S9 Navigation be
 Prototype flow "Sales Desk — end-to-end" starts at S1. All figures are sample data (chip in top bar).
 Note: paint opacity is dropped when binding a variable via setBoundVariableForPaint; use a token or node opacity.
 Next: rebuild into portfolio file and update Adidas case study 124:1219.
+
+## Adidas dashboard v3 ("Stride for adidas", 8-hour-believable version) — CURRENT
+File HNs8Ge4CJupGPpK6COlk8c, page "Redesign v3 — 8-hour sprint". Light theme continuing the wireframes, Inter, black top nav.
+Tokens: "Stride / Tokens". Frames: 1 Dashboard 16:30 · 2 Alerts panel 18:8 · 3 Opportunities 17:8 · 4 Deal detail 18:282 ·
+5 Customers 19:8 · 6 Revenue 19:204 · 7 Forecast 19:411 · 8 Reports 20:8 · 9 Export 20:156. Flow "Stride — 8-hour sprint" starts at 1.
+Maps to the original 8 finals: AI insights -> "What's driving the forecast" notes on 7; Notifications -> alerts strip on 1 + panel 2; Exports -> modal 9.
+Sales Desk page (v2) kept as an archived exploration.
