@@ -21,7 +21,7 @@ Redesign Karthik Anupindi's UX/UI portfolio and put it live.
 **Agreed order of work (user's plan; don't get stuck looping on one page):**
 
 1. Adidas case study, finalised. **Done.** Waiting on the user's confirmation that it's frozen (see §12).
-2. INDYCAR case study.
+2. INDYCAR case study. **First design pass done** (see §2.9). Waiting on the user's one feedback round.
 3. VYBE case study.
 4. About page.
 5. Build and go live. Hosting is undecided (see §7).
@@ -181,15 +181,41 @@ Frame **`124:1219`** "Case Study — Sales Dashboard (Adidas brief) — Desktop 
 - Preview artifact: https://claude.ai/artifact/QRj1DUZSi4zTx5i4yYuEAp
 - It is a prototype of the **Sevora-era home page**, not the Lyrical design. If the React route is chosen for launch, it needs restyling to the Lyrical system (Newsreader, Inter, Caveat, paper and ink) and the remaining pages need building.
 
+
+### 2.9 INDYCAR case study: FIRST PASS DONE (awaiting the feedback round)
+Frame **`238:1383`** "Case Study — INDYCAR (NTT INDYCAR) — Desktop 1440", on page "05 — Case Studies" at x = −1740 (left of Adidas). It is vertical auto-layout like `124:1219`, with sections in absolute layout. Built from the Lyrical tokens, CS / Section Heading instances and CS / Pull Quote clones. Every image reuses the image fills (imageHash) from the mirror `45:3799`, displayed at or below native resolution. No new screens were designed.
+
+**Title:** "How an Information Architecture Rebuild Grew INDYCAR's Gen Z Fan Retention" (same as the home row).
+
+| # | Section | Node | Content (summary) |
+|---|---|---|---|
+| 01 | Opening | `238:1384` | Eyebrow "CLIENT ENGAGEMENT · NTT INDYCAR · 10 MONTHS"; H1 at 56px (longer title than Adidas); intro; Role Lead UX Designer / Timeline 10 months / Team Four people / Tools Figma, Miro, Google Analytics, Maze; pen note "some detail held back under NDA". Hero `238:1406`: the old "What is INDYCAR?" screen at 60%, linked by a dashed pen path to the five-phone mockup, with notes "the old INDYCAR 101, hidden in the menu" and "one place to start". |
+| 02 | Context | `238:1413` | "A fast sport with an app that felt slow". Items: Lead designer / 10 months / Under NDA. |
+| 03 | Problem and goals | `238:1427` | "New fans got lost, and regulars couldn't find race info". Three problem → goal rows with pen arrows. |
+| 04 | Discovery (old app audit) | `238:1450` | "The old app buried the basics under menus and text". Opens with "We assumed the problem was outdated visuals…". Four old-app screenshots; findings: Ambiguous navigation / Content overload / Disorganised layout. Pen note "a spec sheet, not a car". |
+| 05 | Research | `239:1400` | "Fans weren't disengaged. They were overwhelmed." Competitive findings (F1, NBA, cricket, WWE). David Craske pull quote, verbatim; pen note "this became the brief". |
+| 06 | Information architecture | `239:1419` | "One front door for new fans, six paths from there". Sitemap at 1024px on an evidence surface; pen note "INDYCAR 101 gets its own front door"; Clear hierarchy / Streamlined navigation. |
+| 07 | Process | `239:1434` | "Crazy 8s first, then wireframes the fan team could react to". Five steps; sketches and lo-fi wireframes at equal height. |
+| 08 | Iterations | `241:1411` | "Round one put more on screen. Round two made it faster to use." Iteration 1 (3 screens) and Iteration 2 (3 screens). Mirror screen `45:4330` was dropped because it is a half-transitioned overlay. Iteration 1's first screen still shows the draft placeholder "VIDEO???" (it's real iteration evidence). |
+| 09 | Final designs | `241:1448` | "Rules, cars and drivers became things to explore". Four final screens (Beginner's guide, Anatomy of a race car, Teams and behind the scenes, Driver profiles), then Rules and track guides (4 screens). Pen note "a car you can take apart". Button `241:1482` "Watch the prototype walkthrough ↗", hyperlinked to the Loom from the mirror: https://www.loom.com/share/3893138f24ce43e6a268bd34ddbd6227 |
+| 10 | Outcomes | `242:1451` | "Sessions ran 30% longer and bounces fell 25%". Engagement (30%, 25%) / Usability (4.8/5 SUS, 85%) / Stakeholders (4.9/5). Fan pull quote, verbatim from the mirror, sourced "Fan feedback on the redesign". |
+| 11 | Reflection | `242:1475` | Cloned from Adidas's dark reflection. "What comes next": 3D car model / More video / Behind the scenes (the mirror's Next Steps). |
+| — | Next project | `242:1485` | Clone of the Adidas next-project block, pointing to the AI Agent case study (home order: INDYCAR → AI Agent). |
+
+- Six pen highlights in total, matching Adidas.
+- The copy is rewritten from the mirror with the humanizer rules: no emoji bullets, and none of the old boilerplate lines. Every number and both quotes are taken verbatim from the mirror.
+- The mirror also linked a "detailed case study" PDF on Google Drive (`drive.google.com/file/d/1BM1YiOHH-iiMBbjjD44xUrj_6VfKSIxl`). It isn't used in the new frame; ask whether to include it.
+
 ---
 
 ## 3. Current state
 
 - **Frozen or done:** the AI Agent case study, and the Adidas screens and case study. Adidas only needs the user's "frozen" confirmation.
-- **Not started in the Lyrical style:** INDYCAR, VYBE and About. Their content lives in the html.to.design mirror on page "Portfolio" `45:235`: INDYCAR `45:3799`, VYBE `45:5718`, About `45:2073`. Backup copies are on page "Portfolio(Backup)" `46:3178`.
+- **INDYCAR:** first pass built (`238:1383`, §2.9). It needs the user's feedback round, then freeze.
+- **Not started in the Lyrical style:** VYBE and About. Their content lives in the html.to.design mirror on page "Portfolio" `45:235`: INDYCAR `45:3799`, VYBE `45:5718`, About `45:2073`. Backup copies are on page "Portfolio(Backup)" `46:3178`.
 - **Backup page** `46:3178` also holds `220:2441` (an Adidas case study copy) and `220:6486` (an AI Agent case study copy). Their origin isn't recorded in this session's notes; they're probably snapshot copies. Treat `124:1219` and `156:1268` on "05 — Case Studies" as canonical.
 - **Page "Case Study: Border Crossing"** `0:1` exists, with real ProTrans screens (Dashboard `1:7769`, Row Actions `1:6721`, Last Notes `1:7249`, User Management `1:905`, Rejected Design `2:278`, Diagram_ThreeChannels `32:235`, and others). **It's out of scope until after launch.**
-- **Git:** everything is committed locally. **Nothing has been pushed:** every push returns 403 (see §9).
+- **Git:** **push works now** (verified 2026-10-12). The branch `claude/vibrant-turing-me78qp` is on the remote, and the remote head matches local.
 - **Web build:** `npm run build` and `npm run lint` both pass on the current tree (checked 2026-10-12).
 
 ---
@@ -289,11 +315,8 @@ Not decided. Ask the user when step 5 arrives.
 ## 9. Errors, failed attempts and unresolved issues
 
 **Blocking or unresolved:**
-- **GitHub push returns 403.** The Claude GitHub App isn't installed on `anupindikarthik529-prog/Portfolio`, or GitHub needs reconnecting. The user can:
-  - connect at https://claude.ai/connect-github?org=9bc3275a-05f4-45e3-b1cf-982242034741
-  - install the app at https://github.com/apps/claude/installations/select_target
-
-  All commits are local only. If the container is reclaimed before a push, the repo changes are lost; the Figma work is safe.
+- ~~GitHub push returns 403.~~ **Resolved 2026-10-12:** `git push -u origin claude/vibrant-turing-me78qp` succeeded, and every earlier local commit is now on the remote.
+- **INDYCAR metrics context (question for the user):** the mirror lists 30% session duration and −25% bounce rate under "Impact: UX & Business", next to testing methods. It doesn't say whether these were measured in production analytics or in testing. The new frame groups them as "Engagement" without claiming either. Confirm with the user before adding a "measured after launch" label.
 - **Adidas prototype sharing:** the user must set link-view sharing on Figma file `HNs8Ge4CJupGPpK6COlk8c`, or the "Try the clickable prototype" link won't open for recruiters.
 - **No prototype video:** it can't be recorded from this environment. Do it at build time.
 - **AI Agent open items:**
@@ -324,13 +347,11 @@ Not decided. Ask the user when step 5 arrives.
 ## 10. Clear next steps
 
 1. **Ask the user to confirm the Adidas case study `124:1219` is frozen.** The last change was the Goals box (§2.7). Also ask whether to keep or drop "What I would measure next" in Outcomes. The recommendation is to keep it, since it's now the only place that mentions future measurement.
-2. **INDYCAR case study** (one design pass plus one feedback round, then freeze):
-   - Read the mirror `45:3799` (text and images).
-   - Build a new frame on "05 — Case Studies" using the Lyrical components (CS / Section Heading, CS / Decision, CS / Pull Quote, pen notes) and the section rhythm of `124:1219` and `156:1268`.
-   - Reuse the existing INDYCAR images: clone them from `45:3799`, since this is the same file.
-   - Rewrite the copy with the humanizer skill.
-   - Keep the numbers and the David Craske quote exactly as in the source (§5).
-   - Fix the typos and boilerplate along the way.
+2. **INDYCAR case study:** the first pass is done (`238:1383`, §2.9). Next is the user's feedback round, then freeze. Open questions:
+   - Were the 30% and 25% figures measured in production or in testing? (§9)
+   - Keep or drop the iteration-1 screen showing "VIDEO???"?
+   - Link the Drive PDF "detailed case study"?
+   - CS / Decision blocks weren't used, because the source has no trade-offs to report and inventing them would break the content rules. If the user wants a decisions section, they need to supply the trade-offs.
 3. **VYBE case study** (`45:5718`): same process. It's an academic project and honestly states it has no launch metrics; keep that framing.
 4. **About page** (`45:2073`): rewrite in the Lyrical style. Keep it human and professional. Include the HCI background, experience, tools, resume and contact links.
 5. Update the home page rows `121:1198` and `123:1245` if any titles change.
