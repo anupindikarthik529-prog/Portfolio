@@ -1,209 +1,375 @@
 # HANDOVER — Karthik Anupindi Portfolio Redesign
 
-Last updated: 2026-10-02
-Prior session: https://claude.ai/code/session_01JfDsrrcrD6ejfMG7kQkm1T
+Last updated: 2026-10-12
+Session: https://claude.ai/code/session_01JfDsrrcrD6ejfMG7kQkm1T
+Repo: `/home/user/Portfolio`, branch `claude/vibrant-turing-me78qp` (remote `anupindikarthik529-prog/Portfolio`)
+
+This file replaces the earlier HANDOVER.md, which still described the repo as empty and the early copy-only phase. Where this file and older notes disagree, this file wins.
+
+---
 
 ## 1. Project goal
 
-The user (Karthik Anupindi, UX/UI Designer, karthikanupindi@gmail.com) is redesigning his personal portfolio website. The live site is a Framer site, mirrored into a Figma file for editing: **Figma file key `1PD7zKot98QgHWacUtWDLm`** ("Portfolio-2026").
+Redesign Karthik Anupindi's UX/UI portfolio and put it live.
 
-Target audience has shifted: he is now pursuing **contract C2C (corp-to-corp) opportunities in the USA**, not full-time roles. The current site's copy and positioning were written for a general/full-time-job audience and need to be reworked for that audience.
+- **Live site today:** https://karthikanupindi.framer.ai (Framer). **Never edit it.** It is reference only.
+- **Design source of truth:** Figma file **`1PD7zKot98QgHWacUtWDLm`** ("Portfolio-2026").
+- **Audience:** US hiring managers for **contract (C2C) UX roles**.
+- **Positioning:** data-driven enterprise UX: complex operational and business problems turned into clear, usable systems, with credible outcomes.
+- **Creative direction:** "Lyrical storytelling", inspired by the visual principles of Ed Sheeran's lyric videos (hand-drawn lines, margin notes, sketch-to-system) without copying any artwork.
 
-The engagement so far has been **content/strategy and copywriting**, not implementation. No code in this repo has been touched. The eventual goal (not yet started) is to apply the agreed copy to the Figma file / live Framer site, and possibly restyle visually using ideas from a reference template (see §5).
+**Agreed order of work (user's plan; don't get stuck looping on one page):**
 
-**This repo (`/home/user/Portfolio`) is empty** — no commits, no source files, just an initialized `.git`. It is unclear what this repo is meant to hold (site source code? Just docs/notes?) — nothing has been established yet about how the Figma/Framer site maps to this repo. Confirm this with the user before assuming a tech stack or scaffolding anything.
+1. Adidas case study, finalised. **Done.** Waiting on the user's confirmation that it's frozen (see §12).
+2. INDYCAR case study.
+3. VYBE case study.
+4. About page.
+5. Build and go live. Hosting is undecided (see §7).
+6. After launch: the ProTrans **Border Crossing** case study, then the **Design System** case study. Both will become the top projects.
+
+**Ground rules from the user:**
+
+- "Work with what I have": no new screen redesigns for INDYCAR or VYBE. Reuse the existing visuals with a new layout and copy.
+- One design pass plus one feedback round per page, then freeze it.
+- No separate mobile designs per case study.
+
+---
 
 ## 2. What has been completed
 
-All work below was delivered as chat analysis/copy — **nothing has been written to any file in this repo**.
+### 2.1 Strategy and copy (early phase)
+- Critiqued the old home page and the "Sevora" Framer template (`46:1462`). Verdict: borrow the craft, not the structure (the template's pricing and testimonials sections suit agencies, not this portfolio).
+- Inventoried the copy of the old pages: Adidas `45:2388`, AI Agent `45:2884`, INDYCAR `45:3799`, VYBE `45:5718`, About `45:2073`.
+- Extracted the resume (see §11).
+- Project lineup decided: INDYCAR, AI Agent, Sales Dashboard (Adidas), VYBE. **IUPUI dropped.**
 
-1. **Visual/UX critique of the current home page** (Figma node `45:387`, file `1PD7zKot98QgHWacUtWDLm`). Identified: orphaned 5th project card in a 2-column grid, inconsistent tag-pill coloring, possible contrast issues, redundant Resume CTA (nav + hero), no visible card-click affordance, uneven section spacing.
-2. **Analysis of a reference template** ("Sevora" by Stylokit, Figma node `46:1462`, same file) that the user imported from the internet, considering whether to adopt its design language. Verdict: it's a freelance-agency sales template (has Pricing/Testimonials/Process-as-client-engagement sections that don't fit a job-seeking/contract portfolio) — recommended borrowing its typography/spacing/card craft, not its structure.
-3. **Resume extraction** from `/root/.claude/uploads/635bf448-beb1-53ff-ab26-8284a7dbe289/c41891a5-Karthik_Anupindi_UX_Resume.docx` (⚠️ this path is session-scoped upload storage and **may not exist in a new session** — see §9 for the extracted content so it isn't lost).
-4. **Full copy inventory of 5 Figma pages**, done via a background subagent reading Figma screenshots/text layers section-by-section:
-   - `45:2388` — Case study: "Sales Dashboard" (internal/layer name says "Adidas"; a solo **design challenge**, not real client work — see decision log §4)
-   - `45:2884` — Case study: "AI Agent-Powered SaaS Workflow" (also a solo **design challenge**)
-   - `45:3799` — Case study: "INDYCAR UX Redesign" (real client engagement, NDA-limited, named stakeholder quote from David Craske, Head of Digital Experiences & Strategies at INDYCAR)
-   - `45:5718` — Case study: "VYBE" (teen gratitude/wellbeing app — **academic/school project**, explicitly and honestly states no real-world launch metrics)
-   - `45:2073` — About page (personal bio, "Events That Shaped My Design Path," logo/brand color story, photo gallery)
-   - The **IUPUI case study page was never given a Figma link** by the user and was never read — it has since been dropped from the home page plan anyway (§4), so this gap no longer blocks anything.
-5. **Tone/voice recommendation** for C2C contract targeting, grounded in the resume: position as a UX/UI designer for **complex, regulated enterprise systems** (healthcare, logistics, fintech/compliance) with real dev-handoff fluency — not a generic "UX Designer" positioning.
-6. **Full home page copy rewrite** (nav, hero headline/subhead/CTAs/availability badge, brand strip, Selected Work section incl. project titles/tags, a new "Common Thread" verdict section, "How I Design" pillar copy, footer) — see §8 for the current agreed draft.
-7. Confirmed via `AskUserQuestion`: (a) initially chose to deprioritize the two design-challenge case studies from the home grid, then the user **overrode this** in the very next message — see §4; (b) the availability badge should **not** state visa/work-authorization status, contract type only.
+### 2.2 Superseded explorations (kept in Figma, don't build on them)
+- `69:1059` "Home Page — Sevora Redesign", `82:1167` "CASESTUDY: Sales Dashboard — Sevora Redesign" and `94:1182` "CASESTUDY: AI Agent — Sevora Redesign", all on page "Portfolio" `45:235`. The user moved away from these to the Lyrical direction.
+- Design directions A, B and C, plus D "Painted story frames", on page "00 — Design Direction". **A (Margin Notes) was chosen for the home page, and B's sketch-to-system opener is borrowed for case studies.** The D brush beats were later removed from the Adidas case study because they confused the user and a reviewer.
 
-## 3. Current state of the project
+### 2.3 Lyrical system: foundations and components (Figma)
+- Page "00 — Design Direction" `107:1197`:
+  - Foundations `107:1237`
+  - Directions `113:1197`, `113:1260` and `113:1324`
+  - Draw-on-scroll interaction spec `114:1197`
+  - Storyboard section `134:2301`, with the "Motion & voice rules v2" panel
+- Page "02 — Components" `120:1197`:
 
-- **No files exist in this repo.** This HANDOVER.md is the first file.
-- All design/copy decisions live only in this conversation's history and in this document.
-- The **home page copy** has a full agreed-upon draft (§8), but it has **not been applied to Figma or Framer** — it's only been presented in chat.
-- The **case study pages' copy has not been rewritten yet** — only inventoried/read. Known issues in them (typos, inconsistent stats framing) are documented but unfixed (§7).
-- **2 new case studies (ProTrans: a dashboard project and a design system project) do not exist yet in any form** — no Figma frames, no copy, nothing. The user wants these built and given top priority in the project order once they exist.
-- No decision has been made yet on light vs. dark theme, or on whether/how much of the Sevora template's visual language to adopt. The mockup step (visual application of the new copy) has not started.
+  | Component | Node |
+  |---|---|
+  | Nav | `120:1207` |
+  | Section Label | `120:1211` |
+  | Margin Note | `120:1215` |
+  | Project Row | `120:1227` |
+  | CS / Section Heading (Label, Title, Intro) | `124:1201` |
+  | CS / Decision (Label, Decision, Why, Trade-off) | `124:1213` |
+  | CS / Pull Quote (Quote, Source) | `124:1217` |
 
-## 4. Project curation decision (important — superseded once already)
+- Variable collection **"Lyrical / Tokens"**: Paper #F3EDE1, Ink #20201E, Brick #A64B3C, Brick Light #D9826F, Sage #829078, Sage Strong #5F6D56, Muted #6D6A63, Soft line #D8D0C3.
+- Fonts:
+  - **Newsreader** for headings
+  - **Inter** for body
+  - **Caveat** in brick for pen notes and highlights
+  - Gochi Hand for brush lettering, now unused on Adidas
 
-The home page "Selected Work" grid was originally 5 projects (Sales Dashboard, AI Agent, INDYCAR, VYBE, IUPUI). Decision history, most recent wins:
+### 2.4 Home page (Figma)
+- Page "03 — Homepage" `121:1197`: Desktop `121:1198` (1440) and Mobile `123:1245` (390).
+- Includes a hero pen line, project rows (instances of Project Row), beats and the contact line "Tell me about the system you're untangling."
+- The Adidas row title was updated to the new case study title (instance text `I121:1264;120:1220`; mobile `123:1288`).
 
-1. First pass: recommended dropping the Sales Dashboard and AI Agent cards because they're unlabeled solo design-challenge projects sitting next to real client work (credibility risk). User initially agreed to this via `AskUserQuestion`.
-2. **User then reversed this** in the next message: keep Sales Dashboard, AI Agent, INDYCAR, and VYBE; **drop IUPUI instead**. Reasoning given by the user: VYBE is honestly a school project, but Sales Dashboard and AI Agent came from **real competitions/interview design challenges with strong problem statements** — not casual personal practice — so they're worth keeping, just framed transparently.
-3. **Final agreed state**: 4 project cards, each carrying a small context-type label so the engagement type is transparent at a glance:
-   - `Client Engagement — NTT INDYCAR`
-   - `Design Challenge` (×2, for AI Agent and Sales Dashboard)
-   - `Academic Project` (VYBE)
-4. **Future state**: once the 2 ProTrans case studies (dashboard + design system) are built, they get **top priority placement** — first in the grid — each labeled `Client Engagement — ProTrans International`. Final intended order: ProTrans Dashboard → ProTrans Design System → INDYCAR → AI Agent → Sales Dashboard → VYBE.
-5. Side benefit noted: 4 cards (not 5) fixes the orphaned-card grid layout issue from the original critique (§2.1); going to 6 later keeps it clean (3×2).
+### 2.5 AI Agent case study ("Tandem"): DONE
+- **Screens redesigned** in the XNode file `VpHjBjcQp0Tel5NC2WCsQU`, page "Redesign v2 — Tandem":
 
-## 5. Reference template decision
+  | Screen | Node | Screen | Node |
+  |---|---|---|---|
+  | S1 Projects home | `2007:488` | S7 Delivery | `2009:951` |
+  | S2 New project | `2007:729` | S8 Timeline | `2011:488` |
+  | S3 Idea | `2008:488` | S9 States | `2012:488` |
+  | S4 Requirements | `2008:933` | S10 Orchestration | `2012:571` |
+  | S5 Spec | `2004:507` | S11 Journey map v2 | `2015:504` |
+  | S6 Prototype | `2009:488` | | |
 
-The "Sevora" template (`46:1462`) is a light-theme freelance-agency Framer template with: Nav, Hero, Benefits, Projects (populated with demo Framer template screenshots, not real work), Why Choose Me (stat cards), Services, Process (client-engagement steps), Features (bento grid), Testimonials, **Pricing** ($1,200/$2,800 packages), FAQs, Footer.
+  - The prototype flow "Tandem — end-to-end" starts at S1.
+  - The originals on page `0:1` are untouched.
+- **Case study** `156:1268` on page "05 — Case Studies":
 
-**Recommendation given (not yet acted on):** don't port the structure — the Pricing/Testimonials/Process sections are built for selling freelance packages, not landing a contract role. Borrow only: serif+sans typography pairing, whitespace rhythm, soft rounded card styling, the "Why Choose Me" stat-card pattern (if real comparable numbers exist). Light vs. dark theme for the actual site is still an **open decision** — flagged to the user, not resolved.
+  | Section | Node |
+  |---|---|
+  | 01 Opening | `156:1269` |
+  | 02 Context | `156:1555` |
+  | 03 Process | `160:1349` |
+  | Beat | `156:1841` |
+  | 04 Journey | `157:1299` |
+  | 05 Orchestration | `157:1329` |
+  | 06 Layout options | `160:1373` |
+  | 07 Key decisions | `157:1381` |
+  | 08 Workspace | `158:1343` |
+  | 09 Outcomes | `158:1579` |
+  | Beat | `158:1607` |
+  | 10 Reflection | `158:1627` |
+  | Next project | `158:1640` |
 
-## 6. Important decisions and assumptions
+  - Interaction specs: `167:1373`.
+  - Source screens rebuilt in the portfolio file: section `154:1283`.
+  - Tokens: "Tandem / Tokens".
+- **Rules for this case study:**
+  - Never mention a "first version".
+  - The timeline reads "One-day design challenge".
+  - Sections 7 and 8 were swapped at the user's request.
 
-- **Audience = C2C contract hiring managers in the US**, not full-time recruiters. This reframes tone (numbers-first, zero fluff, domain-fluency signaling) and content priority (real paid enterprise/regulated work > solo passion projects) throughout.
-- **Availability badge copy must not state visa/work-authorization status** — user's explicit instruction. Current draft just says "Open to Contract (C2C)."
-- **Niche positioning assumption**: resume shows a throughline across healthcare (The Heart Center), logistics (ProTrans), fintech/compliance (TCS — SEBI/KYC/SGB trading), and higher-ed (Comet Lab/IU) — this was used to justify a "designer for complex, regulated enterprise systems" positioning in the hero. This is an inference from the resume, not something the user explicitly confirmed as their desired narrative — worth a sanity check with the user before finalizing.
-- **INDYCAR numbers used are from the case study text itself** (30% session-duration increase, 25% bounce-rate drop, 4.8/5 SUS, 4.9/5 stakeholder rating, 85% feature preference), not from the resume line about NTT INDYCAR ("session duration from 30 to 50 minutes, satisfaction +25 points"). These two sets of numbers **may describe two different NTT INDYCAR projects** (the case study is a consumer-facing fan app; the resume line sounds like an internal touch-based training/learning app) — this was never fully resolved, just avoided by sourcing only from the case study since that's what the home page card is actually about. Flag if a 6th project ("INDYCAR learning app") is ever considered — the resume has real numbers for it that aren't used anywhere yet.
-- Case studies for Sales Dashboard and AI Agent contain **invented-sounding precision stats** (30%, 25%, 40%, etc.) for what are time-boxed speculative exercises — flagged as a credibility risk in the review but **not yet fixed in the case study copy itself** (only the home page card titles were rewritten to lead with the design decision instead of a stat, to sidestep this — see §8).
+### 2.6 Adidas dashboard screens ("Stride"): DONE
+- File `HNs8Ge4CJupGPpK6COlk8c`, page **"Redesign v4 — Final"**. The look is monochrome, close to adidas: white sidebar, Inter plus Barlow Semi Condensed SemiBold for uppercase titles and big numbers.
+- Five screens:
 
-## 7. Known errors/inconsistencies found in existing Figma copy (unresolved, not yet fixed)
+  | Screen | Node |
+  |---|---|
+  | 1 Dashboard | `29:30` |
+  | 2 Opportunities (inline deal panel) | `30:8` |
+  | 3 Customers | `31:8` |
+  | 4 Forecast | `31:278` |
+  | 5 Reports (export panel) | `32:8` |
 
-From the subagent's page-by-page audit — these exist in the **current Figma file** and have not been corrected anywhere yet:
+- Prototype flow "Stride — final (5 screens)" starts at `29:30`. URL:
+  https://www.figma.com/proto/HNs8Ge4CJupGPpK6COlk8c/Adidas-SaaS-Dashboard?node-id=29-30&starting-point-node-id=29%3A30&scaling=scale-down-width
+- Archived pages in the same file: "Redesign v3 — 8-hour sprint" (9 frames), "Redesign v2 — Sales Desk" and the original designs on `0:1`. The original case study mirror is `5:122`, not edited.
+- Tokens: **"Stride Final / Tokens"**, present in both this file and the portfolio file:
 
-- Sales Dashboard case study: "Real time alerts on on pipeline risks and milestones." (duplicated "on on")
-- VYBE case study: "Opened 1 times" (should be "time"); an unfinished/fragment sentence in the Focus Mode feature list: "...focus mode to block all the social media apps from using."
-- AI Agent case study: timeline stated inconsistently — "One Day" in the header meta row vs. "24-Hour Design Sprint" in the closing Reflection section.
-- Emoji-as-bullet formatting (✅❌🔹💡🎯📌) is used heavily and inconsistently across case studies (heavy in INDYCAR/VYBE, absent in About page, light in Sales Dashboard/AI Agent) — worth standardizing if/when case study copy is rewritten.
-- Recurring boilerplate lines duplicated verbatim across multiple case studies (e.g. "Strategic Goals: Clarity over Complexity," "The goal is to transform this output into an enterprise-wide solution that continuously evolves with user needs," the pull-quote "Courageous simplification outperforms exhaustive complexity") — likely leftover from duplicating one case-study template; worth deciding whether to keep as a consistent refrain or differentiate.
+  | Token | Value |
+  |---|---|
+  | bg | #F4F4F2 |
+  | surface | #FFF |
+  | ink | #111111 |
+  | text | #2B2B2B |
+  | muted | #6B6B6B |
+  | faint | #9B9B9B |
+  | line | #E5E5E2 |
+  | lineStrong | #CFCFCB |
+  | soft | #F1F1EF |
+  | sel | #ECECE9 |
+  | g1–g5 | #E3E3E0 → #111 |
+  | red / redSoft | #D0312D / #FDECEB |
+  | green / greenSoft | #1E7B4E / #E7F4EC |
+  | amber / amberSoft | #B5600B / #FDF2E3 |
 
-## 8. Current agreed home page copy draft
+### 2.7 Adidas case study: DONE (pending freeze confirmation)
+Frame **`124:1219`** "Case Study — Sales Dashboard (Adidas brief) — Desktop 1440", on page "05 — Case Studies" `124:1218`.
 
-This is the latest state, reflecting the §4 curation reversal. Not yet applied to Figma/Framer.
+**Title:** "From Scattered Sales Data to Faster Revenue Decisions". The same title is used on the home rows, on the AI case study's next-project card `158:1643`, and in `web/src/data.ts`.
 
-**Nav:** Work · About · Resume — CTA pill: "Let's Talk" (was "Contact")
+| # | Section | Node | Current content (summary) |
+|---|---|---|---|
+| 01 | Opening | `124:1220` | Eyebrow "DESIGN CHALLENGE · SOLO · TIME-BOXED"; H1 `124:1231`; intro `124:1232`; tools "Figma, Miro, AI tools"; pen note "a challenge brief, not an adidas engagement". Hero illustration `124:1242`: sketch boxes at 55% linked by dashed pen paths to a 500px-wide dashboard crop, with the note "one view to act from". |
+| 02 | Context and constraints | `124:1264` | "One designer, no users, no real data". Items: Solo / No real data / 2 testers / AI as an assistant. The reality-check box was **removed** at the user's request. |
+| 03 | Goals | `124:1284` | "Make the numbers obvious and the next step clear". Four goals. Box `124:1301` is **"HOW I PLANNED TO TEST IT"** (latest change), with four columns: Real users of sales data / Two rounds / Cognitive walkthroughs / Tasks, not opinions. It replaced "What a quantitative round would measure", which repeated the Outcomes box. |
+| 04 | Discovery | `124:1310` | "Research pointed to clarity and scalability over customization". Order: Clarity, Predictive, Scalability, Personalization (planned for the next phase). |
+| 05 | Prioritisation | `126:1216` | "Simpler navigation and up-front KPIs save the most time and effort". Matrix `126:1221` centred; no "how to read it". |
+| 06 | Process | `182:2535` | "Broke the problem into smaller chunks". AI handled research and copy drafts; Karthik did the brainstorming and refining. Five steps. |
+| 07 | First direction | `223:1222` | "The wireframes reported. They needed to rank." Three wireframes with a pen arrow ("the alerts lived up here"), the round-one findings, the turn (alerts sat in the top right; teams need them in front of their eyes), and the insight pull quote with a pen note. |
+| 08 | Key decisions | `182:2559` | "Six decisions that turn reports into actions". Six CS / Decision blocks with screen crops and two pen notes. |
+| 09 | Final designs | `126:1292` | "Five screens that put the next action first". Dashboard 1280 wide, then two rows of two, with captions. Pen note. Button "Try the clickable prototype", whose text is hyperlinked to the prototype URL. |
+| 10 | Visual language | `186:2710` | Moved here, after the final designs. |
+| 11 | Outcomes and evidence | `129:1277` | "Testers scanned the screens and acted with ease, a clear step up in usability". Sections: deliverables / observed in testing (round one and round two) / measured in production: none. Box "WHAT I WOULD MEASURE NEXT". **Some copy was hand-edited by the user in Figma; don't overwrite it.** |
+| 12 | Reflection | `129:1307` | Prioritisation as the real design work. "With more time" items: Usability testing / Per-role views / Alert rules / Trust. |
+| — | Next project | `129:1323` | |
 
-**Hero**
-- Kicker: "Open to Contract (C2C)"
-- H1: "UX/UI Designer for Enterprise Systems Too Complex to Get Wrong"
-- Subhead: "7+ years designing inside regulated, high-stakes platforms — healthcare, logistics, and financial compliance — where the job is making dense workflows simple without breaking what they're compliant with. I hand off developer-ready specs, not just mockups."
-- CTAs: "Download Resume" (primary), "Book a Call" (secondary, was "Schedule Call")
-- ID card: Name — Karthik Anupindi; role tags — "Enterprise UX Design" / "Healthcare & Logistics Systems" / "Design-to-Dev Handoff"; badge — "Open to Contract (C2C)"
+- **Source screens** for every crop are rebuilt in the portfolio file, in section `177:1352` "Stride screens — source for Adidas case study": S1 `177:1375`, S2 `178:1352`, S3 `179:1352`, S4 `179:1622`, S5 `180:1352`. Crops are clones of these, so edit the source and re-crop if the screens change.
+- **Removed:** the brush beats `137:1516`, `137:1627` and `137:1730`; the reality-check box; "Not measured yet"; "How to read it"; the "page-per-data-type" story.
+- **Pen highlights** (Caveat, brick) appear in six places: hero, wireframe alerts, first-direction quote, two key decisions, final designs, outcomes ("found the alerts on their own"). Keep them sparse.
 
-**Brand strip:** "Teams I've Shipped With" (was "Worked With These Amazing Brands")
+### 2.8 React home page prototype (`web/`)
+- Built with React 19, Vite 8, Tailwind 4, Motion and TypeScript, with Lora and Instrument Sans (from the earlier Sevora-style phase, **not** the Lyrical fonts). Effects live in `src/components/fx.tsx`.
+- Preview artifact: https://claude.ai/artifact/QRj1DUZSi4zTx5i4yYuEAp
+- It is a prototype of the **Sevora-era home page**, not the Lyrical design. If the React route is chosen for launch, it needs restyling to the Lyrical system (Newsreader, Inter, Caveat, paper and ink) and the remaining pages need building.
 
-**Selected Work** (renamed from "Selected Projects"), 4 cards in this order:
+---
 
-1. `Client Engagement — NTT INDYCAR` — **"Cutting INDYCAR's App Bounce Rate 25% to Win Back Gen Z Fans"** — tags: User Research, Information Architecture, UI Design, User Testing
-2. `Design Challenge` — **"Designing Trust Into an AI Agent Workflow for Enterprise Teams"** — tags: User Research, Ideation, Product Strategy, UI Design
-3. `Design Challenge` — **"Choosing Clarity Over Completeness: An 8-Hour Sales Dashboard Challenge"** — tags: User Research, Product Strategy, UI Design, UX Testing
-4. `Academic Project` — **"VYBE: Trading 'Journaling' for a 1-Minute Daily Habit"** — tags: User Research, UX Strategy, Prototyping, Usability Testing
+## 3. Current state
 
-**"Common Thread" section** (new — sits between Selected Work and How I Design):
-> Enterprise sales dashboard. An AI agent workflow for enterprise teams. A motorsport fan app for 10 months with a named stakeholder on the other side. A teen mental health app built in grad school. Client work, competitions, interviews — different origins, same pattern underneath: ambiguous problems, real constraints, and a deadline that wasn't moving. Every one of these got a yes for the same reason — I turn a messy, high-stakes situation into a shippable decision, fast.
+- **Frozen or done:** the AI Agent case study, and the Adidas screens and case study. Adidas only needs the user's "frozen" confirmation.
+- **Not started in the Lyrical style:** INDYCAR, VYBE and About. Their content lives in the html.to.design mirror on page "Portfolio" `45:235`: INDYCAR `45:3799`, VYBE `45:5718`, About `45:2073`. Backup copies are on page "Portfolio(Backup)" `46:3178`.
+- **Backup page** `46:3178` also holds `220:2441` (an Adidas case study copy) and `220:6486` (an AI Agent case study copy). Their origin isn't recorded in this session's notes; they're probably snapshot copies. Treat `124:1219` and `156:1268` on "05 — Case Studies" as canonical.
+- **Page "Case Study: Border Crossing"** `0:1` exists, with real ProTrans screens (Dashboard `1:7769`, Row Actions `1:6721`, Last Notes `1:7249`, User Management `1:905`, Rejected Design `2:278`, Diagram_ThreeChannels `32:235`, and others). **It's out of scope until after launch.**
+- **Git:** everything is committed locally. **Nothing has been pushed:** every push returns 403 (see §9).
+- **Web build:** `npm run build` and `npm run lint` both pass on the current tree (checked 2026-10-12).
 
-**How I Design** (4 pillars, rewritten to cite resume evidence instead of generic adjectives):
-- Impact-Driven: "8 hours from blank page to a working prototype. I don't need six weeks to find the right decision."
-- User-Centered: "25+ participants interviewed on a single study, not assumptions dressed up as research."
-- Data-Informed: "SQL funnel analysis and A/B testing, not vibes — I've cut bounce rate by double digits more than once."
-- Ethical: "WCAG audits and compliance-first design for healthcare and fintech, where getting it wrong has real consequences."
+---
 
-**Footer:**
-> Open to Your Next Contract
-> [Let's Talk]
-> Powered by Curiosity, Late Nights, and Endless Iterations
-> © Karthik Anupindi 2025
+## 4. Files created or modified (repo)
 
-## 9. Resume content (extracted, in case the upload path is gone in the next session)
+| File | Status |
+|---|---|
+| `HANDOVER.md` | This file (rewritten). |
+| `web/` (whole folder) | Created in commit `1cead17`: `package.json`, `vite.config.ts`, `index.html`, `src/App.tsx`, `src/main.tsx`, `src/index.css`, `src/data.ts`, `src/components/fx.tsx`, `src/assets/*.webp` (indycar, agent, dashboard, vybe, photo, logo), tsconfigs, `.oxlintrc.json`, `README.md`. `dist/` and `dist-single/` are build outputs. |
+| `web/src/data.ts` | The Adidas project title changed to "From Scattered Sales Data to Faster Revenue Decisions". `RESUME` is still the placeholder `'#resume'`. |
 
-Source: `Karthik_Anupindi_UX_Resume.docx`. Contact: (317) 640-3934, karthikanupindi98@gmail.com, linkedin.com/in/karthikanupindi, karthikanupindi.framer.ai
+Everything else lives in Figma (§2). Local commits since `1f019e7`: `1cead17` (web), then a series of "Handover: …" and "Adidas case study: …" commits up to `933feaf`.
 
-**Summary:** UX/UI Designer, 7+ years, user-centered digital products across web/enterprise, healthcare and higher-ed domains. Full design-process ownership (requirements → wireframes → hi-fi → dev handoff). Accessibility (WCAG), data-driven design, design system governance. Figma/Sketch/Adobe XD, AI-assisted workflows, communicates to executive stakeholders.
+---
 
-**Work experience (reverse chronological):**
-- **ProTrans International** — UX/UI Designer, Indianapolis, IN, Jun 2025–Present. Developer-ready design system handoff across 4 enterprise platforms (tokens, components, documented states). Redesigned multi-step border-crossing workflows for dispatchers/drivers/customs — cut wait time 15%. Root-cause analysis on production issues for Pickup Management/EDI teams. Partnered with IT PM/engineering across parallel workstreams.
-- **KGS Technology Group** — User Experience Designer, Remote, Feb–Jun 2025. Stakeholder/user interviews, current/future-state journey maps, re-architected IA — cut task completion time 10%. Annotated specs/redlines for dev handoff. Google Analytics-driven flow refinement — cut user errors 20%.
-- **The Heart Center** — UX/UI Designer, Remote, Mar 2024–Feb 2025. End-to-end healthcare/digital wellness experience, 1,000+ users, 150+ hi-fi prototypes/specs. WCAG accessibility audits, usability testing, A/B tests — satisfaction +20 points, daily completions 1.25x.
-- **NTT INDYCAR** — User Experience Designer, Indianapolis, IN, Jan–Dec 2023. Redesigned a touch-based mobile *learning* application (motion design, iterative prototyping) — session duration 30→50 min, satisfaction +25 points. UX writing/content strategy with digital marketing team. (⚠️ see §6 — may be a distinct project from the "INDYCAR UX Redesign" case study used on the home page.)
-- **The Comet Lab (Indiana University)** — UX Designer / Graduate TA, Indianapolis, IN, Jan–Dec 2022. End-to-end UX for mobile/responsive web incl. a conversational chatbot. Usability tests with 25+ participants, A/B testing. Design system governance. Facilitated UX/Figma workshops — 15% improvement in learner outcomes.
-- **Tata Consultancy Services Ltd.** — Systems Engineer / UX Designer, Mumbai, India, Jun 2019–Dec 2021. Front-end+backend ownership (HTML/CSS/JS, Java/SQL/Hibernate) for broker admin workflows and Sovereign Gold Bonds (SGB) trading flow. Rebuilt KYC/account-update flows under SEBI compliance — satisfaction +36% across 50,000+ users. Funnel analysis (GA + SQL) — bounce rate −12.5%.
+## 5. Important decisions and assumptions
 
-**Education:** MS Human-Computer Interaction, Indiana University (Luddy School), Indianapolis. B.Tech Electronics & Instrumentation Engineering, SASTRA Deemed University, Thanjavur, India. University Innovation Fellows (Stanford University) — Design Thinking and Innovation Fellowship, Aug 2022–Mar 2023 (likely the real source of the now-dropped "IUPUI student communities" project).
+**Content integrity (hard rules):**
+- Never fabricate metrics, quotes, research, interviews or outcomes.
+- Separate verified deliverables, observed testing findings and measured production outcomes.
+- **Adidas:** testing was qualitative only. There were two rounds with two business-focused users (wireframes, then the final designs) plus peer walkthroughs, and no quantitative data. All on-screen figures are sample data. The old "~30% faster / ~25% less cognitive load" claims were dropped.
+- The **15% border-crossing wait-time cut** (ProTrans) was measured and is fine to publish.
+- Treat **Border Crossing client names as sensitive**.
 
-**Skills:** UX Design & Strategy (product design, UX/product strategy, RCA, exec stakeholder comms, data-driven design, UX writing); Design Systems & Accessibility (governance, component libraries, tokens, WCAG 2.1/2.2, audits); Product & Interaction Design (IA, wireframing, hi-fi UI, prototypes, dev handoff, design critique, coaching); Research & Analytics (user research, usability testing, journey mapping, Google Analytics, KPIs); Development & Tools (Figma, Sketch, Adobe XD, FigJam, Miro, HTML, CSS, JavaScript, Java, SQL, Hibernate, Git, CI/CD, front-end + back-end dev, ChatGPT, Claude).
+**Positioning and copy:**
+- **Never state visa or work-authorization status.** The role goes in the hero, but **not the word "C2C"**.
+- Voice: confident and crisp. No "helped". Headings are concise takeaways that summarise the section, not intros. Run the humanizer skill on new copy.
+- Use "time-boxed" or "time constraint" rather than repeating "8 hours".
 
-## 10. Commands/tools run this session
+**Adidas specifics:**
+- It's a design challenge, not an adidas engagement (stated in the hero pen note).
+- The five final screens were made after the time-boxed sprint, informed by testing and AI assistance: "used AI to generate realistic sample data, draft microcopy and explore layout variations; every screen was designed and refined by me in Figma". The story says the testing and decisions shaped the finals.
 
-- `mcp__Figma__get_metadata` / `get_screenshot` (with `enableBase64Response: true`) against file `1PD7zKot98QgHWacUtWDLm` for nodes `45:387`, `46:1462` (+ children `46:1470`, `46:1699`, `46:1944`, `46:2053`, `46:2184`, `46:2859`, `46:2315`, `46:2440`, `46:2559`, `46:2751`, `46:3078`, `46:2992`), and (via background subagent) `45:2388`, `45:2884`, `45:3799`, `45:5718`, `45:2073`.
-- `mkdir -p` + `curl -sL` to download a Figma screenshot asset to the scratchpad — **failed**, see §11.
-- `jq`/`grep` against a saved large `get_metadata` tool-result file (too large to read directly) to extract top-level frame names.
-- `unzip` + Python `re` regex extraction of `word/document.xml` from the resume `.docx` (see §11 — `pandoc` wasn't available, this was the fallback).
-- `WebFetch` on an Instagram post URL — **failed**, see §11.
-- No build, lint, or test commands were run — there is no code in this repo to run them against.
+**Project framing labels:** "Client Engagement — NTT INDYCAR", "Design Challenge" (AI Agent and Sales Dashboard), "Academic Project" (VYBE).
 
-## 11. Errors / failed attempts
+**Final project order once ProTrans exists:** ProTrans Border Crossing → ProTrans Design System → INDYCAR → AI Agent → Sales Dashboard → VYBE.
 
-- `curl` directly to a `www.figma.com` asset URL **failed** (exit 56, `connect_rejected` — egress proxy blocks `figma.com`). Workaround used thereafter: always call Figma screenshot tools with `enableBase64Response: true` and view the image inline instead of downloading it.
-- `pandoc` is **not installed** in this environment (`command not found`). Workaround: `unzip` the `.docx` and regex-extract `<w:t>` run text from `word/document.xml` directly.
-- `WebFetch` on `https://www.instagram.com/p/Dd3tcuaDXxa/` **failed**: `EGRESS_BLOCKED` — the network policy blocks `www.instagram.com` outright. The Instagram carousel referenced by the user for portfolio-copy inspiration was **never actually read** — all work referencing it relies entirely on the 6 bullet points the user typed out themselves, not on the images.
-- No other errors. All Figma reads eventually succeeded via the base64 workaround.
+**INDYCAR numbers:** use only the numbers in the case study itself: 30% session-duration increase, 25% bounce-rate drop, 4.8/5 SUS, 4.9/5 stakeholder rating, 85% feature preference, plus the named stakeholder quote from David Craske. The resume's NTT INDYCAR line ("learning app, session 30→50 min, +25 satisfaction") may describe a different project. Don't mix the two sets.
 
-## 12. Clear next steps
+**Home page row titles** (latest; some have evolved since the earlier chat lists):
+- "How an Information Architecture Rebuild Grew INDYCAR's Gen Z Fan Retention"
+- "Designing Trust Into an AI Agent Workflow for Enterprise Teams"
+- "From Scattered Sales Data to Faster Revenue Decisions"
+- "VYBE: Trading 'Journaling' for a 1-Minute Daily Habit"
 
-1. **Confirm with the user what this repo is actually for** — it's currently empty, and it's unclear whether it should contain site source code, exported Figma content, or just planning docs. Don't assume a stack.
-2. **Sanity-check the "designer for regulated enterprise systems" positioning** (§6) with the user before treating it as locked — it's a reasonable inference from the resume but was not explicitly confirmed as the narrative he wants.
-3. **Resolve the INDYCAR numbers question** (§6) if a 6th "learning app" project is ever added — don't conflate the two NTT INDYCAR data points.
-4. **Build the 2 new ProTrans case studies** (dashboard + design system) — currently nothing exists for these beyond "will be given top priority." Needs scope/content from the user first.
-5. **Rewrite the 4 existing case studies' copy** (INDYCAR, AI Agent, Sales Dashboard, VYBE) applying the same 6 principles used for the home page, and fix the typos/inconsistencies in §7 along the way.
-6. **Decide light vs. dark theme** and how much of the Sevora template's typography/spacing to actually adopt (§5) — not yet decided.
-7. **Apply the agreed home page copy (§8) to the actual Figma file**, then eventually to the live Framer site — none of it has been applied anywhere yet, it only exists in chat and in this document.
-8. Once copy + visual direction are both settled, produce the mockup the user asked about earlier (comparing current home page vs. template-inspired typography/cards applied to the new copy) — this was offered twice in the conversation and deferred both times in favor of copy work first.
+**Motion intent** (for the build): draw-on-scroll pen lines; brush paints on once at 35% visibility (700ms ease-out); lettering fades in over 300ms; only the signature line is scroll-scrubbed; reduced motion shows the final state.
 
-## Adidas dashboard redesign ("Sales Desk")
-File HNs8Ge4CJupGPpK6COlk8c, page "Redesign v2 — Sales Desk" (3:2). Originals on page 0:1 untouched.
-Tokens: "Sales Desk / Tokens" collection. Fonts: IBM Plex Sans + IBM Plex Mono (numbers).
-Screens: S1 Today 4:2 · S2 Pipeline 6:2 · S3 Deal detail 7:2 · S4 Forecast 9:2 · S5 Accounts 11:8 ·
-S6 Needs attention 12:8 · S7 Reports 13:8 · S8 States 14:8 · S9 Navigation before/after 14:91.
-Prototype flow "Sales Desk — end-to-end" starts at S1. All figures are sample data (chip in top bar).
-Note: paint opacity is dropped when binding a variable via setBoundVariableForPaint; use a token or node opacity.
-Next: rebuild into portfolio file and update Adidas case study 124:1219.
+**Prototype on the site:** either a looping video of the Figma prototype (to be recorded at build time) or a button that opens the Figma prototype in a new tab. The button link is already set.
 
-## Adidas dashboard v3 ("Stride for adidas", 8-hour-believable version) — CURRENT
-File HNs8Ge4CJupGPpK6COlk8c, page "Redesign v3 — 8-hour sprint". Light theme continuing the wireframes, Inter, black top nav.
-Tokens: "Stride / Tokens". Frames: 1 Dashboard 16:30 · 2 Alerts panel 18:8 · 3 Opportunities 17:8 · 4 Deal detail 18:282 ·
-5 Customers 19:8 · 6 Revenue 19:204 · 7 Forecast 19:411 · 8 Reports 20:8 · 9 Export 20:156. Flow "Stride — 8-hour sprint" starts at 1.
-Maps to the original 8 finals: AI insights -> "What's driving the forecast" notes on 7; Notifications -> alerts strip on 1 + panel 2; Exports -> modal 9.
-Sales Desk page (v2) kept as an archived exploration.
+---
 
-## Adidas dashboard FINAL (v4, 5 screens) — CURRENT
-File HNs8Ge4CJupGPpK6COlk8c, page "Redesign v4 — Final". Monochrome adidas-like UI, white sidebar, Inter + Barlow Semi Condensed (titles/numbers).
-Tokens "Stride Final / Tokens". Screens: 1 Dashboard 29:30 · 2 Opportunities (deal panel inline) 30:8 · 3 Customers 31:8 · 4 Forecast 31:278 · 5 Reports (export panel) 32:8.
-Flow "Stride — final (5 screens)". v3 and Sales Desk pages kept as archive.
-Portfolio case study 124:1219: added "AI as an assistant" constraint (context section 124:1264), tools now "Figma, Miro, AI tools",
-deliverables line now "5 final screens…". Still to do: replace the old final-screen images in the case study with these 5.
+## 6. Figma working notes (how to work in these files)
 
-## Adidas case study rewrite (portfolio file, 124:1219) — DONE
-Sections: 01 Opening (hero now new dashboard) · A2 beat · 02 Context (+AI note) · 03 Goals · 04 Discovery · 05 Process 182:2535 (new) ·
-06 Prioritisation 126:1216 (matrix only) · A4 beat · 07 Testing 126:1292 (wireframes → new finals) · 08 Key decisions 182:2559 (6 decisions, crops) ·
-09 Visual language 186:2710 (new) · 10 The product 129:1262 (5 screens + prototype button) · 11 Outcomes · A6 beat · 12 Reflection · Next.
-Source screens rebuilt in portfolio file: section "Stride screens — source for Adidas case study" 177:1352 (S1 177:1375, S2 178:1352, S3 179:1352, S4 179:1622, S5 180:1352).
-Crops are clones of these, so edit the source and re-crop if screens change. Prototype button has no link yet.
-Reordered: … 06 Prioritisation · A4 beat · 07 Key decisions · 08 Visual language · 09 Wireframes to final designs (126:1292) · 10 The product …
-Final order: … 06 Prioritisation · A4 beat · 07 Visual language 186:2710 · 08 Key decisions 182:2559 · 09 Wireframes to final designs 126:1292
-(3 wireframe→final pairs + Opportunities/Customers + prototype button; separate "The product" section removed) · 10 Outcomes · A6 · 11 Reflection · Next.
-Copy pass: headings rewritten as insight statements; "8 hours" kept only in the Timeline meta. H1 now "From Scattered Sales Data to Faster Revenue Decisions"; headings are short takeaways
-(also on 03 — Homepage rows, AI case study next-project card, and web/src/data.ts). Beat A2 lettering now "FIRST THINGS ⧗ FIRST".
-Copy rewrite: two test rounds (wireframes, then finals); round-two findings still to add once provided.
-Adidas case study FINAL (frozen): story merged in. New "07 · First direction" 223:1222 (wireframe → round-one gaps → page-per-data-type fix → turn → insight quote).
-Reality-check box in Context. Round two findings in Wireframes intro + Outcomes. Sections renumbered 08–12. Prototype button text links to
-https://www.figma.com/proto/HNs8Ge4CJupGPpK6COlk8c/Adidas-SaaS-Dashboard?node-id=29-30&starting-point-node-id=29%3A30 (needs link-view sharing on that file).
-Video loop of the prototype: record at build time (not possible from this environment).
-Edits (round 2): reality-check box removed; Goals measure box relabelled "What a quantitative round would measure"; Discovery reordered (Personalization last, next phase);
-Prioritisation (05, matrix centred, no how-to-read) now before Process (06); wireframe groups spaced +96px; Outcomes heading about usability.
-Restructure (round 3): beats removed. Order 01 Opening · 02 Context · 03 Goals · 04 Discovery · 05 Prioritisation · 06 Process · 07 First direction (3 wireframes, round-one findings, the turn, insight quote, pen arrow on alerts)
-· 08 Key decisions · 09 Final designs (5 screens + prototype, no wireframes) · 10 Visual language · 11 Outcomes · 12 Reflection. Hero: 500px screen, sketch boxes at 55%, redrawn pen paths.
-Pen highlights (Caveat, brick): hero, wireframe alerts, first-direction quote, two key decisions, final designs, outcomes. Note: user has hand-edited some Outcomes copy in Figma; don't overwrite.
+- **Tools:**
+  - `use_figma` runs Plugin API JS, up to 50k characters. Pass `skillNames: "resource:figma-use,resource:figma-generate-design"`. A run that errors rolls back **atomically**.
+  - `get_screenshot` needs `enableBase64Response: true`, because downloading from figma.com via curl is blocked.
+  - Frames **can't be copied between files**, so rebuild screens by script in the target file (this is how the Stride and Tandem source sections were made).
+- **Fonts:** Inter's style name is `"Semi Bold"`; Barlow Semi Condensed's is `"SemiBold"`. Load fonts before setting `characters`.
+- **Paints:** paint opacity is lost when binding via `setBoundVariableForPaint`. Use a token or a plain paint with opacity instead.
+- **Headings:** `findAll` doesn't descend into instance sublayers in clones. Access the heading as `sec.children.find(n=>n.name==='CS / Section Heading').children.find(x=>x.name==='Title')` (or `'Label'` / `'Intro'`).
+- **Layout:** the case study frame `124:1219` is **vertical auto-layout**, so sections reflow when they change height. Inside sections the layout is mostly NONE (absolute): after a text edit, shift the siblings below it and resize the section.
+- **Crops:** clone a source screen into a clipped frame. Set the clone to `x=0, y=0` before scaling and offsetting.
+- **Prototype links:** use `setReactionsAsync([{trigger:{type:'ON_CLICK'},actions:[{type:'NODE',destinationId,navigation:'NAVIGATE',transition:null}]}])`. Links to a node's own top-level frame are rejected. Set start points with `page.flowStartingPoints`.
+- **Text hyperlinks:** `textNode.hyperlink = {type:'URL', value}`.
+- **Old html.to.design pages:** Framer imports contain opacity-0 animation states, `::after` rectangles that need `insertChild(0, …)`, and constraints that shift nodes on resize (set them to MIN).
+- **Text lookup:** `findOne` can match a FRAME named like a text node. Filter by `type==='TEXT'`.
 
-### Adidas — Goals box swap (round 4)
-- 03 · Goals box 124:1301 renamed "How I planned to test it — qualitative". It replaces "What a quantitative round would measure", which repeated Outcomes' "What I would measure next".
-- Four columns: Real users of sales data / Two rounds / Cognitive walkthroughs / Tasks, not opinions. Box height is now 206 and the section is 1018 tall; the auto-layout parent reflows.
+---
+
+## 7. Hosting decision (open)
+
+**Option A: Framer.** The user rebuilds the pages in Framer from the Figma designs.
+
+**Option B: the React site in `web/`, deployed via Vercel or Netlify.**
+- Needs GitHub push access fixed first (§9).
+- Needs a Lyrical restyle and the remaining pages (case studies, About).
+- `RESUME` in `data.ts` needs a hosted PDF.
+
+Not decided. Ask the user when step 5 arrives.
+
+---
+
+## 8. Commands and tests run
+
+- `cd web && npm install`, `npm run dev`, `npm run build`, `SINGLE=1 npx vite build --outDir dist-single`, `npm run lint` (oxlint).
+  - Last check, 2026-10-12: the build succeeds (Vite, about 0.8s) and the lint is clean.
+- Figma MCP:
+  - `get_metadata`, `get_screenshot` (base64) and `use_figma` across files `1PD7zKot98QgHWacUtWDLm`, `HNs8Ge4CJupGPpK6COlk8c` and `VpHjBjcQp0Tel5NC2WCsQU`.
+  - Every structural change was verified with a screenshot.
+- Resume extraction: `unzip` the .docx, then a Python regex over `word/document.xml` (pandoc isn't installed).
+- `git commit` many times, and `git push -u origin claude/vibrant-turing-me78qp`, which **fails with 403** (§9).
+- There are no automated tests in the repo.
+
+---
+
+## 9. Errors, failed attempts and unresolved issues
+
+**Blocking or unresolved:**
+- **GitHub push returns 403.** The Claude GitHub App isn't installed on `anupindikarthik529-prog/Portfolio`, or GitHub needs reconnecting. The user can:
+  - connect at https://claude.ai/connect-github?org=9bc3275a-05f4-45e3-b1cf-982242034741
+  - install the app at https://github.com/apps/claude/installations/select_target
+
+  All commits are local only. If the container is reclaimed before a push, the repo changes are lost; the Figma work is safe.
+- **Adidas prototype sharing:** the user must set link-view sharing on Figma file `HNs8Ge4CJupGPpK6COlk8c`, or the "Try the clickable prototype" link won't open for recruiters.
+- **No prototype video:** it can't be recorded from this environment. Do it at build time.
+- **AI Agent open items:**
+  - The TaskMaster consumer example sits under an "enterprise teams" title.
+  - The interaction ideas (playable agent flow, layout tabs, sticky progress tracker, pinned comments) aren't specced.
+- **Copy issues in the old INDYCAR and VYBE mirrors**, to fix during their rewrite:
+  - VYBE: "Opened 1 times"; a fragment in Focus Mode: "…block all the social media apps from using."
+  - Emoji bullets (✅❌🔹💡🎯📌) used inconsistently.
+  - Recurring boilerplate lines copied across case studies: "Clarity over Complexity", "transform this output into an enterprise-wide solution…", "Courageous simplification outperforms exhaustive complexity".
+- **Open copy questions from earlier:** About wording, and missing job titles for The Heart Center and TCS.
+- **Optional, needs confirmation:** "reality check" boxes on the AI Agent case study were discussed. The user removed the one from Adidas, so ask before adding any.
+
+**Failed attempts and workarounds (don't retry):**
+- `curl` to figma.com asset URLs gets a 403 from the proxy, and `upload_assets` to mcp.figma.com is blocked. Use base64 screenshots for viewing and script rebuilds for moving screens.
+- `WebFetch` on Instagram is egress-blocked.
+- `pandoc` isn't installed.
+- Long base64 images pasted into scripts got corrupted. If you must embed one, compress it, keep it under ~7KB per chunk, and checksum it.
+- **Rejected design approaches:**
+  - re-skinning the old home page ("not even 50% same")
+  - an exact Sevora clone ("not exact replication")
+  - dark navy generic SaaS screens, and the v2 Sales Desk ("too technical")
+  - v3 Stride ("looks like wireframes")
+  - the brush lettering beats on Adidas ("confusing")
+  - green left-border callout cards ("look AI-generated")
+
+---
+
+## 10. Clear next steps
+
+1. **Ask the user to confirm the Adidas case study `124:1219` is frozen.** The last change was the Goals box (§2.7). Also ask whether to keep or drop "What I would measure next" in Outcomes. The recommendation is to keep it, since it's now the only place that mentions future measurement.
+2. **INDYCAR case study** (one design pass plus one feedback round, then freeze):
+   - Read the mirror `45:3799` (text and images).
+   - Build a new frame on "05 — Case Studies" using the Lyrical components (CS / Section Heading, CS / Decision, CS / Pull Quote, pen notes) and the section rhythm of `124:1219` and `156:1268`.
+   - Reuse the existing INDYCAR images: clone them from `45:3799`, since this is the same file.
+   - Rewrite the copy with the humanizer skill.
+   - Keep the numbers and the David Craske quote exactly as in the source (§5).
+   - Fix the typos and boilerplate along the way.
+3. **VYBE case study** (`45:5718`): same process. It's an academic project and honestly states it has no launch metrics; keep that framing.
+4. **About page** (`45:2073`): rewrite in the Lyrical style. Keep it human and professional. Include the HCI background, experience, tools, resume and contact links.
+5. Update the home page rows `121:1198` and `123:1245` if any titles change.
+6. **Go live:** get the hosting decision from the user (§7).
+   - For React: fix GitHub access, restyle `web/` to the Lyrical system, build the case study and About routes, add a hosted resume PDF, and deploy.
+   - For Framer: hand over the Figma frames.
+7. After launch: the ProTrans **Border Crossing** case study (page `0:1`; verified context in the user's original brief: no prior dedicated system; info lived across Optimiz, email and phone; six decisions; client names sensitive), then the **Design System** case study.
+
+---
+
+## 11. Resume facts (source: Karthik_Anupindi_UX_Resume.docx; the upload path is session-scoped and may be gone)
+
+**Contact:**
+- (317) 640-3934
+- karthikanupindi98@gmail.com (the address used in `web/src/data.ts`)
+- linkedin.com/in/karthikanupindi
+
+**Experience:**
+- **ProTrans International** — UX/UI Designer, Indianapolis, Jun 2025–present.
+  - Developer-ready design system across 4 enterprise platforms.
+  - Border-crossing workflows: **wait time cut 15%**.
+  - Root-cause analysis for the Pickup Management and EDI teams.
+- **KGS Technology Group** — UX Designer, remote, Feb–Jun 2025.
+  - IA rebuild: task time −10%.
+  - Analytics-driven flow refinement: errors −20%.
+- **The Heart Center** — UX/UI Designer, remote, Mar 2024–Feb 2025.
+  - 1,000+ users and 150+ hi-fi prototypes.
+  - WCAG audits.
+  - Satisfaction +20 points; daily completions 1.25×.
+- **NTT INDYCAR** — UX Designer, Indianapolis, Jan–Dec 2023.
+  - Touch-based mobile learning app: session time 30→50 min, satisfaction +25 points.
+- **The Comet Lab, Indiana University** — UX Designer / Graduate TA, 2022.
+  - Usability tests with 25+ participants.
+  - Workshops: learner outcomes +15%.
+- **Tata Consultancy Services** — Systems Engineer / UX Designer, Mumbai, Jun 2019–Dec 2021.
+  - SEBI-compliant KYC flows: satisfaction +36% across 50K+ users.
+  - Bounce rate −12.5%.
+
+**Education:**
+- MS Human-Computer Interaction, Indiana University (Luddy School).
+- B.Tech Electronics & Instrumentation Engineering, SASTRA University.
+- Stanford University Innovation Fellow, 2022–23.
