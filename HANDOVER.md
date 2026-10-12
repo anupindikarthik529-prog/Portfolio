@@ -185,7 +185,7 @@ Frame **`124:1219`** "Case Study — Sales Dashboard (Adidas brief) — Desktop 
 ### 2.9 INDYCAR case study: FIRST PASS DONE (awaiting the feedback round)
 Frame **`238:1383`** "Case Study — INDYCAR (NTT INDYCAR) — Desktop 1440", on page "05 — Case Studies" at x = −1740 (left of Adidas). It is vertical auto-layout like `124:1219`, with sections in absolute layout. Built from the Lyrical tokens, CS / Section Heading instances and CS / Pull Quote clones. Every image reuses the image fills (imageHash) from the mirror `45:3799`, displayed at or below native resolution. No new screens were designed.
 
-**Title:** "How an Information Architecture Rebuild Kept INDYCAR Fans 30% Longer and Cut Bounces 25%" (H1 at 52/58, 660 wide, 4 lines). The same title is on home rows `I121:1232;120:1220` and `123:1266`, and in `web/src/data.ts`.
+**Title:** "How an Information Architecture Rebuild Cut Bounces 25% and Kept Fans 30% Longer in Testing" (H1 at 52/58, 660 wide, 4 lines). The same title is on home rows `I121:1232;120:1220` and `123:1266`, and in `web/src/data.ts`.
 
 | # | Section | Node | Content (summary) |
 |---|---|---|---|
@@ -257,7 +257,7 @@ Everything else lives in Figma (§2). Local commits since `1f019e7`: `1cead17` (
 **INDYCAR numbers:** use only the numbers in the case study itself: 30% session-duration increase, 25% bounce-rate drop, 4.8/5 SUS, 4.9/5 stakeholder rating, 85% feature preference, plus the named stakeholder quote from David Craske. The resume's NTT INDYCAR line ("learning app, session 30→50 min, +25 satisfaction") may describe a different project. Don't mix the two sets.
 
 **Home page row titles** (latest; some have evolved since the earlier chat lists):
-- "How an Information Architecture Rebuild Kept INDYCAR Fans 30% Longer and Cut Bounces 25%"
+- "How an Information Architecture Rebuild Cut Bounces 25% and Kept Fans 30% Longer in Testing"
 - "Designing Trust Into an AI Agent Workflow for Enterprise Teams"
 - "From Scattered Sales Data to Faster Revenue Decisions"
 - "VYBE: Trading 'Journaling' for a 1-Minute Daily Habit"
@@ -316,8 +316,9 @@ Not decided. Ask the user when step 5 arrives.
 
 **Blocking or unresolved:**
 - ~~GitHub push returns 403.~~ **Resolved 2026-10-12:** `git push -u origin claude/vibrant-turing-me78qp` succeeded, and every earlier local commit is now on the remote.
-- **INDYCAR title now leads with 30% / 25%**, which makes the next question more important. Also, the home row meta reads "UX designer on a client team · 2023" while the case study says Lead UX Designer, 10 months, team of four. Confirm which is right.
-- **INDYCAR metrics context (question for the user):** the mirror lists 30% session duration and −25% bounce rate under "Impact: UX & Business", next to testing methods. It doesn't say whether these were measured in production analytics or in testing. The new frame groups them as "Engagement" without claiming either. Confirm with the user before adding a "measured after launch" label.
+- **INDYCAR metrics: resolved 2026-10-12.** The user confirmed that 30% and 25% **came from testing**, not production. The title ends "in Testing", the Outcomes heading reads "In testing, sessions ran 30% longer and bounces fell 25%", and the group is labelled "Engagement in testing". Never present them as launch results.
+- **INDYCAR role: resolved.** UX designer who also led a team of four (two UX researchers and one UI designer). The hero reads ROLE "UX Designer and team lead" and TEAM "2 UX researchers, 1 UI designer, me". Home rows (desktop `I121:1232;120:1222`, mobile `123:1268`) read "UX designer and team lead · 2023".
+- ~~INDYCAR metrics context (question for the user):~~ the mirror lists 30% session duration and −25% bounce rate under "Impact: UX & Business", next to testing methods. It doesn't say whether these were measured in production analytics or in testing. The new frame groups them as "Engagement" without claiming either. Confirm with the user before adding a "measured after launch" label.
 - **Adidas prototype sharing:** the user must set link-view sharing on Figma file `HNs8Ge4CJupGPpK6COlk8c`, or the "Try the clickable prototype" link won't open for recruiters.
 - **No prototype video:** it can't be recorded from this environment. Do it at build time.
 - **AI Agent open items:**
@@ -349,7 +350,6 @@ Not decided. Ask the user when step 5 arrives.
 
 1. ~~Ask the user to confirm the Adidas case study is frozen.~~ **Confirmed frozen "for now" (2026-10-12).** The last change was the Goals box (§2.7). Also ask whether to keep or drop "What I would measure next" in Outcomes. The recommendation is to keep it, since it's now the only place that mentions future measurement.
 2. **INDYCAR case study:** the first pass is done (`238:1383`, §2.9). Next is the user's feedback round, then freeze. Open questions:
-   - Were the 30% and 25% figures measured in production or in testing? (§9)
    - Keep or drop the iteration-1 screen showing "VIDEO???"?
    - Link the Drive PDF "detailed case study"?
    - CS / Decision blocks weren't used, because the source has no trade-offs to report and inventing them would break the content rules. If the user wants a decisions section, they need to supply the trade-offs.
