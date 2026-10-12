@@ -198,3 +198,5 @@ Adidas case study FINAL (frozen): story merged in. New "07 · First direction" 2
 Reality-check box in Context. Round two findings in Wireframes intro + Outcomes. Sections renumbered 08–12. Prototype button text links to
 https://www.figma.com/proto/HNs8Ge4CJupGPpK6COlk8c/Adidas-SaaS-Dashboard?node-id=29-30&starting-point-node-id=29%3A30 (needs link-view sharing on that file).
 Video loop of the prototype: record at build time (not possible from this environment).
+Edits (round 2): reality-check box removed; Goals measure box relabelled "What a quantitative round would measure"; Discovery reordered (Personalization last, next phase);
+Prioritisation (05, matrix centred, no how-to-read) now before Process (06); wireframe groups spaced +96px; Outcomes heading about usability.
