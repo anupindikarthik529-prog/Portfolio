@@ -203,3 +203,7 @@ Prioritisation (05, matrix centred, no how-to-read) now before Process (06); wir
 Restructure (round 3): beats removed. Order 01 Opening · 02 Context · 03 Goals · 04 Discovery · 05 Prioritisation · 06 Process · 07 First direction (3 wireframes, round-one findings, the turn, insight quote, pen arrow on alerts)
 · 08 Key decisions · 09 Final designs (5 screens + prototype, no wireframes) · 10 Visual language · 11 Outcomes · 12 Reflection. Hero: 500px screen, sketch boxes at 55%, redrawn pen paths.
 Pen highlights (Caveat, brick): hero, wireframe alerts, first-direction quote, two key decisions, final designs, outcomes. Note: user has hand-edited some Outcomes copy in Figma; don't overwrite.
+
+### Adidas — Goals box swap (round 4)
+- 03 · Goals box 124:1301 renamed "How I planned to test it — qualitative". It replaces "What a quantitative round would measure", which repeated Outcomes' "What I would measure next".
+- Four columns: Real users of sales data / Two rounds / Cognitive walkthroughs / Tasks, not opinions. Box height is now 206 and the section is 1018 tall; the auto-layout parent reflows.
