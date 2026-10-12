@@ -174,3 +174,10 @@ Tokens: "Stride / Tokens". Frames: 1 Dashboard 16:30 · 2 Alerts panel 18:8 · 3
 5 Customers 19:8 · 6 Revenue 19:204 · 7 Forecast 19:411 · 8 Reports 20:8 · 9 Export 20:156. Flow "Stride — 8-hour sprint" starts at 1.
 Maps to the original 8 finals: AI insights -> "What's driving the forecast" notes on 7; Notifications -> alerts strip on 1 + panel 2; Exports -> modal 9.
 Sales Desk page (v2) kept as an archived exploration.
+
+## Adidas dashboard FINAL (v4, 5 screens) — CURRENT
+File HNs8Ge4CJupGPpK6COlk8c, page "Redesign v4 — Final". Monochrome adidas-like UI, white sidebar, Inter + Barlow Semi Condensed (titles/numbers).
+Tokens "Stride Final / Tokens". Screens: 1 Dashboard 29:30 · 2 Opportunities (deal panel inline) 30:8 · 3 Customers 31:8 · 4 Forecast 31:278 · 5 Reports (export panel) 32:8.
+Flow "Stride — final (5 screens)". v3 and Sales Desk pages kept as archive.
+Portfolio case study 124:1219: added "AI as an assistant" constraint (context section 124:1264), tools now "Figma, Miro, AI tools",
+deliverables line now "5 final screens…". Still to do: replace the old final-screen images in the case study with these 5.
