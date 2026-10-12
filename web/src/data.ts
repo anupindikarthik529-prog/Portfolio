@@ -25,7 +25,7 @@ export const projects = [
   },
   {
     context: 'Design Challenge',
-    title: 'Designing an Enterprise Dashboard From Scratch in 8 Hours',
+    title: 'Building a Sales Dashboard Around What Teams Need First',
     tags: ['Data Visualization', 'Prioritization', 'UI Design'],
     image: dashboard,
     href: '#sales-dashboard',
