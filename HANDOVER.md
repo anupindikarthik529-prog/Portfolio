@@ -21,8 +21,8 @@ Redesign Karthik Anupindi's UX/UI portfolio and put it live.
 **Agreed order of work (user's plan; don't get stuck looping on one page):**
 
 1. Adidas case study, finalised. **Done.** Waiting on the user's confirmation that it's frozen (see §12).
-2. INDYCAR case study. **First design pass done** (see §2.9). Waiting on the user's one feedback round.
-3. VYBE case study.
+2. INDYCAR case study. **Frozen (2026-10-12)** (§2.9).
+3. VYBE case study. **First design pass done** (§2.10). Waiting on the user's one feedback round.
 4. About page.
 5. Build and go live. Hosting is undecided (see §7).
 6. After launch: the ProTrans **Border Crossing** case study, then the **Design System** case study. Both will become the top projects.
@@ -182,7 +182,7 @@ Frame **`124:1219`** "Case Study — Sales Dashboard (Adidas brief) — Desktop 
 - It is a prototype of the **Sevora-era home page**, not the Lyrical design. If the React route is chosen for launch, it needs restyling to the Lyrical system (Newsreader, Inter, Caveat, paper and ink) and the remaining pages need building.
 
 
-### 2.9 INDYCAR case study: FIRST PASS DONE (awaiting the feedback round)
+### 2.9 INDYCAR case study: FROZEN (2026-10-12)
 Frame **`238:1383`** "Case Study — INDYCAR (NTT INDYCAR) — Desktop 1440", on page "05 — Case Studies" at x = −1740 (left of Adidas). It is vertical auto-layout like `124:1219`, with sections in absolute layout. Built from the Lyrical tokens, CS / Section Heading instances and CS / Pull Quote clones. Every image reuses the image fills (imageHash) from the mirror `45:3799`, displayed at or below native resolution. No new screens were designed.
 
 **Title:** "How an Information Architecture Rebuild Cut Bounces 25% and Kept Fans 30% Longer in Testing" (H1 at 52/58, 660 wide, 4 lines). The same title is on home rows `I121:1232;120:1220` and `123:1266`, and in `web/src/data.ts`.
@@ -206,13 +206,38 @@ Frame **`238:1383`** "Case Study — INDYCAR (NTT INDYCAR) — Desktop 1440", on
 - The copy is rewritten from the mirror with the humanizer rules: no emoji bullets, and none of the old boilerplate lines. Every number and both quotes are taken verbatim from the mirror.
 - The mirror also linked a "detailed case study" PDF on Google Drive (`drive.google.com/file/d/1BM1YiOHH-iiMBbjjD44xUrj_6VfKSIxl`). It isn't used in the new frame; ask whether to include it.
 
+### 2.10 VYBE case study: FIRST PASS DONE (awaiting the feedback round)
+Frame **`269:1422`** "Case Study — VYBE (Academic project) — Desktop 1440", on page "05 — Case Studies" at x = −3440 (left of INDYCAR). It was built by **cloning the frozen INDYCAR frame** as a template and reworking every section, so type, spacing, components and the paper palette match. All images reuse image fills from the mirror `45:5718`. The six final screens are **clones of the mirror's real layered screens**, not images. Page flow start point: "VYBE case study".
+
+**Title:** "VYBE: Trading “Journaling” for a 1-Minute Daily Habit" (same as the home row).
+
+| # | Section | Node | Content (summary) |
+|---|---|---|---|
+| 01 | Opening | `269:1423` | Eyebrow "ACADEMIC PROJECT · GRAD SCHOOL · 6 WEEKS"; intro (team of four; I did research, product strategy, MVP definition, usability testing); Role UX Designer / 6 weeks / 2 UX researchers, 2 UX designers / Figma, Miro; pen note "a grad-school project, so no launch numbers". Hero `269:1437`: the mirror's five hero phones (`45:5747`–`5755`) at 64%, pen note "a check-in, not a journal". |
+| 02 | Context | `269:1441` | "Teens wanted less scrolling, not another chore". THE PROBLEM / THE CHALLENGE (HMW) columns. |
+| 03 | Problem and goals | `269:1449` | "Three habits to break, three goals to design for". Three problem → goal rows taken from the mirror's problem and challenge lists. |
+| 04 | Research | `269:1469` | "People wanted a break from social media, not more homework". Story poll (`45:5955`, pen note "85% had thought about a break"), two public posts (`45:5957`, `45:5959`), Calm/Headspace/Stoic tiles. Findings: Unbiased interviews (8 students and working professionals) / Watching routines / Competitive analysis. |
+| 05 | Synthesis | `269:1490` | "Gratitude had to be effortless, or nobody would keep it up". Three insights, an image row (empathy map and card sort on white cards, sticky-note photo), pull quote "If gratitude felt like a habit, not a task, teens would engage." (source "Our working hypothesis"), pen note "the bet VYBE was built on". |
+| 06 | Concepts | `269:1504` | "Testers picked an app over two gadgets". Pie image `45:6039` on the evidence surface with a native legend: Gratitude Tracker 62.5% / Focused Device 25% / Community Bracelet 12.5% (colour mapping read from the mirror's label positions). Pen note "no extra hardware to carry". WHAT THE MVP KEPT: 1-minute gratitude prompts / Gamified streaks / Private social sharing. |
+| 07 | Process | `269:1516` | "Fast sketches first, then lo-fi flows to test". Crazy 8s sketches `45:6097` and lo-fi wireframes `45:6103`, both 620 tall. No numbered steps. |
+| 08 | Iterations | `269:1522` | "Testing with 15+ users made VYBE calmer and easier to follow". Iteration 1 image `45:6112`; iteration 2 image `45:6125` with the three mirror changes (dark mode, clearer navigation, rebalanced hierarchy). |
+| 09 | Final designs | `269:1554` | "Six screens built around a one-minute check-in". Six cloned screens in 340×736 phone frames, 3×2: Home (`45:6152`), Check-in questions (`45:6395`), Reflection space (`45:6547`), Challenges and stats (`45:6891`), Rewards (`45:6683`), Social media usage (`45:7183`). Captions come from the mirror's annotations. The **Social media usage phone scrolls** (overflow VERTICAL; screen extended to 992 to reach Focus Mode). "Opened 1 times" fixed to "Opened 1 time"; the Instagram label box widened to stop it wrapping. Pen note "250 characters, then you’re done" on Reflection space. There is no prototype button: the mirror had no prototype link, only a still. |
+| 10 | Outcomes | `269:1602` | "Tested with 15+ users. Not launched, so no launch numbers." Groups: In testing (15+, 2) / Concept test (62.5%, 3) / At launch, we’d track (Retention and daily engagement, Drop-off, Satisfaction). WHAT TESTING CHANGED: the five mirror findings. |
+| 11 | Reflection | `269:1621` | Behaviour over UI; the lesson "the best UX doesn’t demand behaviour change". WHAT COMES NEXT: Freemium model / School partnerships / Corporate well-being. |
+| — | Next project | `269:1631` | Points to INDYCAR, using INDYCAR's current H1 and five-phone mockup. |
+
+- Six pen highlights in total.
+- WhatsApp's icon is blank in the Social media usage screen. It's blank in the mirror too; the source image is missing.
+- The Adidas next-project link still points to AI Agent (frozen; left alone).
+
 ---
 
 ## 3. Current state
 
 - **Frozen or done:** the AI Agent case study, and the Adidas screens and case study. Adidas only needs the user's "frozen" confirmation.
-- **INDYCAR:** first pass built (`238:1383`, §2.9). It needs the user's feedback round, then freeze.
-- **Not started in the Lyrical style:** VYBE and About. Their content lives in the html.to.design mirror on page "Portfolio" `45:235`: INDYCAR `45:3799`, VYBE `45:5718`, About `45:2073`. Backup copies are on page "Portfolio(Backup)" `46:3178`.
+- **INDYCAR:** frozen (`238:1383`, §2.9).
+- **VYBE:** first pass built (`269:1422`, §2.10). It needs the user's feedback round, then freeze.
+- **Not started in the Lyrical style:** About. Their content lives in the html.to.design mirror on page "Portfolio" `45:235`: INDYCAR `45:3799`, VYBE `45:5718`, About `45:2073`. Backup copies are on page "Portfolio(Backup)" `46:3178`.
 - **Backup page** `46:3178` also holds `220:2441` (an Adidas case study copy) and `220:6486` (an AI Agent case study copy). Their origin isn't recorded in this session's notes; they're probably snapshot copies. Treat `124:1219` and `156:1268` on "05 — Case Studies" as canonical.
 - **Page "Case Study: Border Crossing"** `0:1` exists, with real ProTrans screens (Dashboard `1:7769`, Row Actions `1:6721`, Last Notes `1:7249`, User Management `1:905`, Rejected Design `2:278`, Diagram_ThreeChannels `32:235`, and others). **It's out of scope until after launch.**
 - **Git:** **push works now** (verified 2026-10-12). The branch `claude/vibrant-turing-me78qp` is on the remote, and the remote head matches local.
@@ -349,11 +374,11 @@ Not decided. Ask the user when step 5 arrives.
 ## 10. Clear next steps
 
 1. ~~Ask the user to confirm the Adidas case study is frozen.~~ **Confirmed frozen "for now" (2026-10-12).** The last change was the Goals box (§2.7). Also ask whether to keep or drop "What I would measure next" in Outcomes. The recommendation is to keep it, since it's now the only place that mentions future measurement.
-2. **INDYCAR case study:** the first pass is done (`238:1383`, §2.9). Next is the user's feedback round, then freeze. Open questions:
+2. ~~INDYCAR case study~~ **Frozen 2026-10-12.** Unanswered (left as is): 
    - Keep or drop the iteration-1 screen showing "VIDEO???"?
    - Link the Drive PDF "detailed case study"?
    - CS / Decision blocks weren't used, because the source has no trade-offs to report and inventing them would break the content rules. If the user wants a decisions section, they need to supply the trade-offs.
-3. **VYBE case study** (`45:5718`): same process. It's an academic project and honestly states it has no launch metrics; keep that framing.
+3. **VYBE case study:** the first pass is done (`269:1422`, §2.10). Next is the user's feedback round, then freeze. It's an academic project with no launch metrics; keep that framing.
 4. **About page** (`45:2073`): rewrite in the Lyrical style. Keep it human and professional. Include the HCI background, experience, tools, resume and contact links.
 5. Update the home page rows `121:1198` and `123:1245` if any titles change.
 6. **Go live:** get the hosting decision from the user (§7).
