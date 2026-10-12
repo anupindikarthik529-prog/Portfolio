@@ -189,3 +189,5 @@ Sections: 01 Opening (hero now new dashboard) · A2 beat · 02 Context (+AI note
 Source screens rebuilt in portfolio file: section "Stride screens — source for Adidas case study" 177:1352 (S1 177:1375, S2 178:1352, S3 179:1352, S4 179:1622, S5 180:1352).
 Crops are clones of these, so edit the source and re-crop if screens change. Prototype button has no link yet.
 Reordered: … 06 Prioritisation · A4 beat · 07 Key decisions · 08 Visual language · 09 Wireframes to final designs (126:1292) · 10 The product …
+Final order: … 06 Prioritisation · A4 beat · 07 Visual language 186:2710 · 08 Key decisions 182:2559 · 09 Wireframes to final designs 126:1292
+(3 wireframe→final pairs + Opportunities/Customers + prototype button; separate "The product" section removed) · 10 Outcomes · A6 · 11 Reflection · Next.
