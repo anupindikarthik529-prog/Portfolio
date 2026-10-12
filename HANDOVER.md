@@ -158,3 +158,12 @@ Source: `Karthik_Anupindi_UX_Resume.docx`. Contact: (317) 640-3934, karthikanupi
 6. **Decide light vs. dark theme** and how much of the Sevora template's typography/spacing to actually adopt (§5) — not yet decided.
 7. **Apply the agreed home page copy (§8) to the actual Figma file**, then eventually to the live Framer site — none of it has been applied anywhere yet, it only exists in chat and in this document.
 8. Once copy + visual direction are both settled, produce the mockup the user asked about earlier (comparing current home page vs. template-inspired typography/cards applied to the new copy) — this was offered twice in the conversation and deferred both times in favor of copy work first.
+
+## Adidas dashboard redesign ("Sales Desk")
+File HNs8Ge4CJupGPpK6COlk8c, page "Redesign v2 — Sales Desk" (3:2). Originals on page 0:1 untouched.
+Tokens: "Sales Desk / Tokens" collection. Fonts: IBM Plex Sans + IBM Plex Mono (numbers).
+Screens: S1 Today 4:2 · S2 Pipeline 6:2 · S3 Deal detail 7:2 · S4 Forecast 9:2 · S5 Accounts 11:8 ·
+S6 Needs attention 12:8 · S7 Reports 13:8 · S8 States 14:8 · S9 Navigation before/after 14:91.
+Prototype flow "Sales Desk — end-to-end" starts at S1. All figures are sample data (chip in top bar).
+Note: paint opacity is dropped when binding a variable via setBoundVariableForPaint; use a token or node opacity.
+Next: rebuild into portfolio file and update Adidas case study 124:1219.
