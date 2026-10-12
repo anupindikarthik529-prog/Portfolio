@@ -25,7 +25,7 @@ export const projects = [
   },
   {
     context: 'Design Challenge',
-    title: 'Helping a Global Brand’s Sales Teams Decide Faster, With Less Effort',
+    title: 'From Scattered Sales Data to Faster Revenue Decisions',
     tags: ['Data Visualization', 'Prioritization', 'UI Design'],
     image: dashboard,
     href: '#sales-dashboard',
