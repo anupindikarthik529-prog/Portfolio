@@ -25,7 +25,7 @@ export const projects = [
   },
   {
     context: 'Design Challenge',
-    title: 'Building a Sales Dashboard Around What Teams Need First',
+    title: 'A Sales Dashboard That Tells Teams Where to Act First',
     tags: ['Data Visualization', 'Prioritization', 'UI Design'],
     image: dashboard,
     href: '#sales-dashboard',
