@@ -191,5 +191,5 @@ Crops are clones of these, so edit the source and re-crop if screens change. Pro
 Reordered: … 06 Prioritisation · A4 beat · 07 Key decisions · 08 Visual language · 09 Wireframes to final designs (126:1292) · 10 The product …
 Final order: … 06 Prioritisation · A4 beat · 07 Visual language 186:2710 · 08 Key decisions 182:2559 · 09 Wireframes to final designs 126:1292
 (3 wireframe→final pairs + Opportunities/Customers + prototype button; separate "The product" section removed) · 10 Outcomes · A6 · 11 Reflection · Next.
-Copy pass: headings rewritten as insight statements; "8 hours" kept only in the Timeline meta. H1 now "A Sales Dashboard That Tells Teams Where to Act First"; headings are short takeaways
+Copy pass: headings rewritten as insight statements; "8 hours" kept only in the Timeline meta. H1 now "Helping a Global Brand’s Sales Teams Decide Faster, With Less Effort"; headings are short takeaways
 (also on 03 — Homepage rows, AI case study next-project card, and web/src/data.ts). Beat A2 lettering now "FIRST THINGS ⧗ FIRST".

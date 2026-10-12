@@ -25,7 +25,7 @@ export const projects = [
   },
   {
     context: 'Design Challenge',
-    title: 'A Sales Dashboard That Tells Teams Where to Act First',
+    title: 'Helping a Global Brand’s Sales Teams Decide Faster, With Less Effort',
     tags: ['Data Visualization', 'Prioritization', 'UI Design'],
     image: dashboard,
     href: '#sales-dashboard',
