@@ -181,3 +181,10 @@ Tokens "Stride Final / Tokens". Screens: 1 Dashboard 29:30 · 2 Opportunities (d
 Flow "Stride — final (5 screens)". v3 and Sales Desk pages kept as archive.
 Portfolio case study 124:1219: added "AI as an assistant" constraint (context section 124:1264), tools now "Figma, Miro, AI tools",
 deliverables line now "5 final screens…". Still to do: replace the old final-screen images in the case study with these 5.
+
+## Adidas case study rewrite (portfolio file, 124:1219) — DONE
+Sections: 01 Opening (hero now new dashboard) · A2 beat · 02 Context (+AI note) · 03 Goals · 04 Discovery · 05 Process 182:2535 (new) ·
+06 Prioritisation 126:1216 (matrix only) · A4 beat · 07 Testing 126:1292 (wireframes → new finals) · 08 Key decisions 182:2559 (6 decisions, crops) ·
+09 Visual language 186:2710 (new) · 10 The product 129:1262 (5 screens + prototype button) · 11 Outcomes · A6 beat · 12 Reflection · Next.
+Source screens rebuilt in portfolio file: section "Stride screens — source for Adidas case study" 177:1352 (S1 177:1375, S2 178:1352, S3 179:1352, S4 179:1622, S5 180:1352).
+Crops are clones of these, so edit the source and re-crop if screens change. Prototype button has no link yet.
