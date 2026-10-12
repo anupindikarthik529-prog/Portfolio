@@ -194,3 +194,7 @@ Final order: … 06 Prioritisation · A4 beat · 07 Visual language 186:2710 · 
 Copy pass: headings rewritten as insight statements; "8 hours" kept only in the Timeline meta. H1 now "From Scattered Sales Data to Faster Revenue Decisions"; headings are short takeaways
 (also on 03 — Homepage rows, AI case study next-project card, and web/src/data.ts). Beat A2 lettering now "FIRST THINGS ⧗ FIRST".
 Copy rewrite: two test rounds (wireframes, then finals); round-two findings still to add once provided.
+Adidas case study FINAL (frozen): story merged in. New "07 · First direction" 223:1222 (wireframe → round-one gaps → page-per-data-type fix → turn → insight quote).
+Reality-check box in Context. Round two findings in Wireframes intro + Outcomes. Sections renumbered 08–12. Prototype button text links to
+https://www.figma.com/proto/HNs8Ge4CJupGPpK6COlk8c/Adidas-SaaS-Dashboard?node-id=29-30&starting-point-node-id=29%3A30 (needs link-view sharing on that file).
+Video loop of the prototype: record at build time (not possible from this environment).
