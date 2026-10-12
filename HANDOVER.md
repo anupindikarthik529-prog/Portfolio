@@ -185,14 +185,14 @@ Frame **`124:1219`** "Case Study — Sales Dashboard (Adidas brief) — Desktop 
 ### 2.9 INDYCAR case study: FIRST PASS DONE (awaiting the feedback round)
 Frame **`238:1383`** "Case Study — INDYCAR (NTT INDYCAR) — Desktop 1440", on page "05 — Case Studies" at x = −1740 (left of Adidas). It is vertical auto-layout like `124:1219`, with sections in absolute layout. Built from the Lyrical tokens, CS / Section Heading instances and CS / Pull Quote clones. Every image reuses the image fills (imageHash) from the mirror `45:3799`, displayed at or below native resolution. No new screens were designed.
 
-**Title:** "How an Information Architecture Rebuild Grew INDYCAR's Gen Z Fan Retention" (same as the home row).
+**Title:** "How an Information Architecture Rebuild Kept INDYCAR Fans 30% Longer and Cut Bounces 25%" (H1 at 52/58, 660 wide, 4 lines). The same title is on home rows `I121:1232;120:1220` and `123:1266`, and in `web/src/data.ts`.
 
 | # | Section | Node | Content (summary) |
 |---|---|---|---|
 | 01 | Opening | `238:1384` | Eyebrow "CLIENT ENGAGEMENT · NTT INDYCAR · 10 MONTHS"; H1 at 56px (longer title than Adidas); intro; Role Lead UX Designer / Timeline 10 months / Team Four people / Tools Figma, Miro, Google Analytics, Maze; pen note "some detail held back under NDA". Hero `238:1406`: the old "What is INDYCAR?" screen at 60%, linked by a dashed pen path to the five-phone mockup, with notes "the old INDYCAR 101, hidden in the menu" and "one place to start". |
-| 02 | Context | `238:1413` | "A fast sport with an app that felt slow". Items: Lead designer / 10 months / Under NDA. |
+| 02 | Context | `238:1413` | "A fast sport with an app that felt slow". The items that repeated the hero (Lead designer / 10 months / Under NDA) were replaced with two columns taken from the old case study: THE CHALLENGE ("INDYCAR is fast, thrilling and high-stakes. But its digital experience? It wasn't keeping up.") and OUR MISSION ("Reimagine the INDYCAR digital experience to engage the next generation of fans."). |
 | 03 | Problem and goals | `238:1427` | "New fans got lost, and regulars couldn't find race info". Three problem → goal rows with pen arrows. |
-| 04 | Discovery (old app audit) | `238:1450` | "The old app buried the basics under menus and text". Opens with "We assumed the problem was outdated visuals…". Four old-app screenshots; findings: Ambiguous navigation / Content overload / Disorganised layout. Pen note "a spec sheet, not a car". |
+| 04 | Discovery (old app audit) | `238:1450` | "Weak information architecture buried the basics under menus and text". Intro: "We assumed the problem was outdated visuals. An audit of the live app pointed to the information architecture: the content was there, but fans had no clear path to it." Four old-app screenshots; findings: Ambiguous navigation / Content overload / Disorganised layout. Pen note "a spec sheet, not a car". |
 | 05 | Research | `239:1400` | "Fans weren't disengaged. They were overwhelmed." Competitive findings (F1, NBA, cricket, WWE). David Craske pull quote, verbatim; pen note "this became the brief". |
 | 06 | Information architecture | `239:1419` | "One front door for new fans, six paths from there". Sitemap at 1024px on an evidence surface; pen note "INDYCAR 101 gets its own front door"; Clear hierarchy / Streamlined navigation. |
 | 07 | Process | `239:1434` | "Crazy 8s first, then wireframes the fan team could react to". Five steps; sketches and lo-fi wireframes at equal height. |
@@ -257,7 +257,7 @@ Everything else lives in Figma (§2). Local commits since `1f019e7`: `1cead17` (
 **INDYCAR numbers:** use only the numbers in the case study itself: 30% session-duration increase, 25% bounce-rate drop, 4.8/5 SUS, 4.9/5 stakeholder rating, 85% feature preference, plus the named stakeholder quote from David Craske. The resume's NTT INDYCAR line ("learning app, session 30→50 min, +25 satisfaction") may describe a different project. Don't mix the two sets.
 
 **Home page row titles** (latest; some have evolved since the earlier chat lists):
-- "How an Information Architecture Rebuild Grew INDYCAR's Gen Z Fan Retention"
+- "How an Information Architecture Rebuild Kept INDYCAR Fans 30% Longer and Cut Bounces 25%"
 - "Designing Trust Into an AI Agent Workflow for Enterprise Teams"
 - "From Scattered Sales Data to Faster Revenue Decisions"
 - "VYBE: Trading 'Journaling' for a 1-Minute Daily Habit"
@@ -316,6 +316,7 @@ Not decided. Ask the user when step 5 arrives.
 
 **Blocking or unresolved:**
 - ~~GitHub push returns 403.~~ **Resolved 2026-10-12:** `git push -u origin claude/vibrant-turing-me78qp` succeeded, and every earlier local commit is now on the remote.
+- **INDYCAR title now leads with 30% / 25%**, which makes the next question more important. Also, the home row meta reads "UX designer on a client team · 2023" while the case study says Lead UX Designer, 10 months, team of four. Confirm which is right.
 - **INDYCAR metrics context (question for the user):** the mirror lists 30% session duration and −25% bounce rate under "Impact: UX & Business", next to testing methods. It doesn't say whether these were measured in production analytics or in testing. The new frame groups them as "Engagement" without claiming either. Confirm with the user before adding a "measured after launch" label.
 - **Adidas prototype sharing:** the user must set link-view sharing on Figma file `HNs8Ge4CJupGPpK6COlk8c`, or the "Try the clickable prototype" link won't open for recruiters.
 - **No prototype video:** it can't be recorded from this environment. Do it at build time.
@@ -346,7 +347,7 @@ Not decided. Ask the user when step 5 arrives.
 
 ## 10. Clear next steps
 
-1. **Ask the user to confirm the Adidas case study `124:1219` is frozen.** The last change was the Goals box (§2.7). Also ask whether to keep or drop "What I would measure next" in Outcomes. The recommendation is to keep it, since it's now the only place that mentions future measurement.
+1. ~~Ask the user to confirm the Adidas case study is frozen.~~ **Confirmed frozen "for now" (2026-10-12).** The last change was the Goals box (§2.7). Also ask whether to keep or drop "What I would measure next" in Outcomes. The recommendation is to keep it, since it's now the only place that mentions future measurement.
 2. **INDYCAR case study:** the first pass is done (`238:1383`, §2.9). Next is the user's feedback round, then freeze. Open questions:
    - Were the 30% and 25% figures measured in production or in testing? (§9)
    - Keep or drop the iteration-1 screen showing "VIDEO???"?

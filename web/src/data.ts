@@ -11,7 +11,7 @@ export const RESUME = '#resume'
 export const projects = [
   {
     context: 'Client Engagement — NTT INDYCAR',
-    title: 'How an Information Architecture Rebuild Grew INDYCAR’s Gen Z Fan Retention',
+    title: 'How an Information Architecture Rebuild Kept INDYCAR Fans 30% Longer and Cut Bounces 25%',
     tags: ['User Research', 'Information Architecture', 'UI Design'],
     image: indycar,
     href: '#indycar',
