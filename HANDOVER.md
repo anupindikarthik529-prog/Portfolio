@@ -226,6 +226,13 @@ Frame **`269:1422`** "Case Study — VYBE (Academic project) — Desktop 1440", 
 | 11 | Reflection | `269:1621` | Behaviour over UI; the lesson "the best UX doesn’t demand behaviour change". WHAT COMES NEXT: Freemium model / School partnerships / Corporate well-being. |
 | — | Next project | `269:1631` | Points to INDYCAR, using INDYCAR's current H1 and five-phone mockup. |
 
+**Feedback round 1 (2026-10-13), applied:**
+- Hero: removed the eyebrow ("ACADEMIC PROJECT · GRAD SCHOOL · 6 WEEKS"), the margin note "a grad-school project, so no launch numbers", and the hero pen note "a check-in, not a journal" with its arrow. The left column moved up 30; the hero frame was trimmed to 492 tall; 01 is now 768.
+- 05 Synthesis: the three images now sit on the same grid as the text columns (x 80/510/940, 400×300, 30 gutters); captions are under each one. The photo is FILL; the empathy map and card sort are FIT on a warm #EAE3D6 card.
+- 06 Concepts: evidence surface changed from white to warm #EAE3D6 (soft-line stroke kept). Use this tone instead of white for any evidence surface in VYBE.
+- 07 Process: gap between sketches and wireframes increased from 48 to 96.
+- 09 Final designs: **Home phone scrolls** too (screen extended to 865). Its TabBar was moved into the phone frame as the top child with `numberOfFixedChildren = 1`, so it stays pinned while the content scrolls.
+- The eyebrow, pen-note and hero rows in the 01 table above are out of date; this list wins. Pen highlights left: "85% had thought about a break", "the bet VYBE was built on", "no extra hardware to carry", "250 characters, then you’re done".
 - Six pen highlights in total.
 - WhatsApp's icon is blank in the Social media usage screen. It's blank in the mirror too; the source image is missing.
 - The Adidas next-project link still points to AI Agent (frozen; left alone).
