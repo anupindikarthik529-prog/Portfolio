@@ -392,6 +392,16 @@ The user confirmed all four case studies are done (VYBE included).
 - Fixed nav on every page (`Nav` in kit.tsx): full height and transparent at the top, a 64px solid paper bar with a hairline once scrolled.
 - Back-to-top button bottom right on every page (`ScrollTop`): appears after the first screen, rises above the footer links at the very bottom, hand-drawn ring redraws on hover.
 
+### 2.22 Site changes carried back into Figma (2026-10-13)
+- **Project Row** (`369:1218`) is now a component set: State=Default / Hover (brick title and read link, pen underline, pen frame around the visual slot), ON_HOVER change-to. Home rows use it. The old note `121:1297` ("hover: a frame draws around the preview") was deleted.
+- **Next project card / …** component sets (on 02 — Components): AI agent `370:4723`, Sales dashboard `370:5302`, VYBE `370:5640`, INDYCAR `370:5669`. Instances sit in each case study's Next project section with hover + click-through to the next case study. Next-project visuals on INDYCAR, AI and VYBE replaced by the home previews.
+- **Testimonial carousel** `370:1260` (desktop) and `370:1333` (mobile): Slide=1/2/3 with AFTER_TIMEOUT 9.9 s / 6 s / 6 s and Previous/Next. Instances replace the three-column sections `298:2335` and `298:2349` (mobile section now 649 tall).
+- **Screen story / Sales dashboard** `371:1350` (5 steps) and **/ AI agent workspace** `372:1455` (7 steps incl. timeline): list left, one 920-wide screen right; click a name to switch. Sections `126:1292` (now 1137 tall) and `158:1343` (1133) hold Step=1 instances. The original screen frames now live inside the variants; their captions became the list.
+- AI beat banners widened to 176 px with re-spaced links so every label fits.
+- **Nav** `373:1204`: Scroll=Top (paper fill) / Scroll=Scrolled (64 px, hairline). **Back to top** `373:1213` (Default/Hover). On all six desktop page frames the nav and a back-to-top instance are fixed children (`numberOfFixedChildren=2`); back-to-top click scrolls to the first section.
+- Spec frame "Website — Interaction specs (from site reviews)" `374:1197` on 03 — Homepage documents all of it.
+- Not carried over: the mobile home has no fixed nav or back-to-top yet.
+
 ---
 
 ## 3. Current state
