@@ -1,8 +1,8 @@
 import re, json
 from jsxparse import load
 from classify import classify
-base='/root/.claude/projects/-home-user-Portfolio/635bf448-beb1-53ff-ab26-8284a7dbe289/tool-results/'
-F={'adidas':'mcp-Figma-get_design_context-1791895066314.txt','indycar':'mcp-Figma-get_design_context-1791895081600.txt','ai':'mcp-Figma-get_design_context-1791895088636.txt','vybe':'mcp-Figma-get_design_context-1791895088390.txt','home':'mcp-Figma-get_design_context-1791895086853.txt'}
+base='data/'
+F={'adidas':'adidas_ctx.json','indycar':'indycar_ctx.json','ai':'ai_ctx.json','vybe':'vybe_ctx.json','home':'home_ctx.json'}
 def size(n):
     c=n.attrs.get('className','')
     w=re.search(r'(?<![\w-])w-\[([\d.]+)px\]',c); h=re.search(r'(?<![\w-])h-\[([\d.]+)px\]',c)

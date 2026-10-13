@@ -9,14 +9,14 @@ Every node keeps its Figma layout classes. On top of that the generator:
 import html, json, re, sys
 from jsxparse import load, Node
 
-BASE = '/root/.claude/projects/-home-user-Portfolio/635bf448-beb1-53ff-ab26-8284a7dbe289/tool-results/'
+# Figma get_design_context exports (asset URLs stripped) live in tools/data/*_ctx.json
 PAGES = {
-    'Home': (BASE + 'mcp-Figma-get_design_context-1791895086853.txt', 'home'),
+    'Home': ('data/home_ctx.json', 'home'),
     'About': ('data/about_ctx.json', 'about'),
-    'Adidas': (BASE + 'mcp-Figma-get_design_context-1791895066314.txt', 'adidas'),
-    'Indycar': (BASE + 'mcp-Figma-get_design_context-1791895081600.txt', 'indycar'),
-    'Ai': (BASE + 'mcp-Figma-get_design_context-1791895088636.txt', 'ai-agent'),
-    'Vybe': (BASE + 'mcp-Figma-get_design_context-1791895088390.txt', 'vybe'),
+    'Adidas': ('data/adidas_ctx.json', 'adidas'),
+    'Indycar': ('data/indycar_ctx.json', 'indycar'),
+    'Ai': ('data/ai_ctx.json', 'ai-agent'),
+    'Vybe': ('data/vybe_ctx.json', 'vybe'),
 }
 SHOTS = json.load(open('shots.json'))
 PENS = {}

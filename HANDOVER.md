@@ -1,10 +1,35 @@
 # HANDOVER — Karthik Anupindi Portfolio Redesign
 
-Last updated: 2026-10-12
+Last updated: 2026-10-13
 Session: https://claude.ai/code/session_01JfDsrrcrD6ejfMG7kQkm1T
-Repo: `/home/user/Portfolio`, branch `claude/vibrant-turing-me78qp` (remote `anupindikarthik529-prog/Portfolio`)
+Repo: `/home/user/Portfolio`, branch `claude/vibrant-turing-me78qp` (remote `anupindikarthik529-prog/Portfolio`). Everything below is committed and pushed.
 
-This file replaces the earlier HANDOVER.md, which still described the repo as empty and the early copy-only phase. Where this file and older notes disagree, this file wins.
+This file is the single source of truth for the next session. §2 is the detailed history (newest at §2.18–2.22). §0 is the short version.
+
+---
+
+## 0. Quick start for the next session
+
+**Where things are:**
+- **Design:** Figma file `1PD7zKot98QgHWacUtWDLm`. All six desktop pages are final and match the website (§2.22).
+- **Website:** a React build of all six pages in `web/`, with hand-drawn animations. Private preview: https://claude.ai/artifact/QhARcaUDaAuZLcwZvuxjDM (version 4; only the user can open it).
+- **Next goal:** move the site into the user's **Framer** project "Portfolio Custom Domain" (`https://framer.com/projects/Portfolio-Custom-Domain--xEzmmvrjgYHm5r7ClkfC-4nwp6`, project ID `xEzmmvrjgYHm5r7ClkfC`).
+  - The user said to **work on it directly**. They have taken a backup.
+  - This is the project behind the live custom domain.
+- **Blocked:** Framer was unreachable from the last session (§9.1). Check access first:
+
+```bash
+node --version                                   # need >= 24 (container ships 22)
+[ -n "$FRAMER_API_KEY" ] && echo key || echo no-key
+curl -sS -o /dev/null -w "%{http_code}\n" -m 10 https://api.framer.com   # 000 / CONNECT 403 = still blocked
+```
+
+**If access works:**
+1. Install Node 24+ (§8).
+2. Run `npx -y @framer/agent@latest setup`.
+3. Run `npx @framer/agent@latest project auth xEzmmvrjgYHm5r7ClkfC "$FRAMER_API_KEY"`.
+4. Run `npx @framer/agent@latest session new "<project link>"`.
+5. Load the `framer` skill and follow its task map. Never print the key.
 
 ---
 
@@ -12,7 +37,10 @@ This file replaces the earlier HANDOVER.md, which still described the repo as em
 
 Redesign Karthik Anupindi's UX/UI portfolio and put it live.
 
-- **Live site today:** https://karthikanupindi.framer.ai (Framer). **Never edit it.** It is reference only.
+- **Live site today:** https://karthikanupindi.framer.ai (Framer).
+  - Until 2026-10-13 the rule was "never edit it".
+  - On 2026-10-13 the user asked to work directly in their Framer project "Portfolio Custom Domain" (backup taken; see §0).
+  - The `.framer.ai` site itself stays reference only.
 - **Design source of truth:** Figma file **`1PD7zKot98QgHWacUtWDLm`** ("Portfolio-2026").
 - **Audience:** US hiring managers for **contract (C2C) UX roles**.
 - **Positioning:** data-driven enterprise UX: complex operational and business problems turned into clear, usable systems, with credible outcomes.
@@ -23,8 +51,8 @@ Redesign Karthik Anupindi's UX/UI portfolio and put it live.
 1. Adidas case study, finalised. **Done.** Waiting on the user's confirmation that it's frozen (see §12).
 2. INDYCAR case study. **Frozen (2026-10-12)** (§2.9).
 3. VYBE case study. **First design pass done** (§2.10). Waiting on the user's one feedback round.
-4. About page.
-5. Build and go live. Hosting is undecided (see §7).
+4. About page. **Done (§2.11), and included in the website.**
+5. Build and go live. **Built as a React site in `web/` (§2.18–2.21). Going live through Framer is the user's chosen next step (§7).**
 6. After launch: the ProTrans **Border Crossing** case study, then the **Design System** case study. Both will become the top projects.
 
 **Ground rules from the user:**
@@ -406,157 +434,249 @@ The user confirmed all four case studies are done (VYBE included).
 
 ## 3. Current state
 
-- **Frozen or done:** the AI Agent case study, and the Adidas screens and case study. Adidas only needs the user's "frozen" confirmation.
-- **INDYCAR:** frozen (`238:1383`, §2.9).
-- **VYBE:** first pass built (`269:1422`, §2.10). It needs the user's feedback round, then freeze.
-- **About:** first pass built (`290:1198`, §2.11). **Home** pass 2 done (§2.11). Both await the user's feedback round. Their content lives in the html.to.design mirror on page "Portfolio" `45:235`: INDYCAR `45:3799`, VYBE `45:5718`, About `45:2073`. Backup copies are on page "Portfolio(Backup)" `46:3178`.
-- **Backup page** `46:3178` also holds `220:2441` (an Adidas case study copy) and `220:6486` (an AI Agent case study copy). Their origin isn't recorded in this session's notes; they're probably snapshot copies. Treat `124:1219` and `156:1268` on "05 — Case Studies" as canonical.
-- **Page "Case Study: Border Crossing"** `0:1` exists, with real ProTrans screens (Dashboard `1:7769`, Row Actions `1:6721`, Last Notes `1:7249`, User Management `1:905`, Rejected Design `2:278`, Diagram_ThreeChannels `32:235`, and others). **It's out of scope until after launch.**
-- **Git:** **push works now** (verified 2026-10-12). The branch `claude/vibrant-turing-me78qp` is on the remote, and the remote head matches local.
-- **Web build:** `npm run build` and `npm run lint` both pass on the current tree (checked 2026-10-12).
+**Figma (`1PD7zKot98QgHWacUtWDLm`): all pages done.** It matches the website after §2.22.
+- **Pages and frames:**
+  - Home `121:1198` (desktop) and `123:1245` (mobile).
+  - About `290:1198`.
+  - Case studies on "05 — Case Studies":
+    - Sales Dashboard (adidas brief) `124:1219`.
+    - INDYCAR `238:1383`, frozen.
+    - AI Agent (Tandem) `156:1268`.
+    - VYBE `269:1422`.
+- **New components on "02 — Components"** (dashed purple outline):
+  - Project Row `369:1218`.
+  - Next project card / AI agent `370:4723`, / Sales dashboard `370:5302`, / VYBE `370:5640`, / INDYCAR `370:5669`.
+  - Testimonial carousel `370:1260`, plus a mobile version `370:1333`.
+  - Screen story / Sales dashboard `371:1350`, and / AI agent workspace `372:1455`.
+  - Nav `373:1204` (Scroll=Top / Scrolled).
+  - Back to top `373:1213`.
+- **Spec frames:**
+  - "Website — Interaction specs (from site reviews)" `374:1197` on "03 — Homepage".
+  - Earlier: Home `333:1268`, INDYCAR `254:1422`, VYBE `281:1916`.
+- **Out of scope until after launch:** page "Case Study: Border Crossing" `0:1` (real ProTrans screens).
+
+**Website (`web/`): built and reviewed in three rounds (§2.18–2.21).**
+- **Pages** (hash routes):
+  - Home `#/`; `#/work` scrolls to Selected work.
+  - About `#/about`.
+  - Case studies: `#/work/indycar`, `#/work/ai-agent`, `#/work/adidas`, `#/work/vybe`.
+- `npm run build` passes. `npm run lint` passes with two harmless fast-refresh warnings in `kit.tsx`.
+- **Playwright checks:** no console errors on any page, at 1440 or 390 px width.
+- **Phones get the scaled desktop layout.** The mobile home frame isn't wired up.
+- **Not deployed anywhere public.** The only viewable copy is the private artifact above.
+
+**Framer:** not connected yet (§9.1).
+
+**Motion:** `motion/` holds a Remotion render of the hero, "The Untangle". Output is in `motion/out/` (mp4 and gif). The site uses its own port of it, not the video.
 
 ---
 
 ## 4. Files created or modified (repo)
 
-| File | Status |
+| Path | What it is |
 |---|---|
-| `HANDOVER.md` | This file (rewritten). |
-| `web/` (whole folder) | Created in commit `1cead17`: `package.json`, `vite.config.ts`, `index.html`, `src/App.tsx`, `src/main.tsx`, `src/index.css`, `src/data.ts`, `src/components/fx.tsx`, `src/assets/*.webp` (indycar, agent, dashboard, vybe, photo, logo), tsconfigs, `.oxlintrc.json`, `README.md`. `dist/` and `dist-single/` are build outputs. |
-| `web/src/data.ts` | The Adidas project title changed to "From Scattered Sales Data to Faster Revenue Decisions". `RESUME` is still the placeholder `'#resume'`. |
-
-Everything else lives in Figma (§2). Local commits since `1f019e7`: `1cead17` (web), then a series of "Handover: …" and "Adidas case study: …" commits up to `933feaf`.
+| `HANDOVER.md` | This file. |
+| `web/` | Vite 8 + React 19 + Tailwind 4 + TypeScript site. `README.md` covers routes, the animation table and known gaps. The old home prototype (`data.ts`, `fx.tsx`, `src/assets/`, Lora / Instrument Sans) was **deleted** in `0705df3`. |
+| `web/index.html`, `web/src/main.tsx` | Page metadata. Fonts come from @fontsource: **Newsreader Variable (opsz)**, Inter, Caveat, Gochi Hand, Barlow Semi Condensed. |
+| `web/src/App.tsx` | Hash router, lazy pages, scaling of the 1440 layout with CSS `zoom`, `--vh-stage` variable, pen-stroke page wipe, `<ScrollTop/>`. |
+| `web/src/index.css` | Lyrical tokens, plus every animation and interaction style. Reveal states apply only `:not(.in)` so Figma utility classes win. |
+| `web/src/lib/animate.ts` | Scroll reveals via IntersectionObserver: `data-a` = rise / words / write / draw / wipe / line / under / img / count / beat. Also: the `inked` mask removal, phone auto-scroll, and pointer-based hover groups (`data-row`). |
+| `web/src/lib/tween.ts`, `untangleGeometry.ts` | interpolate / spring / bezier stand-ins, and the hero geometry (copied from `motion/src/geometry.ts`). |
+| `web/src/components/kit.tsx` | Shared constants: `RESUME`, `LINKEDIN`, `EMAIL`, `MAILTO`, `shot()`. Components: `Nav` (fixed, compacts after 40 px), `ScrollTop`, `Frame` (pen frame), `PenUnderline`, `FooterLinks`, `scrollToWork`. |
+| `web/src/components/Untangle.tsx` | Hero animation on a rAF clock: once ~300 ms after load, blink every 5–6 s, replay on portrait hover (max once per 4 s). Static on mobile or with reduced motion. |
+| `web/src/components/Testimonials.tsx` | Carousel. Dwell is 130 ms × words (min 6 s); pauses on hover, focus or off-screen. |
+| `web/src/components/ScreenStory.tsx` | Pinned final-screens scroll-through for adidas (5) and AI (7). |
+| `web/src/components/AgentBeat.tsx` | Redrawn "Agents propose, people decide" banners. |
+| `web/src/pages/gen/*.tsx` | **Generated. Don't hand-edit.** Edit `tools/gen.py` and re-run it. |
+| `web/public/shots/*.webp` | 104 Figma screenshots of raster areas, named by node ID. `-2x` = re-exported at 2×. |
+| `tools/gen.py` | Figma JSX → TSX generator. Override tables at the top hold copy changes made after the export: `TEXT_OVERRIDE`, `NEXT_OVERRIDE`, `SRC_OVERRIDE`, `HOME_VISUAL`, `STORY`, `STORY_SRC`, `SKIP`, `BEAT`, `TESTIMONIALS`. |
+| `tools/jsxparse.py`, `classify.py`, `lists.py`, `lists.json` | Parser for the Figma JSX, raster/pen classification, and the lists of nodes to export. |
+| `tools/data/*_ctx.json` | Figma `get_design_context` exports for home, about, adidas, indycar, ai, vybe. Asset URLs are stripped. **Inputs to `gen.py`.** |
+| `tools/data/pens1-4.tsv` | Pen SVGs (`nodeId<TAB><svg>`), exported with `use_figma` `exportAsync({format:'SVG_STRING'})`. |
+| `tools/shots.json`, `tools/collect_shots.py` | Screenshot sizes. `collect_shots.py` mapped screenshots from the old session transcript and **won't work in a new session**; new screenshots must be copied in by hand (§6). |
+| `motion/` | Remotion 4.0.535 project (§2.17). |
 
 ---
 
 ## 5. Important decisions and assumptions
 
-**Content integrity (hard rules):**
-- Never fabricate metrics, quotes, research, interviews or outcomes.
-- Separate verified deliverables, observed testing findings and measured production outcomes.
-- **Adidas:** testing was qualitative only. There were two rounds with two business-focused users (wireframes, then the final designs) plus peer walkthroughs, and no quantitative data. All on-screen figures are sample data. The old "~30% faster / ~25% less cognitive load" claims were dropped.
-- The **15% border-crossing wait-time cut** (ProTrans) was measured and is fine to publish.
-- Treat **Border Crossing client names as sensitive**.
+**Content integrity (hard rules, unchanged):**
+- **No invented content.** Never fabricate metrics, quotes, research or outcomes.
+- **Keep claims separate.** Verified deliverables, testing findings and production outcomes are three different things.
+- **Adidas:** qualitative testing only.
+- **INDYCAR:** 30% and 25% **came from testing**.
+- **ProTrans:** the 15% wait-time cut was measured.
+- **Border Crossing:** client names are sensitive.
+- **Positioning:** never state visa status; no "C2C" in the hero.
+- **Testimonials:**
+  - Must be verbatim, except Effy Hernandez's.
+  - Effy's was reworded with the user's approval, but **Effy must approve the wording before launch**.
+  - Never show Effy's contact details.
+  - Edgar is shown as "Edgar Escobar", with no "LinkedIn recommendation" label.
 
-**Positioning and copy:**
-- **Never state visa or work-authorization status.** The role goes in the hero, but **not the word "C2C"**.
-- Voice: confident and crisp. No "helped". Headings are concise takeaways that summarise the section, not intros. Run the humanizer skill on new copy.
-- Use "time-boxed" or "time constraint" rather than repeating "8 hours".
+**Current copy (latest decisions, all mirrored in Figma and the site):**
+- **Home row titles:**
+  - INDYCAR: "How an Information Architecture Rebuild and App Redesign Increased INDYCAR Fan Retention by 30%". This is the user's own wording. The "fan retention" framing was flagged, since 30% was a session-duration increase in testing, and the user kept it.
+  - AI: "Designing Trust Into an AI Agent Workflow for Enterprise Teams".
+  - Adidas: "From Scattered Sales Data to Faster Revenue Decisions".
+  - VYBE: "VYBE: Trading 'Journaling' for a 1-Minute Daily Habit".
+- **AI outcomes heading:** "A complete agent workflow, with a person signing off at every stage" ("in one day" was removed at the user's request).
+- **Adidas:**
+  - Brief quote: "…actionable insights, all in under 8 hours?"
+  - Intro: "…The brief named adidas: its numbers sat across reports, trends, exports and alerts, so I designed one dashboard that ranks what needs attention first."
+  - Tab title: "Sales dashboard challenge" (not "adidas wholesale dashboard"): it's a design challenge, not an adidas engagement.
+- **Next case study order:** INDYCAR → AI agent → Sales dashboard → VYBE → INDYCAR. Each card reuses the project's home preview image.
+- **Resume link everywhere:** `https://drive.google.com/file/u/1/d/1Lm0M9iSy5uVdAX4AAY7Vsvn622sBeMZx/view?usp=drive_link`. The old link `…1EbvfEBWWpgXVhEKMM…` was replaced in the site and in Figma.
+- **Contact:** a mailto with a prefilled subject and body (`MAILTO` in `kit.tsx`). LinkedIn: https://www.linkedin.com/in/karthikanupindi/
+- **Removed by the user:**
+  - "Try the clickable prototype" buttons on adidas and AI.
+  - The AI hero's chat bubbles and the "chat alone hides the work" note.
+  - The AI timeline note "the Spec stage ran 5 hours late…".
 
-**Adidas specifics:**
-- It's a design challenge, not an adidas engagement (stated in the hero pen note).
-- The five final screens were made after the time-boxed sprint, informed by testing and AI assistance: "used AI to generate realistic sample data, draft microcopy and explore layout variations; every screen was designed and refined by me in Figma". The story says the testing and decisions shaped the finals.
+**Interaction decisions (all specced in Figma `374:1197`):**
+- **Hover groups:** a home project row and a next-case-study card are each one hover target, including the gap between text and image.
+  - On hover: a brick pen frame draws around the preview (0.75 s), the title and read link turn brick, and the read link's pen underline draws.
+  - The hover is recomputed on scroll, so a still pointer follows the page.
+- **Nav:** fixed. Transparent 96 px at the top; a 64 px solid paper bar with a hairline after 40 px of scroll. The user asked whether a fixed nav was a good idea; it was recommended and kept. Offered and not taken: hide on scroll down.
+- **Back to top:** bottom right, 28 px from the edges. Appears after one screen of scrolling and lifts above the footer links at the bottom.
+- **Final screens (adidas, AI):** a list on the left and one large 920 px screen on the right, pinned. Each screen gets about 0.8 of a viewport of scroll; clicking a name jumps to it.
+- **Testimonials:** one quote at a time, with a pen-stroke timer, previous/next buttons and pause on hover.
+- **Nav links:** the brick hand-drawn underline draws on hover/focus (350 ms) and retracts in 200 ms. No active state; nothing underlined at rest.
+- **Reduced motion:** everything shows immediately.
 
-**Project framing labels:** "Client Engagement — NTT INDYCAR", "Design Challenge" (AI Agent and Sales Dashboard), "Academic Project" (VYBE).
-
-**Final project order once ProTrans exists:** ProTrans Border Crossing → ProTrans Design System → INDYCAR → AI Agent → Sales Dashboard → VYBE.
-
-**INDYCAR numbers:** use only the numbers in the case study itself: 30% session-duration increase, 25% bounce-rate drop, 4.8/5 SUS, 4.9/5 stakeholder rating, 85% feature preference, plus the named stakeholder quote from David Craske. The resume's NTT INDYCAR line ("learning app, session 30→50 min, +25 satisfaction") may describe a different project. Don't mix the two sets.
-
-**Home page row titles** (latest; some have evolved since the earlier chat lists):
-- "How an Information Architecture Rebuild Cut Bounces 25% and Kept Fans 30% Longer in Testing"
-- "Designing Trust Into an AI Agent Workflow for Enterprise Teams"
-- "From Scattered Sales Data to Faster Revenue Decisions"
-- "VYBE: Trading 'Journaling' for a 1-Minute Daily Habit"
-
-**Motion intent** (for the build): draw-on-scroll pen lines; brush paints on once at 35% visibility (700ms ease-out); lettering fades in over 300ms; only the signature line is scroll-scrubbed; reduced motion shows the final state.
-
-**Prototype on the site:** either a looping video of the Figma prototype (to be recorded at build time) or a button that opens the Figma prototype in a new tab. The button link is already set.
+**Build decisions:**
+- **Layout:** pages keep the Figma 1440 absolute layout and are scaled with CSS `zoom`. This is faster and exact, but there's no real responsive layout.
+- **Generated pages:** they come from the Figma design-context export. Design changes made after that export are applied through `gen.py` override tables, not by re-exporting.
+- **Newsreader** must be the variable font with the opsz axis; the static files set wider and break Figma's line breaks.
 
 ---
 
 ## 6. Figma working notes (how to work in these files)
 
 - **Tools:**
-  - `use_figma` runs Plugin API JS, up to 50k characters. Pass `skillNames: "resource:figma-use,resource:figma-generate-design"`. A run that errors rolls back **atomically**.
-  - `get_screenshot` needs `enableBase64Response: true`, because downloading from figma.com via curl is blocked.
-  - Frames **can't be copied between files**, so rebuild screens by script in the target file (this is how the Stride and Tandem source sections were made).
-- **Fonts:** Inter's style name is `"Semi Bold"`; Barlow Semi Condensed's is `"SemiBold"`. Load fonts before setting `characters`.
-- **Paints:** paint opacity is lost when binding via `setBoundVariableForPaint`. Use a token or a plain paint with opacity instead.
-- **Headings:** `findAll` doesn't descend into instance sublayers in clones. Access the heading as `sec.children.find(n=>n.name==='CS / Section Heading').children.find(x=>x.name==='Title')` (or `'Label'` / `'Intro'`).
-- **Layout:** the case study frame `124:1219` is **vertical auto-layout**, so sections reflow when they change height. Inside sections the layout is mostly NONE (absolute): after a text edit, shift the siblings below it and resize the section.
-- **Crops:** clone a source screen into a clipped frame. Set the clone to `x=0, y=0` before scaling and offsetting.
-- **Prototype links:** use `setReactionsAsync([{trigger:{type:'ON_CLICK'},actions:[{type:'NODE',destinationId,navigation:'NAVIGATE',transition:null}]}])`. Links to a node's own top-level frame are rejected. Set start points with `page.flowStartingPoints`.
-- **Text hyperlinks:** `textNode.hyperlink = {type:'URL', value}`.
-- **Old html.to.design pages:** Framer imports contain opacity-0 animation states, `::after` rectangles that need `insertChild(0, …)`, and constraints that shift nodes on resize (set them to MIN).
-- **Text lookup:** `findOne` can match a FRAME named like a text node. Filter by `type==='TEXT'`.
+  - `use_figma` runs Plugin API JS, up to 50k characters, and its return value is limited to 20 KB. A failed run rolls back atomically.
+  - `get_screenshot` needs `enableBase64Response: true`; the PNG is saved under the session's `tool-results/` folder as `mcp-Figma-blob-*.png`. **This is the only way to get images to disk**: curl to figma.com, including `download_assets` URLs, returns 403.
+  - **Screenshots render at 1×.** For 2×, clone the node off-canvas, `rescale(2)`, screenshot the clone, then delete it.
+  - **Clipped content:** for clipped content (full-length phone screens), clone with `clipsContent=false`.
+  - **Transparent frames** export on Figma's grey canvas; give the clone a paper fill (`#F3EDE1`) first.
+  - **Clean up:** name temporary clones `TEMP EXPORT …` and always delete them.
+- **Getting a new screenshot into the site:** convert it with Pillow to `web/public/shots/<node-id>.webp`, add `[w,h,mode]` to `tools/shots.json`, re-run `gen.py`.
+- **Fonts:**
+  - Inter's style is "Semi Bold"; Barlow Semi Condensed's is "SemiBold".
+  - Newsreader styles in this file: Regular, Light, Medium, Italic, Light Italic.
+  - Load fonts before setting `characters`.
+- **Prototype rules:**
+  - A NAVIGATE action set inside a component on "02 — Components" can't target frames on another page. Set click-through on the **instance** instead.
+  - CHANGE_TO between variants works across pages.
+  - AFTER_TIMEOUT is in seconds.
+  - SCROLL_TO with `SCROLL_ANIMATE` works for back-to-top.
+- **Fixed elements:** move the node to the top-level page frame, set `layoutPositioning='ABSOLUTE'`, keep it among the last children, and set `frame.numberOfFixedChildren`.
+- **Nested variants:** changing a nested instance's variant resets its TEXT property, so re-apply Label.
+- **SVG frames:** `createNodeFromSvg` frames clip by default.
+- **Text lookup:** `findAll` doesn't descend into instance sublayers in clones; `findOne` can match a FRAME named like a text node, so filter by `type==='TEXT'`.
+- **Layout:** case study frames are vertical auto-layout, and sections inside them are absolute. After height changes, resize the section.
 
 ---
 
-## 7. Hosting decision (open)
+## 7. Hosting / go-live (decided direction: Framer)
 
-**Option A: Framer.** The user rebuilds the pages in Framer from the Figma designs.
-
-**Option B: the React site in `web/`, deployed via Vercel or Netlify.**
-- Needs GitHub push access fixed first (§9).
-- Needs a Lyrical restyle and the remaining pages (case studies, About).
-- `RESUME` in `data.ts` needs a hosted PDF.
-
-Not decided. Ask the user when step 5 arrives.
+- **Direction:** on 2026-10-13 the user asked to work on the site in their Framer project "Portfolio Custom Domain", directly, with a backup taken. Framer is the go-live path.
+- **What ports well:** layout, copy and images (`web/public/shots`). Framer builds from its own layers, so `web/` won't import as-is.
+- **What needs code components:** the hero (Untangle), ScreenStory, Testimonials, AgentBeat, hover groups and the pen-draw reveals. Port them from `web/src/components` and `web/src/lib/animate.ts`. The `framer-code-components` skill covers the platform rules.
+- **Fallback:** deploy `web/` statically to Vercel, Netlify or GitHub Pages with `npm run build` → `web/dist`. The hash router means no server config is needed. Not done; it needs the user's go-ahead and a host.
 
 ---
 
 ## 8. Commands and tests run
 
-- `cd web && npm install`, `npm run dev`, `npm run build`, `SINGLE=1 npx vite build --outDir dist-single`, `npm run lint` (oxlint).
-  - Last check, 2026-10-12: the build succeeds (Vite, about 0.8s) and the lint is clean.
-- Figma MCP:
-  - `get_metadata`, `get_screenshot` (base64) and `use_figma` across files `1PD7zKot98QgHWacUtWDLm`, `HNs8Ge4CJupGPpK6COlk8c` and `VpHjBjcQp0Tel5NC2WCsQU`.
-  - Every structural change was verified with a screenshot.
-- Resume extraction: `unzip` the .docx, then a Python regex over `word/document.xml` (pandoc isn't installed).
-- `git commit` many times, and `git push -u origin claude/vibrant-turing-me78qp`, which **fails with 403** (§9).
+- **Site:** `cd web && npm install`, `npm run build`, `npm run lint` (oxlint), `npx vite preview --port 4173 --strictPort`. All pass as of the last commit.
+- **Generator:** `cd tools && python3 gen.py`. It now reads `tools/data/*_ctx.json` and was verified to produce identical pages after the move.
+- **Visual checks:** Playwright 1.56.1, installed in the session scratchpad (not the repo), driving `/opt/pw-browsers/chromium-1194/chrome-linux/chrome`.
+  - Ad-hoc scripts took full-page and interaction screenshots: hero beats, nav hover, row/next-card hover including scroll-under-pointer, testimonial timing, ScreenStory steps, back-to-top, reduced motion, and a 390 px width.
+  - Every page: `errors []`.
+- **Preview build:** `npx vite build --base=./ --outDir <scratch>/site`, wrapped in `portfolio.html`, then published with the Artifact tool along with `assets/` and `shots/` (version 4).
+- **Remotion:** `cd motion && node render.mjs` writes `out/untangle.mp4` and `.gif`. It uses the `chromium_headless_shell-1194` executable, and the option is `outputLocation`.
+- **Node 24+ for Framer:**
+  - The container ships `/opt/node22`. Ubuntu apt only has Node 18, and `deb.nodesource.com` is blocked.
+  - What worked: the official binary from `https://nodejs.org/download/release/latest/` (`node-v26.11.1-linux-x64.tar.xz`, sha256 checked against `SHASUMS256.txt`), extracted to `/opt/node-latest`, with `node`, `npm`, `npx` and `corepack` symlinked into `/root/.local/bin`, which is first on PATH.
+  - This lives outside the repo, so **redo it in a new container**, or add it to the environment setup script.
+- **Framer setup:** `npx -y @framer/agent@latest setup` succeeded and installed the skills `framer` and `framer-code-components` into `~/.claude/skills`. They are outside the repo and are lost with the container.
+- **Git:** every commit was pushed with `git push -u origin claude/vibrant-turing-me78qp`. Latest commits: website `0705df3`, review rounds `e991e07`, `2d431b8`, `c8ae6ae`, Figma sync `a2983c8`.
 - There are no automated tests in the repo.
 
 ---
 
 ## 9. Errors, failed attempts and unresolved issues
 
-**Blocking or unresolved:**
-- ~~GitHub push returns 403.~~ **Resolved 2026-10-12:** `git push -u origin claude/vibrant-turing-me78qp` succeeded, and every earlier local commit is now on the remote.
-- **INDYCAR metrics: resolved 2026-10-12.** The user confirmed that 30% and 25% **came from testing**, not production. The title ends "in Testing", the Outcomes heading reads "In testing, sessions ran 30% longer and bounces fell 25%", and the group is labelled "Engagement in testing". Never present them as launch results.
-- **INDYCAR role: resolved.** UX designer who also led a team of four (two UX researchers and one UI designer). The hero reads ROLE "UX Designer and team lead" and TEAM "2 UX researchers, 1 UI designer, me". Home rows (desktop `I121:1232;120:1222`, mobile `123:1268`) read "UX designer and team lead · 2023".
-- ~~INDYCAR metrics context (question for the user):~~ the mirror lists 30% session duration and −25% bounce rate under "Impact: UX & Business", next to testing methods. It doesn't say whether these were measured in production analytics or in testing. The new frame groups them as "Engagement" without claiming either. Confirm with the user before adding a "measured after launch" label.
-- **Adidas prototype sharing:** the user must set link-view sharing on Figma file `HNs8Ge4CJupGPpK6COlk8c`, or the "Try the clickable prototype" link won't open for recruiters.
-- **No prototype video:** it can't be recorded from this environment. Do it at build time.
-- **AI Agent open items:**
-  - The TaskMaster consumer example sits under an "enterprise teams" title.
-  - The interaction ideas (playable agent flow, layout tabs, sticky progress tracker, pinned comments) aren't specced.
-- **Copy issues in the old INDYCAR and VYBE mirrors**, to fix during their rewrite:
-  - VYBE: "Opened 1 times"; a fragment in Focus Mode: "…block all the social media apps from using."
-  - Emoji bullets (✅❌🔹💡🎯📌) used inconsistently.
-  - Recurring boilerplate lines copied across case studies: "Clarity over Complexity", "transform this output into an enterprise-wide solution…", "Courageous simplification outperforms exhaustive complexity".
-- **Open copy questions from earlier:** About wording, and missing job titles for The Heart Center and TCS.
-- **Optional, needs confirmation:** "reality check" boxes on the AI Agent case study were discussed. The user removed the one from Adidas, so ask before adding any.
+**9.1 Framer connection: blocking.**
+- **Network:** `framer.com` and `api.framer.com` are denied by the environment's network policy (proxy CONNECT 403).
+  - Fix (user): environment settings → Network access → Allowed domains: add both, keeping "Allow package managers" ticked.
+- **Sign-in:** `npx @framer/agent@latest session new <url>` opens a browser auth deeplink (`framer.com/projects/server-api/auth?callback=http://127.0.0.1:<port>/callback…`). The callback goes to the container's localhost, which the user's browser can't reach, so it hangs until the timeout.
+  - Workaround built into the CLI: `npx @framer/agent@latest project auth <projectId> <apiKey>`.
+  - The user must create a key in Framer (Site Settings → General → API Keys) and store it as the env var or secret `FRAMER_API_KEY`. **Never ask for it in chat.**
+- **No Framer MCP or connector:** there's no Framer MCP tool and no Framer entry in the claude.ai connector directory. The `@framer/agent` CLI is the route.
+- **Status at handover:** the user was told all of this twice. The key and the allowlist were **not** yet set when the session ended.
 
-**Failed attempts and workarounds (don't retry):**
-- `curl` to figma.com asset URLs gets a 403 from the proxy, and `upload_assets` to mcp.figma.com is blocked. Use base64 screenshots for viewing and script rebuilds for moving screens.
-- `WebFetch` on Instagram is egress-blocked.
-- `pandoc` isn't installed.
-- Long base64 images pasted into scripts got corrupted. If you must embed one, compress it, keep it under ~7KB per chunk, and checksum it.
-- **Rejected design approaches:**
-  - re-skinning the old home page ("not even 50% same")
-  - an exact Sevora clone ("not exact replication")
-  - dark navy generic SaaS screens, and the v2 Sales Desk ("too technical")
-  - v3 Stride ("looks like wireframes")
-  - the brush lettering beats on Adidas ("confusing")
-  - green left-border callout cards ("look AI-generated")
+**9.2 Open content items.**
+- **Effy's testimonial:** she must approve the reworded quote before launch.
+- **VYBE prototype video:** still a poster still (`280:1207`). The real video file is needed.
+- **INDYCAR screens:** Flags, Road and street, and Championship are short exports; no full-length screens exist. They keep the bottom fade and "continues in the walkthrough ↗".
+- **INDYCAR title:** "fan retention" wording flagged; the user kept it.
+- **AI agent:** the three planned interactions (show-changes toggle, phase details on hover, embedded prototype) are not built; their annotations were dropped.
+
+**9.3 Site limitations.**
+- **Mobile:** desktop layout scaled down; the mobile home frame `123:1245` is not used.
+- **Figma prototype vs site:**
+  - The Figma prototype can't scroll-drive ScreenStory; you click names instead.
+  - The nav doesn't compact in the prototype.
+  - Back-to-top is always visible there.
+  - The home row image overlay (e.g. `121:1243`) sits above the row, so hovering only the image doesn't trigger the row's Hover variant in the prototype. The site handles it.
+- **Mobile Figma home:** no fixed nav or back-to-top.
+
+**9.4 Fixed bugs (don't reintroduce).**
+- An unlayered `a{color:inherit}` overrode Tailwind colours; base styles now live in `@layer base`.
+- Reveal CSS overrode Figma opacity and transforms; reveal states now apply only `:not(.in)`.
+- `clip-path` on hidden Caveat notes stopped the IntersectionObserver from firing; they now use an animated mask (`--wp`), removed after drawing (`inked`) so "?" glyphs aren't clipped.
+- Round-cap dots showed at `stroke-dashoffset: 1`; hidden strokes are now set to `opacity: 0`.
+- `TEXT_OVERRIDE` used to return a bare `<p>`, dropping the next-card link; it now swaps the text inside the node.
+- The vite preview server dies between shells. Restart it with `until curl -s localhost:4173; do (npx vite preview --port 4173 --strictPort &); done`.
+
+**Failed attempts (don't retry):** see also the list in §2.
+- `curl` to figma.com assets returns 403, and so does `upload_assets` to mcp.figma.com.
+- Moving `motion` 60 px up: the user reverted it ("I like previous one").
+- These earlier design approaches were rejected:
+  - re-skinning the old home page;
+  - an exact Sevora clone;
+  - generic dark SaaS screens and v2/v3 Stride;
+  - Adidas brush lettering;
+  - green left-border callout cards.
 
 ---
 
 ## 10. Clear next steps
 
-1. ~~Ask the user to confirm the Adidas case study is frozen.~~ **Confirmed frozen "for now" (2026-10-12).** The last change was the Goals box (§2.7). Also ask whether to keep or drop "What I would measure next" in Outcomes. The recommendation is to keep it, since it's now the only place that mentions future measurement.
-2. ~~INDYCAR case study~~ **Frozen 2026-10-12.** Unanswered (left as is): 
-   - Keep or drop the iteration-1 screen showing "VIDEO???"?
-   - Link the Drive PDF "detailed case study"?
-   - CS / Decision blocks weren't used, because the source has no trade-offs to report and inventing them would break the content rules. If the user wants a decisions section, they need to supply the trade-offs.
-3. **VYBE case study:** the first pass is done (`269:1422`, §2.10). Next is the user's feedback round, then freeze. It's an academic project with no launch metrics; keep that framing.
-4. **About page** (`45:2073`): rewrite in the Lyrical style. Keep it human and professional. Include the HCI background, experience, tools, resume and contact links.
-5. Update the home page rows `121:1198` and `123:1245` if any titles change.
-6. **Go live:** get the hosting decision from the user (§7).
-   - For React: fix GitHub access, restyle `web/` to the Lyrical system, build the case study and About routes, add a hosted resume PDF, and deploy.
-   - For Framer: hand over the Figma frames.
-7. After launch: the ProTrans **Border Crossing** case study (page `0:1`; verified context in the user's original brief: no prior dedicated system; info lived across Optimiz, email and phone; six decisions; client names sensitive), then the **Design System** case study.
+1. **Unblock Framer** (§9.1). If `FRAMER_API_KEY` is set and `api.framer.com` is reachable:
+   - install Node 24+ (§8);
+   - `npx -y @framer/agent@latest setup`;
+   - `npx @framer/agent@latest project auth xEzmmvrjgYHm5r7ClkfC "$FRAMER_API_KEY"`;
+   - `session new` with the project link;
+   - load the `framer` skill and read its `projects/<id>/index.md` task map.
+
+   If it's still blocked, tell the user in a few lines what's missing and stop.
+2. **Inventory the Framer project:** pages, components, CMS collections, styles and fonts. Report back, then plan the migration with the user: replace pages in place, page by page. The user said to work on it directly.
+3. **Rebuild in Framer:**
+   - Styles first: Lyrical colour tokens, Newsreader / Inter / Caveat text styles.
+   - Then pages: Home, About, then the four case studies.
+   - Upload images from `web/public/shots/` as assets.
+   - Then code components (§7): Untangle hero, ScreenStory, Testimonials, AgentBeat, hover groups, pen-draw reveals.
+   - Keep routes equivalent: `/`, `/about`, `/work/<slug>`. Keep the resume, LinkedIn and mailto links from `kit.tsx`.
+4. Before publishing, ask the user. Publishing changes the live custom domain.
+5. **Still open with the user:**
+   - Effy's approval.
+   - The VYBE video.
+   - Mobile layout (Framer breakpoints are the natural place to solve it).
+   - The AI interactions from §9.2.
+6. **After launch:** the ProTrans Border Crossing case study (Figma page `0:1`), then the Design System case study.
 
 ---
 
