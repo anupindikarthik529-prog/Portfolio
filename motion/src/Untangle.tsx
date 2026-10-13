@@ -59,8 +59,8 @@ const Body: React.FC = () => (
     <path {...S} d="M141 123 C138 135 135 141 139 144 C142 146 146 145 148 142" />
     <path fill={INK} d="M106 146 C104 170 116 196 140 200 C164 198 178 172 176 146 C170 158 162 160 156 158 C150 153 132 153 126 158 C120 160 112 158 106 146 Z" />
     <path {...S} d="M113 192 C125 204 157 204 169 191 M110 215 C126 227 157 227 173 213 M113 192 C111 199 110 207 110 215 M169 191 C171 198 172 206 173 213" />
-    <path {...S} d="M110 215 C80 222 54 234 42 257 C33 277 30 306 28 338 L26 440" />
-    <path {...S} d="M173 213 C203 220 229 232 241 255 C251 276 254 306 255 338 L256 440" />
+    <path {...S} d="M110 215 C80 222 54 234 42 257 C33 277 30 306 28 338 L24 500" />
+    <path {...S} d="M173 213 C203 220 229 232 241 255 C251 276 254 306 255 338 L257 500" />
     <path {...S} d="M141 231 C140 245 139 256 141 266" />
   </>
 );
@@ -192,13 +192,13 @@ export const Untangle: React.FC = () => {
         {/* The string */}
         <path d={toPath(pts)} fill="none" stroke={INK} strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" />
         <g opacity={arrow}>
-          <path d="M1142.7 398.1 L1147 410.4 L1134.1 409" fill="none" stroke={INK} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M1144.5 337.7 L1147 350.4 L1134.6 347.2" fill="none" stroke={INK} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
         </g>
 
         {/* Pull marks */}
         <g opacity={marks} fill="none" stroke={BRICK} strokeWidth={1.8} strokeLinecap="round">
-          <path d="M1090 514 C1084 522 1082 532 1084 542" />
-          <path d="M1078 506 C1070 518 1068 532 1071 546" />
+          <path d="M1090 454 C1084 462 1082 472 1084 482" />
+          <path d="M1078 446 C1070 458 1068 472 1071 486" />
         </g>
 
         {/* Portrait */}

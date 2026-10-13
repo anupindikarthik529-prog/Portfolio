@@ -360,6 +360,9 @@ The user confirmed all four case studies are done (VYBE included).
 - **Remotion project `motion/`** (Remotion 4.0.535, React 19): `src/Untangle.tsx` (timeline T, portrait, arm poses), `src/geometry.ts` (string point sets that morph point by point), `render.mjs` (uses `/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell`; the option is `outputLocation`, not `output`).
   - Output: `motion/out/untangle.mp4` (1440×760, 30fps, 200 frames ≈ 6.7s, ~0.56MB) and `motion/out/untangle.gif` (half size, 15fps).
   - Fonts come from @fontsource (Newsreader 300/500, Inter 400/500), loaded via delayRender.
+- **Lifted 60px (2026-10-13, user request).** The portrait sits at hero y 270 (was 330), and the shoulder lines now run to local y 500 so the body still exits the bottom edge.
+  - Remotion: PORTRAIT_ORIGIN [1080,270], FIST_REACH [1094,396], FIST_PULL [1112,474]; the signature curve ends at the glasses (1147,350.4); the arrowhead and pull marks moved up 60.
+  - Figma: the live hero, the mobile clone (shoulders only) and all eight keyframes were updated, with Grab, Pull, Marks, Release and Signature lines redrawn to the new positions. The video was re-rendered.
 - For the site: port the same timeline to an SVG + Motion component in `web/` (or rebuild it in Rive). Play once, replay on hover, reduced motion shows the final frame.
 
 ---
