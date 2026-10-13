@@ -278,6 +278,16 @@ The user confirmed all four case studies are done (VYBE included).
 - **Dropped at the user's request:** the "About my Branding" section (logo and neon colour story) and the "World Through My Lens" photo gallery.
 - Not wired: home "About & resume" / "More about me" → the About page (Figma prototype links don't cross pages); do this at build.
 
+
+### 2.12 Header hover interaction (2026-10-13)
+- New component set **"Nav link"** `315:1269` on "02 — Components" (variants State=Default `315:1261` / State=Hover `315:1265`, TEXT property "Label").
+  - Each variant holds the label, then a clipped "Draw mask" frame containing a 62px clone of Contact's brick hand-drawn underline. The mask is 0.01px wide in Default and FILL (the label's width) in Hover.
+  - Default has ON_HOVER → CHANGE_TO Hover, SMART_ANIMATE ease-out 350ms, so the line reveals left to right like a pen stroke and retracts on mouse-out.
+- The Nav component `120:1207` now uses Nav link instances for Work, About and Resume. Contact keeps its permanent underline (it's the CTA).
+- This propagates to all eight Nav instances: home, About, and all four case studies, plus the two backup copies.
+- Build spec (also in the component description): SVG path with stroke-dasharray/dashoffset, 350ms ease-out in and 200ms out; the same on keyboard focus; reduced motion shows the line instantly. Mobile uses "Menu", so it has no hover.
+- Prototype start points added: "Home — desktop" (03 — Homepage) and "About — desktop" (06 — About).
+
 ---
 
 ## 3. Current state
