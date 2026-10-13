@@ -10,7 +10,9 @@ export const EMAIL = 'karthikanupindi98@gmail.com'
 export const MAILTO =
   'mailto:karthikanupindi98@gmail.com?subject=Hello%20Karthik%2C%20saw%20your%20portfolio&body=Hi%20Karthik%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20talk%20about%20a%20UX%20role%20%2F%20project%3A%0A%0A%5BA%20line%20about%20the%20role%2C%20team%20or%20problem%5D%0A%0ABest%2C%0A%5BYour%20name%5D'
 
-export const shot = (id: string) => `${import.meta.env.BASE_URL}shots/${id}.webp`
+// The offline single-file build injects window.__SHOTS (id → data URI); the normal build loads files.
+const inlined = (globalThis as { __SHOTS?: Record<string, string> }).__SHOTS
+export const shot = (id: string) => inlined?.[id] ?? `${import.meta.env.BASE_URL}shots/${id}.webp`
 
 /** Smooth-scroll to the Selected work section (home), or go home and then scroll. */
 export function scrollToWork(e?: React.MouseEvent) {

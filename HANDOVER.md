@@ -495,6 +495,7 @@ The user confirmed all four case studies are done (VYBE included).
 | `tools/data/pens1-4.tsv` | Pen SVGs (`nodeId<TAB><svg>`), exported with `use_figma` `exportAsync({format:'SVG_STRING'})`. |
 | `tools/shots.json`, `tools/collect_shots.py` | Screenshot sizes. `collect_shots.py` mapped screenshots from the old session transcript and **won't work in a new session**; new screenshots must be copied in by hand (§6). |
 | `motion/` | Remotion 4.0.535 project (§2.17). |
+| `tools/make_offline.py` | Builds the whole site as one self-contained HTML file. `shot()` reads `window.__SHOTS` data URIs first. The user downloaded `Karthik-Anupindi-Portfolio.html` (offline, ~5 MB) and `Karthik-Anupindi-Portfolio-site.zip` (static build for hosting) on 2026-10-13. |
 
 ---
 
