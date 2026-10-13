@@ -30,7 +30,8 @@ for f in ('data/pens1.tsv', 'data/pens2.tsv', 'data/pens3.tsv', 'data/pens4.tsv'
         pass
 
 # Nodes the site draws itself (hero animation) or that are design notes.
-SKIP = {'327:1227', '121:1211', '350:1228', '121:1297'}
+SKIP = {'327:1227', '121:1211', '350:1228', '121:1297',
+        '186:2708', '165:2976'}  # the two 'Try the clickable prototype' buttons (removed in Figma too)
 # Home rows / visuals → case study routes
 ROW_ROUTE = {'121:1232': 'indycar', '121:1243': 'indycar', '121:1248': 'ai-agent', '121:1259': 'ai-agent',
              '121:1264': 'adidas', '121:1275': 'adidas', '121:1280': 'vybe', '121:1291': 'vybe'}
@@ -54,7 +55,7 @@ SRC_OVERRIDE = {'156:1290': '156-1290-2x'}
 # Next-project cards reuse the home-page preview of the project they point to
 HOME_VISUAL = {'indycar': '121-1243', 'ai-agent': '121-1259', 'adidas': '121-1275', 'vybe': '121-1291'}
 # Final-design grids that become a scroll-through story: section → (story starts, tail starts)
-STORY = {'126:1292': (363, 2600), '158:1343': (400, 2200)}
+STORY = {'126:1292': (363, 2600, 40), '158:1343': (400, 2200, 40)}  # (story starts, tail starts, tail height)
 STORY_SRC = {'226-2682': ('226-2682', 1280, 910), '165-2737': ('165-2737-2x', 1280, 853)}
 # AI "Agents propose, people decide" beat: the banners, labels and links are redrawn by <AgentBeat/>
 BEAT = '156:1841'
@@ -177,8 +178,9 @@ class Gen:
         if tag == 'p':
             t = text_of(n).strip()
             extra += self.text_anim(n, cls, t)
-            if nid in TEXT_OVERRIDE:
-                return f'<p{self.attrs(n, cls, extra)}>{{{json.dumps(TEXT_OVERRIDE[nid], ensure_ascii=False)}}}</p>'
+            if nid in TEXT_OVERRIDE:  # copy changed after the export; keep the node, swap the text
+                n = Node(n.tag, n.attrs)
+                n.children = [TEXT_OVERRIDE[nid]]
         elif name == 'Rectangle' and re.search(r'(?<![\w-])h-px', cls) and 'bg-' in cls:
             extra += ' data-a="line"' + self.anim_delay(cls)
         elif name in ('Rule',):
@@ -226,6 +228,9 @@ class Gen:
         if self.page == 'Home' and nid == '121:1199':
             ctx = dict(ctx, hero=True)
         inner = ''.join(self.emit(c, depth + 1, ctx) for c in n.children)
+        if depth == 1 and name == 'Next project' and ctx.get('next'):
+            inner = (f'<a href="#/work/{ctx["next"]}" data-row="next" className="absolute left-[80px] top-[96px] w-[1280px] h-[364px] next-hit" '
+                     f'tabIndex={{-1}} aria-hidden="true"></a>') + inner
         if self.page == 'Home' and nid == '121:1199':
             inner += '<Untangle />'
         if depth == 0:
@@ -234,7 +239,7 @@ class Gen:
 
     # ------------------------------------------------------------------
     def story(self, n, cls, name):
-        y0, y1 = STORY[n.nid]
+        y0, y1, tail_h = STORY[n.nid]
         H = px(cls, 'h')
         kids = [c for c in n.children if isinstance(c, Node)]
         top = lambda c: px(c.attrs.get('className', ''), 'top') or 0
@@ -268,7 +273,7 @@ class Gen:
         return (f'<div className="relative shrink-0 w-[1440px]" data-section="{esc_attr(name)}">'
                 f'<div className="relative w-[1440px]" style={{{{height: {y0}}}}}>{head}</div>'
                 f'<ScreenStory items={{{js}}} />'
-                f'<div className="relative w-[1440px]" style={{{{height: {H - y1:g}}}}}>{tail}</div></div>')
+                f'<div className="relative w-[1440px]" style={{{{height: {tail_h}}}}}>{tail}</div></div>')
 
     def testimonials(self, n, cls, name):
         cols = {}

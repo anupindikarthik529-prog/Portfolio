@@ -52,22 +52,62 @@ function NavLink({ href, children, onClick, newTab }: { href: string; children: 
   )
 }
 
+/** The site nav. It stays fixed at the top: transparent and full height over the hero as
+ *  designed, then a compact paper bar with a hairline once the page scrolls. */
 export function Nav() {
+  const [compact, setCompact] = React.useState(false)
+  React.useEffect(() => {
+    const on = () => setCompact(window.scrollY > 40)
+    on()
+    addEventListener('scroll', on, { passive: true })
+    return () => removeEventListener('scroll', on)
+  }, [])
   const work = (e: React.MouseEvent) => {
     if (document.getElementById('work')) scrollToWork(e)
   }
   return (
-    <nav aria-label="Main" className="absolute h-[96px] left-0 top-0 w-[1440px] z-20">
-      <a href="#/" className="absolute left-[80px] top-[36px] font-['Newsreader_Variable'] font-medium text-[20px] leading-[normal] text-[#20201e] nav-name">
-        Karthik Anupindi
-      </a>
-      <div className="absolute flex gap-[40px] items-start left-[1045px] top-[38px]">
-        <NavLink href="#/work" onClick={work}>Work</NavLink>
-        <NavLink href="#/about">About</NavLink>
-        <NavLink href={RESUME} newTab>Resume</NavLink>
-        <NavLink href={MAILTO}>Contact</NavLink>
-      </div>
-    </nav>
+    <>
+      <div className="absolute h-[96px] left-0 top-0 w-[1440px]" aria-hidden="true" />
+      <nav aria-label="Main" className={`site-nav ${compact ? 'compact' : ''}`}>
+        <a href="#/" className="nav-name font-['Newsreader_Variable'] font-medium text-[20px] leading-[normal] text-[#20201e]">
+          Karthik Anupindi
+        </a>
+        <div className="nav-links flex gap-[40px] items-start">
+          <NavLink href="#/work" onClick={work}>Work</NavLink>
+          <NavLink href="#/about">About</NavLink>
+          <NavLink href={RESUME} newTab>Resume</NavLink>
+          <NavLink href={MAILTO}>Contact</NavLink>
+        </div>
+      </nav>
+    </>
+  )
+}
+
+/** Back to top: appears after the first screen, bottom right, on every page. */
+export function ScrollTop() {
+  const [show, setShow] = React.useState(false)
+  const [lift, setLift] = React.useState(false)
+  React.useEffect(() => {
+    const on = () => {
+      setShow(window.scrollY > window.innerHeight * 0.9)
+      // near the end, rise above the footer links so it never covers them
+      setLift(window.scrollY + window.innerHeight > document.documentElement.scrollHeight - 140)
+    }
+    on()
+    addEventListener('scroll', on, { passive: true })
+    return () => removeEventListener('scroll', on)
+  }, [])
+  const top = () => {
+    window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })
+    ;(document.querySelector('.nav-name') as HTMLElement | null)?.focus({ preventScroll: true })
+  }
+  return (
+    <button type="button" className={`to-top ${show ? 'on' : ''} ${lift ? 'lift' : ''}`} onClick={top} aria-label="Back to top" tabIndex={show ? 0 : -1}>
+      <svg viewBox="0 0 56 56" aria-hidden="true">
+        <path className="ring" pathLength={1} d="M28 4.5C41 4.2 51.6 14.6 51.5 28.2C51.4 41.4 41.2 51.8 27.6 51.6C14.4 51.4 4.4 40.9 4.6 27.7C4.8 15.2 14.6 5.2 26.8 4.2" />
+        <path className="arrow" d="M28.2 38.6C28.6 32 27.6 25 28 17.6M21.4 23.8L28 17.2L34.6 23.6" />
+      </svg>
+    </button>
   )
 }
 

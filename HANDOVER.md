@@ -386,6 +386,12 @@ The user confirmed all four case studies are done (VYBE included).
 - Copy changed in Figma and in `TEXT_OVERRIDE` (tools/gen.py): AI outcomes heading "A complete agent workflow, with a person signing off at every stage"; adidas brief quote "…all in under 8 hours?"; adidas intro now says "The brief named adidas: …".
 - adidas next-case-study card now points to VYBE (Figma: title `129:1326`, visual replaced by a clone of the home VYBE preview `363:1324`; site: `NEXT_OVERRIDE`). Order: INDYCAR → AI → adidas → VYBE → INDYCAR.
 
+### 2.21 Website review round 3 (2026-10-13)
+- "Try the clickable prototype" buttons removed from the adidas (`186:2708`) and AI (`165:2976`) case studies, in Figma and the site (`SKIP` in gen.py; the space below the scroll-through closes up).
+- Next-case-study cards get one hover/click area behind the whole card (`.next-hit`), so the gap between title and image counts. Also fixed: `TEXT_OVERRIDE` text now keeps the node's link/animation handling (the adidas → VYBE title had lost its link).
+- Fixed nav on every page (`Nav` in kit.tsx): full height and transparent at the top, a 64px solid paper bar with a hairline once scrolled.
+- Back-to-top button bottom right on every page (`ScrollTop`): appears after the first screen, rises above the footer links at the very bottom, hand-drawn ring redraws on hover.
+
 ---
 
 ## 3. Current state

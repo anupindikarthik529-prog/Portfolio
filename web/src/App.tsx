@@ -1,5 +1,6 @@
 import React from 'react'
 import { useAnimations } from './lib/animate'
+import { ScrollTop } from './components/kit'
 
 const Home = React.lazy(() => import('./pages/gen/Home'))
 const About = React.lazy(() => import('./pages/gen/About'))
@@ -128,6 +129,7 @@ export default function App() {
       <main className="stage" style={{ zoom, ['--vh-stage' as string]: `${vh / 100 / zoom}px` }}>
         <Page key={route.page} route={route} />
       </main>
+      <ScrollTop />
       <PenWipe phase={phase} />
     </>
   )
