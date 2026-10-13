@@ -296,6 +296,16 @@ The user confirmed all four case studies are done (VYBE included).
 - **Home CTAs:** "See selected work ↓" (button and text) scrolls to Selected work; "About & resume" and "More about me →" open the About page. The contact "Email me" button and the email address use the same mailto draft.
 - Gotcha: changing a nested instance's State resets its Label, so re-apply `setProperties({Label: name})` after any state swap.
 
+
+### 2.13 Home cleanup and portrait plan (2026-10-13)
+- How I think: project tags removed (desktop and mobile). Intro now reads "Four habits I bring to every project. You'll see each one at work in the case studies above."
+- **No repetition between home and About.** The real photo now appears only on the About page, and the experience table only on About ("Where I've worked" was removed from home, desktop and mobile). The home About block is text only: statement, plus a bio naming ProTrans, KGS, The Heart Center, NTT INDYCAR, Indiana University and TCS, and "More about me →".
+- **Hero pen line:** it originally led into the removed "Four problems" beat, so it ended pointing at nothing. It was rerouted: the old segments and arrowhead were removed, and a new curve runs from the "clear decisions" circle to a **dashed placeholder frame on the right**, "Sketch portrait — placeholder (awaiting clean line art)" (280×340 at x 1080, y 330). The idea: on load, the line draws out of "clear decisions" and continues into a line portrait of Karthik that sketches itself, stroke by stroke.
+- **The portrait isn't made yet.** Auto-tracing the photo (OpenCV Canny → skeletonize → smoothed Catmull-Rom SVG paths, script in the session scratchpad) gave a crude likeness, with a blocky forehead and a weak face, so it was rejected. Figma's generate_image is text-only (it can't use the photo) and costs credits, so it wasn't used.
+  - **Next:** the user provides clean line art (made with an image tool from their photo, hand-drawn or commissioned). Suggested prompt: "Turn this photo into a minimal single-weight black ink line drawing on a plain white background: continuous confident pen strokes, no shading or fill, glasses and beard outlined, crossed arms visible, editorial illustration style."
+  - Then vectorize it into strokes (tracing clean line art works well), place it in the placeholder, and spec a draw-on animation: the line continues into the portrait strokes in sequence, about 1.6s total; reduced motion shows the final drawing.
+- Mobile: no portrait placeholder yet (decide placement once the art exists).
+
 ---
 
 ## 3. Current state
