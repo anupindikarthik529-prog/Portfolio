@@ -309,6 +309,19 @@ The user confirmed all four case studies are done (VYBE included).
 - **Home interaction spec:** frame `333:1268` "Home — Interaction specs", below the desktop home. 1 · Signature line → portrait: on load, the circle draws (500ms), then the line (600ms), then the portrait strokes 01→23 (~1.2s, 40ms stagger, fills fade in); plays once; reduced motion shows the final drawing; the portrait is aria-hidden. 2 · Header links: hover/focus draw, the click map, nothing underlined at rest.
 - Mobile: the portrait is placed below "About & resume" at 60% (centred; the mobile hero is now 852 tall). There's no line on mobile; the portrait draws on its own.
 
+
+### 2.14 Portrait v3 and hero animation storyboard (2026-10-13), awaiting user review
+- Portrait v3 (desktop hero and mobile clone): a **quiff** (filled hair sweeping up and back, with two paper-colour strand lines) and a **visible mouth**. The mouth is a paper-colour smile stroke drawn over the beard; the old ink mouth had been hidden under the beard fill. 24 layers, still in draw order.
+- **Storyboard v1:** frame `337:1267` "Hero animation — storyboard v1" on "03 — Homepage" at x 2200. Six rough panels, each a portrait clone at 55% at a desk with a monitor, with title, timing and description:
+  1. Settling in (0–0.8s, screen powers on, typing)
+  2. Too much at once (0.8–2s, scattered widgets, hand to chin, "hmm…")
+  3. The thing that matters (2–3s, points; brick circle on one widget, "this one first")
+  4. Making order (3–4.4s, widgets slide into a row, motion arcs)
+  5. A clear view (4.4–5.4s, KPI tiles, trend line, brick tile with a tick, "decided.")
+  6. Back to the hero (5.4–6.2s, then hold; arms crossed = the current hero pose)
+- Concept: the hero acts out the headline in about 6s; plays once on load, rests on panel 6, replays when the portrait is hovered; reduced motion shows panel 6.
+- **Next:** the user reviews the storyboard, then animation (keyframe frames plus a Smart Animate prototype, then a build spec and Lottie or SVG for the site).
+
 ---
 
 ## 3. Current state
