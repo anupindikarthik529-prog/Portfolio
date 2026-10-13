@@ -351,6 +351,17 @@ The user confirmed all four case studies are done (VYBE included).
 - Build spec: column 1 of "Home — Interaction specs" `333:1268` was replaced with the Untangle spec (beats, idle, replay, Rive state machine with stroke-trim animation, Lottie or static fallback, mobile = static plus blink, reduced motion = static, aria-hidden).
 - Known rough spots: the arm poses in 02–04 are simple line work, and Figma crossfades the line shapes instead of drawing them (only the masks fake a draw). Polish both in Rive.
 
+
+### 2.17 Entrance beat and Remotion render (2026-10-13)
+- Storyboard addition, at the user's request: he no longer starts on screen. **00 · The entrance**: he rises from below the fold with a soft spring (about 1.2s), arms crossed and smiling, then the tangle starts. His torso continues off the bottom edge.
+  - Storyboard v2 `340:1267` now has six panels (00 plus 01–05; the old panels each shifted one slot).
+  - New keyframes `348:1429` "Untangle 00 · Below the fold" (portrait +470) and `348:1512` "00b · Arrived" (no tangle yet). Chain: 00 →0.3s→ 00b (GENTLE spring, 1s) →0.1s→ 01 (800ms) → … Hover replay now returns to 00b. The flow start "Hero animation — The Untangle" is at 00.
+- **Body extended to the bottom edge:** the shoulder lines run to local y 440, and the hero frames clip at 760. The portrait inner frames are unclipped. Applied to the live hero, the mobile clone (mobile hero height set so the body meets the bottom edge) and all keyframes.
+- **Remotion project `motion/`** (Remotion 4.0.535, React 19): `src/Untangle.tsx` (timeline T, portrait, arm poses), `src/geometry.ts` (string point sets that morph point by point), `render.mjs` (uses `/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell`; the option is `outputLocation`, not `output`).
+  - Output: `motion/out/untangle.mp4` (1440×760, 30fps, 200 frames ≈ 6.7s, ~0.56MB) and `motion/out/untangle.gif` (half size, 15fps).
+  - Fonts come from @fontsource (Newsreader 300/500, Inter 400/500), loaded via delayRender.
+- For the site: port the same timeline to an SVG + Motion component in `web/` (or rebuild it in Rive). Play once, replay on hover, reduced motion shows the final frame.
+
 ---
 
 ## 3. Current state
