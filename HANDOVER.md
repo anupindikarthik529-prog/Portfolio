@@ -334,6 +334,23 @@ The user confirmed all four case studies are done (VYBE included).
 - It plays once on load, rests on panel 5, replays on hovering the portrait, and blinks every ~6s. Reduced motion shows panel 5. Build in Rive (state machine: intro, idle blink, hover replay), with a Lottie fallback. Mobile: show panel 5 plus the blink only.
 - Arm poses in panels 2–4 are rough placeholders, to be redrawn in the animation pass.
 
+
+### 2.16 "The Untangle", built as keyframes and a prototype (2026-10-13)
+- Six keyframe frames on "03 — Homepage" (x 2200 / 3760, y 3200+, 2 columns), each a clone of the live hero with the same named layers so Smart Animate can interpolate between them:
+  - `344:1267` Untangle 01 · The tangle
+  - `344:1357` 02 · The grab
+  - `344:1447` 03 · The pull
+  - `344:1537` 04 · The circle
+  - `344:1627` 05 · Settle and hold
+  - `344:1717` 05b · Idle blink
+- Shared layers:
+  - Portrait: "Arm — reach", "Arm — pull", "Arm — release", "Eyes — open" (pupils looking left), "Eyes — blink", "Mouth — focused", plus the original crossed-arm, eyes and mouth layers. They are switched by opacity.
+  - Hero: "Tangle mask" (clipped frame holding "Tangle line", a coil through "complicated systems"; full, then half from x 660, then 1px, so it unravels left to right). "Circle mask" (clipped frame holding the Annotation circle; 1px → 612px, so it draws left to right). "Grab line", "Pull line", "Pull marks" (brick), "Release line", and the Signature line (opacity).
+- Prototype chain (AFTER_TIMEOUT + SMART_ANIMATE): 01 →0.5s→ 02 (500ms) →0.15s→ 03 (600ms) →0.1s→ 04 (600ms) →0.1s→ 05 (500ms); 05 →5s→ 05b →0.12s→ 05 (blink loop). In 05, MOUSE_ENTER on the portrait replays from 01. Flow start: "Hero animation — The Untangle".
+- The live hero `121:1199` is still the static keyframe 05.
+- Build spec: column 1 of "Home — Interaction specs" `333:1268` was replaced with the Untangle spec (beats, idle, replay, Rive state machine with stroke-trim animation, Lottie or static fallback, mobile = static plus blink, reduced motion = static, aria-hidden).
+- Known rough spots: the arm poses in 02–04 are simple line work, and Figma crossfades the line shapes instead of drawing them (only the masks fake a draw). Polish both in Rive.
+
 ---
 
 ## 3. Current state
