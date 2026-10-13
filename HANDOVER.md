@@ -287,6 +287,8 @@ The user confirmed all four case studies are done (VYBE included).
 - This propagates to all eight Nav instances: home, About, and all four case studies, plus the two backup copies.
 - Build spec (also in the component description): SVG path with stroke-dasharray/dashoffset, 350ms ease-out in and 200ms out; the same on keyboard focus; reduced motion shows the line instantly. Mobile uses "Menu", so it has no hover.
 - Prototype start points added: "Home — desktop" (03 — Homepage) and "About — desktop" (06 — About).
+- **Current-page state:** a third variant, State=Active, shows the line permanently with the label in Medium ink (like Contact), and has no hover reaction. Its label is bound to the Label property. Set per header: all case studies → Work Active; About page → About Active; Home → none.
+  - Gotcha: changing a nested instance's State resets its Label, so re-apply `setProperties({Label: name})` after any state swap.
 
 ---
 
