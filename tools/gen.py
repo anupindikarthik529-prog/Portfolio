@@ -41,11 +41,21 @@ PROTO_ROUTE = {'121-1198': '#/', '290-1198': '#/about', '124-1219': '#/work/adid
 OLD_RESUME = 'https://drive.google.com/file/d/1EbvfEBWWpgXVhEKMM-i15NeitrJVQAJg/view'
 NEW_RESUME = 'https://drive.google.com/file/u/1/d/1Lm0M9iSy5uVdAX4AAY7Vsvn622sBeMZx/view?usp=drive_link'
 # Copy changed after the design-context export (also changed in Figma)
-TEXT_OVERRIDE = {'I158:1580;124:1199': 'A complete agent workflow in one day, with a person signing off at every stage'}
+TEXT_OVERRIDE = {
+    'I158:1580;124:1199': 'A complete agent workflow, with a person signing off at every stage',
+    'I124:1269;124:1215': '“How do you empower an e-commerce giant’s sales teams with clear, actionable insights, all in under 8 hours?”',
+    '124:1232': 'Sales teams aren’t short on data. They’re short on time to find the number that matters. The brief named adidas: its numbers sat across reports, trends, exports and alerts, so I designed one dashboard that ranks what needs attention first.',
+    '129:1326': 'VYBE: Trading “Journaling” for a 1-Minute Daily Habit',
+}
+# Next-case-study targets changed after the export (adidas now points on to VYBE)
+NEXT_OVERRIDE = {'129:1323': 'vybe'}
+# Raster areas re-exported later at 2x (same layout box, sharper file)
+SRC_OVERRIDE = {'156:1290': '156-1290-2x'}
 # Next-project cards reuse the home-page preview of the project they point to
 HOME_VISUAL = {'indycar': '121-1243', 'ai-agent': '121-1259', 'adidas': '121-1275', 'vybe': '121-1291'}
 # Final-design grids that become a scroll-through story: section → (story starts, tail starts)
-STORY = {'126:1292': (363, 2600), '158:1343': (400, 1200)}
+STORY = {'126:1292': (363, 2600), '158:1343': (400, 2200)}
+STORY_SRC = {'226-2682': ('226-2682', 1280, 910), '165-2737': ('165-2737-2x', 1280, 853)}
 # AI "Agents propose, people decide" beat: the banners, labels and links are redrawn by <AgentBeat/>
 BEAT = '156:1841'
 BEAT_KEEP = {'156:1842', '156:1912', '156:1915', '156:1916', '156:1917'}
@@ -211,7 +221,7 @@ class Gen:
                 extra += ' id="work"'
             if name == 'Next project':
                 t = text_of(n)
-                nxt = next((r for k, r in TITLE_ROUTE if k in t), None)
+                nxt = NEXT_OVERRIDE.get(nid) or next((r for k, r in TITLE_ROUTE if k in t), None)
                 ctx = dict(ctx, next=nxt)
         if self.page == 'Home' and nid == '121:1199':
             ctx = dict(ctx, hero=True)
@@ -228,18 +238,22 @@ class Gen:
         H = px(cls, 'h')
         kids = [c for c in n.children if isinstance(c, Node)]
         top = lambda c: px(c.attrs.get('className', ''), 'top') or 0
-        screens = [c for c in kids if re.match(r'(Walkthrough|Final) — ', c.name or '') and 'Timeline' not in c.name and y0 <= top(c) < y1]
+        screens = [c for c in kids if re.match(r'(Walkthrough|Final) — ', c.name or '') and y0 <= top(c) < y1]
         items = []
         for sc in screens:
             sl, st = px(sc.attrs['className'], 'left'), top(sc)
             caps = sorted([c for c in kids if c.tag == 'p' and px(c.attrs.get('className', ''), 'left') == sl and st < top(c) < y1 and top(c) - st < 1100], key=top)
             caps = [c for c in caps if top(c) < min([top(o) for o in screens if top(o) > st] + [y1])]
-            title = re.sub(r'\s+', ' ', text_of(caps[0]).strip())
-            num, _, ttl = title.partition(' ')
+            label = (sc.name or '').split('— ', 1)[-1]
+            if len(caps) >= 2:
+                title = re.sub(r'\s+', ' ', text_of(caps[0]).strip())
+                num, _, ttl = title.partition(' ')
+                desc = text_of(caps[1]).strip()
+            else:  # a screen with only a caption under it (the AI timeline)
+                num, ttl, desc = f'{len(items) + 1:02d}', label, text_of(caps[0]).strip()
             nid = sc.nid.replace(':', '-')
-            src = f'{nid}-2x' if nid != '226-2682' else nid
-            w, h = (1280, 910) if nid == '226-2682' else ((1040, 693) if nid.startswith('165') else (1240, 882))
-            items.append({'num': num, 'title': ttl.strip(), 'desc': text_of(caps[1]).strip(), 'src': src, 'w': w, 'h': h, 'alt': (sc.name or '').split('— ', 1)[-1]})
+            src, w, h = STORY_SRC.get(nid) or (f'{nid}-2x',) + ((1040, 693) if nid.startswith('165') else (1240, 882))
+            items.append({'num': num, 'title': ttl.strip(), 'desc': desc, 'src': src, 'w': w, 'h': h, 'alt': label})
         used = set(id(c) for c in screens)
         for sc in screens:
             sl, st = px(sc.attrs['className'], 'left'), top(sc)
@@ -296,7 +310,7 @@ class Gen:
         nid = n.nid
         w, h, _ = SHOTS[nid]
         nw, nh = px(cls, 'w'), px(cls, 'h')
-        src = nid.replace(':', '-')
+        src = SRC_OVERRIDE.get(nid, nid.replace(':', '-'))
         alt = esc_attr(re.sub(r'\s+', ' ', n.name or ''))
         if alt.startswith('Visual — ') or re.search(r'\.(jpg|png)$', alt):
             alt = ''

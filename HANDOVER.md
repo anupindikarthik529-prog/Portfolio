@@ -379,6 +379,13 @@ The user confirmed all four case studies are done (VYBE included).
 - AI outcomes heading changed in Figma (`I158:1580;124:1199`) and the site to "A complete agent workflow in one day, with a person signing off at every stage".
 - AI beat "Agents propose, people decide" (`156:1841`): banners, labels and links are redrawn in `AgentBeat.tsx` so every label fits; they slide in one after another.
 
+### 2.20 Website review round 2 (2026-10-13)
+- AI hero `156:1290` (Figma): chat bubbles, converging paths and the "chat alone hides the work" note removed; the workspace mockup is scaled to 600 wide with its three labels and the "one workspace" note. Site uses `shots/156-1290-2x.webp`.
+- AI section 8: the Timeline is the 7th screen in the scroll-through; the "Spec stage ran 5 hours late" note was deleted in Figma (`165:2975`).
+- Caveat notes no longer lose glyphs that ink past their box ("Approve?", "All sign?"): the write-on mask is removed once the stroke finishes (`inked` class).
+- Copy changed in Figma and in `TEXT_OVERRIDE` (tools/gen.py): AI outcomes heading "A complete agent workflow, with a person signing off at every stage"; adidas brief quote "…all in under 8 hours?"; adidas intro now says "The brief named adidas: …".
+- adidas next-case-study card now points to VYBE (Figma: title `129:1326`, visual replaced by a clone of the home VYBE preview `363:1324`; site: `NEXT_OVERRIDE`). Order: INDYCAR → AI → adidas → VYBE → INDYCAR.
+
 ---
 
 ## 3. Current state

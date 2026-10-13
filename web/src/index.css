@@ -55,6 +55,7 @@
   transition: --wp 1.2s cubic-bezier(0.45, 0.05, 0.3, 1) calc(var(--d) + 250ms);
 }
 .js [data-a="write"]:not(.in), .js [data-a="wipe"]:not(.in) { --wp: 0%; }
+.js [data-a].inked { -webkit-mask-image: none; mask-image: none; }
 
 /* Pen strokes draw on (pathLength = 1) */
 .js [data-a="draw"] path,
@@ -200,7 +201,7 @@ a:focus-visible + [data-a="under"] path,
 .story-item.past button { color: #8f8a80; }
 .story-item.on button, .story-item button:hover { color: var(--ink); }
 .story-item.on .tick path { stroke-dashoffset: 0; opacity: 1; transition: stroke-dashoffset 0.6s var(--pen) 0.1s, opacity 0s; }
-.story-item.on .desc { max-height: 120px; opacity: 1; margin-top: 10px; margin-bottom: 8px; }
+.story-item.on .desc { max-height: 220px; opacity: 1; margin-top: 10px; margin-bottom: 8px; }
 .story-stage { display: grid; }
 .story-shot {
   grid-area: 1 / 1; margin: 0; justify-self: center;

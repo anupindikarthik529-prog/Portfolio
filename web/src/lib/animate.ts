@@ -100,6 +100,12 @@ export function useAnimations(root: React.RefObject<HTMLElement | null>, key: st
           const t = e.target as HTMLElement
           t.classList.add('in')
           if (t.dataset.a === 'count') countUp(t)
+          // The write-on mask only covers the element's box, and Caveat glyphs (a "?" especially)
+          // ink slightly past it, so drop the mask once the stroke has finished.
+          if (t.dataset.a === 'write' || t.dataset.a === 'wipe') {
+            const delay = parseFloat(getComputedStyle(t).getPropertyValue('--d')) || 0
+            setTimeout(() => t.classList.add('inked'), delay + 1600)
+          }
           io.unobserve(t)
         }
       },
