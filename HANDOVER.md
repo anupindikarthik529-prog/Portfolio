@@ -257,6 +257,13 @@ The user confirmed all four case studies are done (VYBE included).
 - Mobile project rows were re-laid out with fixed gaps (rule → image +24, image → label +18, then title, problem, meta and link), so the longer titles don't overlap.
 - Contact links (desktop and mobile): Resume (PDF) → https://drive.google.com/file/d/1EbvfEBWWpgXVhEKMM-i15NeitrJVQAJg/view (from the live site's nav); LinkedIn → https://www.linkedin.com/in/karthikanupindi/; email → mailto.
 
+**Home feedback round 1 (2026-10-13), applied:**
+- Hero margin note "start here: the real workflow" and its arrow removed (they repeated the intro). Mobile orphan signature line `123:1256` removed; mobile hero is now 640 tall.
+- **Row visuals now match the case studies** (desktop 400×302, mobile 342×259). Each sits on a warm #EAE3D6 inner panel (r8, padded) and holds a clone of that case study's resolved product view: INDYCAR five-phone mockup (`238:1409`), AI Agent Tandem workspace (`156:1307`), Adidas Stride dashboard (`226:4190`), VYBE five hero phones (from `269:1437`). If a case-study hero changes, re-clone it here.
+- How I think: the evidence lines were removed. Each habit now has a small project tag (AI AGENT / INDYCAR / SALES DASHBOARD / VYBE), right-aligned on desktop and below the habit on mobile; rows are 96px apart.
+- Section order (desktop and mobile): Hero → Selected work → How I think → **About → Where I've worked → What colleagues say** → Contact.
+- **"What colleagues say" is a placeholder** (desktop: 3 columns of Newsreader Italic quote, name and role; mobile: stacked). The user has testimonials from colleagues; **never invent quotes. Replace the bracketed placeholders with the user's exact text, names and roles**, and confirm the colleagues agreed to be quoted.
+
 **About page:** new page **"06 — About"**, frame **`290:1198`** "About — Desktop 1440" (vertical auto-layout, paper fill). Desktop only; no mobile version.
 - 01 About me: Nav instance, plus a clone of the home About block (portrait). "A UX designer who turns complexity into clarity." The bio covers seven years across sectors and the MS HCI, with dance, photography and travel in one line. "Download my resume ↗" is hyperlinked.
 - 02 How I got here: a clone of How I think, with three moments from the mirror (Many places, one lens / The robotic arm / Design that earns trust), numbered 01–03 instead of checkmarks.
