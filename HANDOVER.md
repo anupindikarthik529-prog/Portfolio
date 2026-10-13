@@ -263,7 +263,7 @@ The user confirmed all four case studies are done (VYBE included).
 - How I think: the evidence lines were removed. Each habit now has a small project tag (AI AGENT / INDYCAR / SALES DASHBOARD / VYBE), right-aligned on desktop and below the habit on mobile; rows are 96px apart.
 - Section order (desktop and mobile): Hero → Selected work → How I think → **About → Where I've worked → What colleagues say** → Contact.
 - **"What colleagues say"** (desktop: three columns of 400, Newsreader Italic 19/28; mobile: stacked) holds three testimonials:
-  - Edgar Ernesto Escobar Sanabria, "UX/UI Design Specialist, ProTrans · LinkedIn recommendation". Verbatim from his public LinkedIn recommendation.
+  - Edgar Escobar (shortened at the user's request), "UX/UI Design Specialist, ProTrans". Verbatim from his public LinkedIn recommendation; the source label is no longer shown.
   - Spencer Haynes, "Senior Product Manager, ProTrans" (from his LinkedIn). Verbatim from a message he wrote for the portfolio.
   - Effy Hernandez, "Director, Logistics Expedites, ProTrans" (from her Teams profile). **This is a reworded version of her private message, drafted with the user** (attention to detail; easier everyday work of building features and products; "invaluable and successful"). The user approved it. **Effy must approve the exact wording before launch**; if she changes it, update the quote. Her contact details from the screenshot are not used anywhere.
   - Not used: Anthony Jones (a farewell message only; the user asked him for a LinkedIn recommendation). Never invent testimonials.
