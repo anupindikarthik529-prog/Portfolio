@@ -271,7 +271,7 @@ The user confirmed all four case studies are done (VYBE included).
 **About page:** new page **"06 — About"**, frame **`290:1198`** "About — Desktop 1440" (vertical auto-layout, paper fill). Desktop only; no mobile version.
 - 01 About me: Nav instance, plus a clone of the home About block (portrait). "A UX designer who turns complexity into clarity." The bio covers seven years across sectors and the MS HCI, with dance, photography and travel in one line. "Download my resume ↗" is hyperlinked.
 - 02 How I got here: a clone of How I think, with three moments from the mirror (Many places, one lens / The robotic arm / Design that earns trust), numbered 01–03 instead of checkmarks.
-- 03 Experience: six rows of company / role · dates / one resume-verified outcome. INDYCAR has no numbers, because the resume's INDYCAR numbers may describe a different project.
+- 03 Experience: six rows of company / role · dates (role column at x 880). The outcome descriptions were removed at the user's request. Under TCS sits a muted line "(Client: National Securities Depository Ltd., NSDL)"; the same line is on the home Where I've worked rows (desktop `121:1318`, mobile `123:1318`).
 - 04 Education: MS HCI (Indiana University, Luddy) / B.Tech E&I (SASTRA) / University Innovation Fellow (Stanford, 2022–23).
 - 05 Skills and tools: four columns from the resume.
 - 06 Contact: a clone of the home contact section, with links wired.
