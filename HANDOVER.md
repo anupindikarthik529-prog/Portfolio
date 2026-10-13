@@ -322,6 +322,18 @@ The user confirmed all four case studies are done (VYBE included).
 - Concept: the hero acts out the headline in about 6s; plays once on load, rests on panel 6, replays when the portrait is hovered; reduced motion shows panel 6.
 - **Next:** the user reviews the storyboard, then animation (keyframe frames plus a Smart Animate prototype, then a build spec and Lottie or SVG for the site).
 
+
+### 2.15 Hair v4 and storyboard v2 "The Untangle" (2026-10-13), awaiting user review
+- Portrait hair v4: a **side part, swept across and back**, lower volume, with paper-colour strand and part lines (layers "02 · Hair (side part, swept back)" and "03 · Hair strands and part"). Applied to the desktop hero, the mobile clone and all storyboard v1 panels. Rejected: the quiff, then a tall swept version that read as a beanie.
+- **Chosen concept (Claude's pick, at the user's request): "The Untangle"** (ideas #5 and #8 combined). Storyboard v2 is frame `340:1267` on "03 — Homepage" (x 2200, y 1320); v1 `337:1267` is kept at 50% opacity, marked superseded. Five panels, each a 47% clone of the live hero with a beat overlay:
+  1. The tangle (0–0.6s): a coil scribble through "complicated systems"; he watches, arms crossed.
+  2. The grab (0.6–1.2s): the loose end races to him; he uncrosses his arms and catches it.
+  3. The pull (1.2–2.0s): he tugs, the coils unravel left to right, the line goes taut, with brick motion marks.
+  4. The circle (2.0–2.6s): the freed line turns brick and draws the circle around "clear decisions", with an overshoot.
+  5. Settle and hold (2.6–3.2s): arms crossed, smile, the line ends at the glasses; this is the current hero.
+- It plays once on load, rests on panel 5, replays on hovering the portrait, and blinks every ~6s. Reduced motion shows panel 5. Build in Rive (state machine: intro, idle blink, hover replay), with a Lottie fallback. Mobile: show panel 5 plus the blink only.
+- Arm poses in panels 2–4 are rough placeholders, to be redrawn in the animation pass.
+
 ---
 
 ## 3. Current state
