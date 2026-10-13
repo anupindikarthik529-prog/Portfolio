@@ -242,6 +242,31 @@ Frame **`269:1422`** "Case Study — VYBE (Academic project) — Desktop 1440", 
 - WhatsApp's icon is blank in the Social media usage screen. It's blank in the mirror too; the source image is missing.
 - The Adidas next-project link still points to AI Agent (frozen; left alone).
 
+
+### 2.11 Home page pass 2 and About page (2026-10-13), awaiting the feedback round
+The user confirmed all four case studies are done (VYBE included).
+
+**Home (`121:1198` desktop, `123:1245` mobile):**
+- Removed all three brush-lettering beats on both desktop and mobile (H3 "Four problems", H4 habits drawing, H6 "Let's make it clear"), at the user's request.
+- Hero: removed the brush end of the signature line (segments 5–6 and the bristles); segments 1–4 are now 2px pen weight and end in a pen arrowhead pointing down. Hero height is 760.
+- Removed the leftover "Context chip" overlays on the project images (desktop and mobile); they duplicated each row's label and used the old 8.6px Instrument Sans.
+- INDYCAR row: title copied from the case-study H1 (the user's wording, "…Increased INDYCAR Fan Retention by 30%"); meta "Lead UX designer · 2023". Mirrored in `web/src/data.ts`.
+- Adidas row description: "Sales data sat across reports, trends, exports and alerts. Under a tight time box, I designed one dashboard that ranks what needs attention first." The meta keeps "8-hour challenge".
+- How I think: one example per project now. Map the real workflow (AI Agent) / Fix the structure before the surface (INDYCAR) / Spend effort where impact is highest (Sales Dashboard) / Let testing change the design (VYBE, 15+ users). The old "alerts got stronger cues" line contradicted the final Adidas story and is gone.
+- Where I've worked: The Heart Center "UX/UI Designer · 2024–2025", TCS "Systems Engineer / UX Designer · 2019–2021", NTT INDYCAR "UX Designer · 2023" (from the resume).
+- Mobile project rows were re-laid out with fixed gaps (rule → image +24, image → label +18, then title, problem, meta and link), so the longer titles don't overlap.
+- Contact links (desktop and mobile): Resume (PDF) → https://drive.google.com/file/d/1EbvfEBWWpgXVhEKMM-i15NeitrJVQAJg/view (from the live site's nav); LinkedIn → https://www.linkedin.com/in/karthikanupindi/; email → mailto.
+
+**About page:** new page **"06 — About"**, frame **`290:1198`** "About — Desktop 1440" (vertical auto-layout, paper fill). Desktop only; no mobile version.
+- 01 About me: Nav instance, plus a clone of the home About block (portrait). "A UX designer who turns complexity into clarity." The bio covers seven years across sectors and the MS HCI, with dance, photography and travel in one line. "Download my resume ↗" is hyperlinked.
+- 02 How I got here: a clone of How I think, with three moments from the mirror (Many places, one lens / The robotic arm / Design that earns trust), numbered 01–03 instead of checkmarks.
+- 03 Experience: six rows of company / role · dates / one resume-verified outcome. INDYCAR has no numbers, because the resume's INDYCAR numbers may describe a different project.
+- 04 Education: MS HCI (Indiana University, Luddy) / B.Tech E&I (SASTRA) / University Innovation Fellow (Stanford, 2022–23).
+- 05 Skills and tools: four columns from the resume.
+- 06 Contact: a clone of the home contact section, with links wired.
+- **Dropped at the user's request:** the "About my Branding" section (logo and neon colour story) and the "World Through My Lens" photo gallery.
+- Not wired: home "About & resume" / "More about me" → the About page (Figma prototype links don't cross pages); do this at build.
+
 ---
 
 ## 3. Current state
@@ -249,7 +274,7 @@ Frame **`269:1422`** "Case Study — VYBE (Academic project) — Desktop 1440", 
 - **Frozen or done:** the AI Agent case study, and the Adidas screens and case study. Adidas only needs the user's "frozen" confirmation.
 - **INDYCAR:** frozen (`238:1383`, §2.9).
 - **VYBE:** first pass built (`269:1422`, §2.10). It needs the user's feedback round, then freeze.
-- **Not started in the Lyrical style:** About. Their content lives in the html.to.design mirror on page "Portfolio" `45:235`: INDYCAR `45:3799`, VYBE `45:5718`, About `45:2073`. Backup copies are on page "Portfolio(Backup)" `46:3178`.
+- **About:** first pass built (`290:1198`, §2.11). **Home** pass 2 done (§2.11). Both await the user's feedback round. Their content lives in the html.to.design mirror on page "Portfolio" `45:235`: INDYCAR `45:3799`, VYBE `45:5718`, About `45:2073`. Backup copies are on page "Portfolio(Backup)" `46:3178`.
 - **Backup page** `46:3178` also holds `220:2441` (an Adidas case study copy) and `220:6486` (an AI Agent case study copy). Their origin isn't recorded in this session's notes; they're probably snapshot copies. Treat `124:1219` and `156:1268` on "05 — Case Studies" as canonical.
 - **Page "Case Study: Border Crossing"** `0:1` exists, with real ProTrans screens (Dashboard `1:7769`, Row Actions `1:6721`, Last Notes `1:7249`, User Management `1:905`, Rejected Design `2:278`, Diagram_ThreeChannels `32:235`, and others). **It's out of scope until after launch.**
 - **Git:** **push works now** (verified 2026-10-12). The branch `claude/vibrant-turing-me78qp` is on the remote, and the remote head matches local.
