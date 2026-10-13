@@ -101,19 +101,35 @@ a:focus-visible + [data-a="under"] path,
 .pen-under path {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  transition: stroke-dashoffset 0.2s ease-in;
+  opacity: 0; /* hides the round-cap dot left at offset 1 */
+  transition: stroke-dashoffset 0.2s ease-in, opacity 0s linear 0.2s;
 }
 .nav-link:hover .pen-under path,
 .nav-link:focus-visible .pen-under path {
   stroke-dashoffset: 0;
-  transition: stroke-dashoffset 0.35s ease-out;
+  opacity: 1;
+  transition: stroke-dashoffset 0.35s ease-out, opacity 0s;
 }
 .nav-link:focus-visible { outline: none; }
 
-/* ---------- home rows ---------- */
-.row-link { cursor: pointer; }
-.row-link p { transition: color 0.25s var(--ease); }
-.row-link.hot p:nth-child(2) { color: var(--brick); }
+/* ---------- hover groups: home project rows and the next-case-study card ----------
+   Pointing at any part of a group (text, link or preview) lights all of it the same way:
+   the preview gets a brick pen frame, the title turns brick, the read link turns brick and
+   its pen underline draws. */
+.row-link, .next-link { cursor: pointer; }
+.row-link p, .next-link { transition: color 0.25s var(--ease); }
+.row-link.hot p:nth-child(2), .next-link.hot { color: var(--brick); }
+
+.row-link, .row-link > div, .read-link { overflow: visible !important; }
+.read-link { position: relative; }
+.read-link p { transition: color 0.25s var(--ease); }
+.row-link.hot .read-link p { color: var(--brick); }
+.read-link .pen-under { bottom: -6px; }
+.row-link.hot .read-link .pen-under path { stroke-dashoffset: 0; opacity: 1; transition: stroke-dashoffset 0.45s ease-out 0.1s, opacity 0s 0.1s; }
+
+[data-a="under"][data-row] path { transition: stroke 0.25s var(--ease), stroke-dashoffset 0.7s var(--pen) calc(var(--d) + 500ms); }
+[data-a="under"].hot path { stroke: var(--brick); animation: redraw 0.6s var(--pen); }
+
 .row-visual { overflow: visible !important; cursor: pointer; }
 .row-visual > div:first-child { transition: translate 0.5s var(--ease); }
 .row-visual.hot > div:first-child { translate: 0 -4px; }
@@ -128,19 +144,91 @@ a:focus-visible + [data-a="under"] path,
 .row-frame path {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  transition: stroke-dashoffset 0.3s ease-in;
+  opacity: 0;
+  transition: stroke-dashoffset 0.3s ease-in, opacity 0s linear 0.3s;
 }
 .row-visual.hot .row-frame path {
   stroke-dashoffset: 0;
-  transition: stroke-dashoffset 0.75s var(--pen);
+  opacity: 1;
+  transition: stroke-dashoffset 0.75s var(--pen), opacity 0s;
 }
 
 .hero-cta { cursor: pointer; transition: translate 0.25s var(--ease), filter 0.25s; }
 .hero-cta:hover { translate: 0 -2px; }
-.next-link { cursor: pointer; transition: color 0.2s; }
-.next-link:hover { color: var(--brick); }
 .foot-link { transition: color 0.2s; }
 .foot-link:hover { color: var(--brick); }
+
+/* ---------- testimonials carousel ---------- */
+.testi-slide { margin: 0; transition: opacity 0.6s var(--ease), transform 0.7s var(--ease), visibility 0s linear 0.7s; opacity: 0; transform: translateY(14px); visibility: hidden; }
+.testi-slide.on { opacity: 1; transform: none; visibility: visible; transition-delay: 0.15s, 0.15s, 0s; }
+.testi-slide blockquote { margin: 0; }
+.testi-btn {
+  width: 48px; height: 48px; border-radius: 999px; border: 1px solid var(--line); background: transparent;
+  display: grid; place-items: center; cursor: pointer; color: var(--ink); transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.testi-btn svg { width: 22px; height: 12px; overflow: visible; }
+.testi-btn path { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.testi-btn:hover, .testi-btn:focus-visible { border-color: var(--brick); color: var(--brick); }
+.testi-dot { width: 64px; height: 14px; padding: 4px 0; background: none; border: 0; cursor: pointer; }
+.testi-dot svg { display: block; width: 100%; height: 6px; overflow: visible; }
+.testi-dot path { fill: none; stroke-width: 2; stroke-linecap: round; }
+.testi-dot .base { stroke: var(--line); }
+.testi-dot .done { stroke: var(--muted); }
+.testi-dot .timer { stroke: var(--brick); stroke-dasharray: 1; stroke-dashoffset: 1; animation: timer linear forwards; }
+.testi-dot .timer.hold { animation-play-state: paused; }
+.testi-dot .timer.still { animation: none; stroke-dashoffset: 0; }
+@keyframes timer { to { stroke-dashoffset: 0; } }
+
+/* ---------- final screens, one at a time ---------- */
+.story-list { list-style: none; margin: 0; padding: 0 0 0 28px; }
+.story-rail { position: absolute; left: 0; top: 6px; bottom: 6px; width: 6px; height: calc(100% - 12px); overflow: visible; }
+.story-rail path { fill: none; stroke-width: 2; stroke-linecap: round; }
+.story-rail .base { stroke: var(--line); }
+.story-rail .fill { stroke: var(--brick); stroke-dasharray: 1; transition: stroke-dashoffset 0.15s linear; }
+.story-item button {
+  display: flex; gap: 14px; align-items: baseline; width: 100%; padding: 10px 0 4px; background: none; border: 0;
+  text-align: left; cursor: pointer; color: var(--muted); transition: color 0.3s var(--ease);
+}
+.story-item .num { font-family: 'Newsreader Variable', serif; font-weight: 300; font-size: 18px; width: 26px; font-variant-numeric: tabular-nums; }
+.story-item .title { position: relative; font-family: 'Newsreader Variable', serif; font-size: 24px; line-height: 30px; }
+.story-item .tick { position: absolute; left: -2px; bottom: -6px; width: calc(100% + 4px); height: 6px; overflow: visible; }
+.story-item .tick path { fill: none; stroke: var(--brick); stroke-width: 1.8; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; opacity: 0; transition: stroke-dashoffset 0.2s ease-in, opacity 0s linear 0.2s; }
+.story-item .desc {
+  margin: 0 0 0 40px; font-family: Inter, sans-serif; font-size: 15px; line-height: 23px; color: var(--muted);
+  max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.5s var(--ease), opacity 0.4s var(--ease), margin 0.5s var(--ease);
+}
+.story-item.past button { color: #8f8a80; }
+.story-item.on button, .story-item button:hover { color: var(--ink); }
+.story-item.on .tick path { stroke-dashoffset: 0; opacity: 1; transition: stroke-dashoffset 0.6s var(--pen) 0.1s, opacity 0s; }
+.story-item.on .desc { max-height: 120px; opacity: 1; margin-top: 10px; margin-bottom: 8px; }
+.story-stage { display: grid; }
+.story-shot {
+  grid-area: 1 / 1; margin: 0; justify-self: center;
+  opacity: 0; transform: translateY(48px) scale(0.985); visibility: hidden;
+  transition: opacity 0.5s var(--ease), transform 0.7s var(--ease), visibility 0s linear 0.7s;
+}
+.story-shot.past { transform: translateY(-36px) scale(0.985); }
+.story-shot.on { opacity: 1; transform: none; visibility: visible; transition-delay: 0s; }
+.story-shot img {
+  display: block; width: 920px; max-width: 100%; height: auto;
+  max-height: calc(100 * var(--vh-stage) - 150px); object-fit: contain;
+  border: 1px solid var(--line); border-radius: 12px; background: #fff;
+  box-shadow: 0 18px 40px rgba(33, 31, 26, 0.12);
+}
+.story-hint {
+  grid-area: 2 / 1; justify-self: end; margin: 14px 4px 0 0;
+  font-family: Caveat, cursive; font-size: 22px; color: var(--brick); transition: opacity 0.3s;
+}
+.story-hint.gone { opacity: 0; }
+
+/* ---------- AI agent beat ---------- */
+.beat-label { font-family: 'Gochi Hand', cursive; font-size: 16px; letter-spacing: 1.3px; fill: var(--paper); }
+.beat-speed { stroke: #20201e; stroke-width: 1.2; stroke-linecap: round; opacity: 0.8; }
+.beat-link { fill: none; stroke: #20201e; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 0; }
+.beat-box { transition: opacity 0.5s var(--ease), transform 0.7s var(--ease); transition-delay: calc(var(--i) * 170ms + 150ms); }
+.beat-link { transition: stroke-dashoffset 0.4s var(--pen); transition-delay: calc(var(--i) * 170ms + 420ms); }
+.js [data-a="beat"]:not(.in) .beat-box { opacity: 0; transform: translateX(-46px); }
+.js [data-a="beat"]:not(.in) .beat-link { stroke-dashoffset: 1; }
 
 /* ---------- phones ---------- */
 .phone-scroll { scrollbar-width: none; overscroll-behavior: auto; }

@@ -38,6 +38,19 @@ TITLE_ROUTE = [('INDYCAR', 'indycar'), ('AI Agent', 'ai-agent'), ('Scattered Sal
 PROTO_ROUTE = {'121-1198': '#/', '290-1198': '#/about', '124-1219': '#/work/adidas', '238-1383': '#/work/indycar',
                '156-1268': '#/work/ai-agent', '269-1422': '#/work/vybe'}
 
+OLD_RESUME = 'https://drive.google.com/file/d/1EbvfEBWWpgXVhEKMM-i15NeitrJVQAJg/view'
+NEW_RESUME = 'https://drive.google.com/file/u/1/d/1Lm0M9iSy5uVdAX4AAY7Vsvn622sBeMZx/view?usp=drive_link'
+# Copy changed after the design-context export (also changed in Figma)
+TEXT_OVERRIDE = {'I158:1580;124:1199': 'A complete agent workflow in one day, with a person signing off at every stage'}
+# Next-project cards reuse the home-page preview of the project they point to
+HOME_VISUAL = {'indycar': '121-1243', 'ai-agent': '121-1259', 'adidas': '121-1275', 'vybe': '121-1291'}
+# Final-design grids that become a scroll-through story: section → (story starts, tail starts)
+STORY = {'126:1292': (363, 2600), '158:1343': (400, 1200)}
+# AI "Agents propose, people decide" beat: the banners, labels and links are redrawn by <AgentBeat/>
+BEAT = '156:1841'
+BEAT_KEEP = {'156:1842', '156:1912', '156:1915', '156:1916', '156:1917'}
+TESTIMONIALS = '298:2335'
+
 missing_pens, missing_imgs = [], []
 
 
@@ -117,6 +130,11 @@ class Gen:
             inner = ''.join(self.emit(c, depth + 1) for c in n.children)
             return f'<a href="#/work/{r}" data-row="{r}" className="{esc_attr(cls)} row-link">{inner}</a>'
 
+        if self.page != 'Home' and ctx.get('next') and name == 'Next project visual':
+            src = HOME_VISUAL[ctx['next']]
+            return (f'<a href="#/work/{ctx["next"]}" data-row="next" data-a="img" className="{esc_attr(cls)} block row-visual" aria-label="Read the next case study">'
+                    f'<div className="absolute inset-0 overflow-hidden rounded-[8px]"><img src={{shot("{src}")}} alt="" loading="lazy" decoding="async" '
+                    f'className="absolute inset-0 size-full max-w-none pointer-events-none object-cover" /></div><Frame /></a>')
         # raster area
         if nid in SHOTS and not ctx.get('in_raster'):
             return self.raster(n, cls)
@@ -144,10 +162,13 @@ class Gen:
                 href = PROTO_ROUTE.get(m.group(1), '#/')
                 extra = f' href="{href}"'
             else:
+                href = href.replace(OLD_RESUME, NEW_RESUME)
                 extra = f' href="{esc_attr(href)}"' + ('' if href.startswith('mailto:') else ' target="_blank" rel="noreferrer"')
         if tag == 'p':
             t = text_of(n).strip()
             extra += self.text_anim(n, cls, t)
+            if nid in TEXT_OVERRIDE:
+                return f'<p{self.attrs(n, cls, extra)}>{{{json.dumps(TEXT_OVERRIDE[nid], ensure_ascii=False)}}}</p>'
         elif name == 'Rectangle' and re.search(r'(?<![\w-])h-px', cls) and 'bg-' in cls:
             extra += ' data-a="line"' + self.anim_delay(cls)
         elif name in ('Rule',):
@@ -162,6 +183,11 @@ class Gen:
             return f'<a href="#/about" className="{esc_attr(cls)} cursor-pointer">{inner}</a>'
         if name == 'Link underline':
             extra += ' data-a="under"'
+            if ctx.get('next'):
+                extra += ' data-row="next"'
+        if self.page == 'Home' and name == 'Read link':
+            inner = ''.join(self.emit(c, depth + 1, ctx) for c in n.children)
+            return f'<div className="{esc_attr(cls)} read-link">{inner}<PenUnderline /></div>'
 
         # next project block
         if self.page != 'Home' and ctx.get('next') and tag == 'p':
@@ -170,10 +196,15 @@ class Gen:
                 return f'<p className="{esc_attr(cls)}"><FooterLinks /></p>'
             if t.strip().startswith('Read it') or any(k in t for k, _ in TITLE_ROUTE) and len(t) > 30:
                 inner = ''.join(self.emit(c, depth + 1) for c in n.children)
-                return f'<a href="#/work/{ctx["next"]}" className="{esc_attr(cls)} next-link"{extra}>{inner}</a>'
-        if self.page != 'Home' and ctx.get('next') and name == 'Next project visual':
-            return f'<a href="#/work/{ctx["next"]}" className="block">{self.raster(n, cls)}</a>'
+                return f'<a href="#/work/{ctx["next"]}" data-row="next" className="{esc_attr(cls)} next-link"{extra}>{inner}</a>'
 
+        if depth == 1 and nid in STORY:
+            return self.story(n, cls, name)
+        if depth == 1 and nid == TESTIMONIALS:
+            return self.testimonials(n, cls, name)
+        if depth == 1 and nid == BEAT:
+            kids = ''.join(self.emit(c, depth + 1, ctx) for c in n.children if isinstance(c, Node) and c.nid in BEAT_KEEP)
+            return f'<div className="{esc_attr(cls)}" data-section="{esc_attr(name)}"><AgentBeat />{kids}</div>'
         if depth == 1:
             extra += f' data-section="{esc_attr(name)}"'
             if self.page == 'Home' and nid == '121:1229':
@@ -192,6 +223,61 @@ class Gen:
         return f'<{tag}{self.attrs(n, cls, extra)}>{inner}</{tag}>'
 
     # ------------------------------------------------------------------
+    def story(self, n, cls, name):
+        y0, y1 = STORY[n.nid]
+        H = px(cls, 'h')
+        kids = [c for c in n.children if isinstance(c, Node)]
+        top = lambda c: px(c.attrs.get('className', ''), 'top') or 0
+        screens = [c for c in kids if re.match(r'(Walkthrough|Final) — ', c.name or '') and 'Timeline' not in c.name and y0 <= top(c) < y1]
+        items = []
+        for sc in screens:
+            sl, st = px(sc.attrs['className'], 'left'), top(sc)
+            caps = sorted([c for c in kids if c.tag == 'p' and px(c.attrs.get('className', ''), 'left') == sl and st < top(c) < y1 and top(c) - st < 1100], key=top)
+            caps = [c for c in caps if top(c) < min([top(o) for o in screens if top(o) > st] + [y1])]
+            title = re.sub(r'\s+', ' ', text_of(caps[0]).strip())
+            num, _, ttl = title.partition(' ')
+            nid = sc.nid.replace(':', '-')
+            src = f'{nid}-2x' if nid != '226-2682' else nid
+            w, h = (1280, 910) if nid == '226-2682' else ((1040, 693) if nid.startswith('165') else (1240, 882))
+            items.append({'num': num, 'title': ttl.strip(), 'desc': text_of(caps[1]).strip(), 'src': src, 'w': w, 'h': h, 'alt': (sc.name or '').split('— ', 1)[-1]})
+        used = set(id(c) for c in screens)
+        for sc in screens:
+            sl, st = px(sc.attrs['className'], 'left'), top(sc)
+        head = ''.join(self.emit(c, 2) for c in kids if top(c) < y0)
+        tail_kids = [c for c in kids if top(c) >= y1]
+        tail = ''
+        for c in tail_kids:
+            c2 = Node(c.tag, dict(c.attrs)); c2.children = c.children; c2.parent = c.parent
+            c2.attrs['className'] = re.sub(r'(?<![\w-])top-\[(-?[\d.]+)px\]', lambda m: f'top-[{float(m.group(1)) - y1:g}px]', c.attrs['className'])
+            tail += self.emit(c2, 2)
+        js = json.dumps(items, ensure_ascii=False)
+        return (f'<div className="relative shrink-0 w-[1440px]" data-section="{esc_attr(name)}">'
+                f'<div className="relative w-[1440px]" style={{{{height: {y0}}}}}>{head}</div>'
+                f'<ScreenStory items={{{js}}} />'
+                f'<div className="relative w-[1440px]" style={{{{height: {H - y1:g}}}}}>{tail}</div></div>')
+
+    def testimonials(self, n, cls, name):
+        cols = {}
+        label = ''
+        for c in n.walk():
+            if c.tag != 'p':
+                continue
+            cc = c.attrs.get('className', '')
+            t = re.sub(r'\s+', ' ', text_of(c)).strip()
+            if t.isupper():
+                label = t
+                continue
+            cols.setdefault(px(cc, 'left'), []).append((px(cc, 'top') or 0, bool(re.search(r'(?<![\w-])italic', cc)), t))
+        items = []
+        for left in sorted(k for k in cols if k is not None):
+            ps = sorted(cols[left])
+            quote = next(t for _, it, t in ps if it)
+            rest = [t for _, it, t in ps if not it]
+            items.append({'quote': quote, 'name': rest[0], 'role': rest[1]})
+        js = json.dumps(items, ensure_ascii=False)
+        return (f'<div className="{esc_attr(fix_classes(cls))}" data-section="{esc_attr(name)}">'
+                f'<Testimonials label={{{json.dumps(label, ensure_ascii=False)}}} items={{{js}}} /></div>')
+
     def text_anim(self, n, cls, t):
         size = px(cls, 'text')
         if not size:
@@ -290,8 +376,8 @@ class Gen:
 
 HEADER = '''// Generated by tools/gen.py from the Figma file — edit the generator, not this file.
 import React from 'react'
-import { Nav, Frame, FooterLinks, shot, scrollToWork, Untangle } from '../../components/kit'
-void React; void Frame; void FooterLinks; void scrollToWork; void Untangle
+import { Nav, Frame, FooterLinks, PenUnderline, shot, scrollToWork, Untangle, Testimonials, ScreenStory, AgentBeat } from '../../components/kit'
+void React; void Frame; void FooterLinks; void PenUnderline; void scrollToWork; void Untangle; void Testimonials; void ScreenStory; void AgentBeat
 
 export default function Page() {
   return (

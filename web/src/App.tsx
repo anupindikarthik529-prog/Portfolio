@@ -39,6 +39,16 @@ function useZoom() {
   return z
 }
 
+function useViewportHeight() {
+  const [h, setH] = React.useState(() => window.innerHeight)
+  React.useEffect(() => {
+    const on = () => setH(window.innerHeight)
+    addEventListener('resize', on)
+    return () => removeEventListener('resize', on)
+  }, [])
+  return h
+}
+
 /** Paper wash with a brick pen stroke that sweeps across between pages. */
 function PenWipe({ phase }: { phase: 'idle' | 'in' | 'out' }) {
   return (
@@ -82,6 +92,7 @@ function Mounted({ root, k, scroll, children }: { root: React.RefObject<HTMLDivE
 
 export default function App() {
   const zoom = useZoom()
+  const vh = useViewportHeight()
   const [route, setRoute] = React.useState<Route>(() => parse(location.hash))
   const [phase, setPhase] = React.useState<'idle' | 'in' | 'out'>('idle')
 
@@ -114,7 +125,7 @@ export default function App() {
 
   return (
     <>
-      <main className="stage" style={{ zoom }}>
+      <main className="stage" style={{ zoom, ['--vh-stage' as string]: `${vh / 100 / zoom}px` }}>
         <Page key={route.page} route={route} />
       </main>
       <PenWipe phase={phase} />

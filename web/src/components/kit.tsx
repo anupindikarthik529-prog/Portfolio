@@ -1,7 +1,10 @@
 import React from 'react'
 export { Untangle } from './Untangle'
+export { Testimonials } from './Testimonials'
+export { ScreenStory } from './ScreenStory'
+export { AgentBeat } from './AgentBeat'
 
-export const RESUME = 'https://drive.google.com/file/d/1EbvfEBWWpgXVhEKMM-i15NeitrJVQAJg/view'
+export const RESUME = 'https://drive.google.com/file/u/1/d/1Lm0M9iSy5uVdAX4AAY7Vsvn622sBeMZx/view?usp=drive_link'
 export const LINKEDIN = 'https://www.linkedin.com/in/karthikanupindi/'
 export const EMAIL = 'karthikanupindi98@gmail.com'
 export const MAILTO =

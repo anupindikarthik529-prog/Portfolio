@@ -370,6 +370,15 @@ The user confirmed all four case studies are done (VYBE included).
 - **Fonts:** Newsreader must be the variable font with the optical-size axis (`@fontsource-variable/newsreader/opsz.css`); the static files set wider and broke Figma's line breaks.
 - Verified with Playwright (Chromium) at 1440 and 390: no console errors, hero plays and rests on frame 05, nav underline, row frame, page wipe, phone auto-scroll and Work-scroll all work, reduced motion shows everything.
 
+### 2.19 Website review round 1 (2026-10-13)
+- Hover groups: a home project row and the next-case-study card now behave the same: pointing at any part draws the brick pen frame on the preview, turns the title and read link brick, and draws (or redraws) the link underline. Hover state is recomputed from the pointer on scroll (`web/src/lib/animate.ts`), so scrolling under a still pointer moves the highlight.
+- Next-case-study cards reuse the home-page preview of the project they point to (`HOME_VISUAL` in `tools/gen.py`).
+- Testimonials are a carousel (`web/src/components/Testimonials.tsx`): one quote at a time, a brick pen stroke as the timer (about 130 ms a word, at least 6 s), pauses on hover/focus or when off screen, prev/next buttons, no auto-play under reduced motion.
+- Resume links now point to `https://drive.google.com/file/u/1/d/1Lm0M9iSy5uVdAX4AAY7Vsvn622sBeMZx/view?usp=drive_link`, in the site and in Figma (14 nav-instance URL actions plus the text links `121:1362`, `290:1215`, `290:1299`). The old "Portfolio" / "Portfolio(Backup)" pages were left alone.
+- Final screens on the adidas (`126:1292`) and AI (`158:1343`) case studies are a pinned scroll-through (`ScreenStory.tsx`): the list on the left, one large screen on the right, each screen gets ~80% of a viewport of scroll. Screens were re-exported at 2x from temporary rescaled clones (`shots/<id>-2x.webp`; clones deleted).
+- AI outcomes heading changed in Figma (`I158:1580;124:1199`) and the site to "A complete agent workflow in one day, with a person signing off at every stage".
+- AI beat "Agents propose, people decide" (`156:1841`): banners, labels and links are redrawn in `AgentBeat.tsx` so every label fits; they slide in one after another.
+
 ---
 
 ## 3. Current state

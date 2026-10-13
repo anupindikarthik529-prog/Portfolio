@@ -116,23 +116,42 @@ export function useAnimations(root: React.RefObject<HTMLElement | null>, key: st
     )
     phones.forEach((p) => pio.observe(p))
 
-    // home rows: hovering the text draws the frame around its preview too
+    // Hover groups (a home project row, the next-case-study card): pointing at any part lights
+    // the whole group. Recomputed from the pointer position on scroll as well, because the page
+    // can move under a still pointer and mouseenter would never fire.
     const rows = Array.from(el.querySelectorAll<HTMLElement>('[data-row]'))
-    const on = (r: string, v: boolean) => rows.filter((x) => x.dataset.row === r).forEach((x) => x.classList.toggle('hot', v))
-    const handlers = rows.map((x) => {
-      const enter = () => on(x.dataset.row!, true)
-      const leave = () => on(x.dataset.row!, false)
-      x.addEventListener('mouseenter', enter)
-      x.addEventListener('mouseleave', leave)
-      x.addEventListener('focusin', enter)
-      x.addEventListener('focusout', leave)
-      return () => {
-        x.removeEventListener('mouseenter', enter)
-        x.removeEventListener('mouseleave', leave)
-        x.removeEventListener('focusin', enter)
-        x.removeEventListener('focusout', leave)
-      }
-    })
+    let hot: string | null = null
+    let px = -1, py = -1, raf = 0
+    const setHot = (r: string | null) => {
+      if (r === hot) return
+      hot = r
+      rows.forEach((x) => x.classList.toggle('hot', r !== null && x.dataset.row === r))
+    }
+    const probe = () => {
+      raf = 0
+      if (px < 0) return
+      const t = document.elementFromPoint(px, py) as HTMLElement | null
+      const row = t?.closest<HTMLElement>('[data-row]')
+      setHot(row && el.contains(row) ? row.dataset.row! : null)
+    }
+    const schedule = () => { if (!raf) raf = requestAnimationFrame(probe) }
+    const onMove = (e: PointerEvent) => { if (e.pointerType === 'touch') return; px = e.clientX; py = e.clientY; schedule() }
+    const onLeave = () => { px = -1; setHot(null) }
+    const onFocus = (e: FocusEvent) => {
+      const row = (e.target as HTMLElement).closest?.<HTMLElement>('[data-row]')
+      setHot(row ? row.dataset.row! : null)
+    }
+    addEventListener('pointermove', onMove, { passive: true })
+    addEventListener('scroll', schedule, { passive: true })
+    document.documentElement.addEventListener('pointerleave', onLeave)
+    el.addEventListener('focusin', onFocus)
+    const handlers = [() => {
+      removeEventListener('pointermove', onMove)
+      removeEventListener('scroll', schedule)
+      document.documentElement.removeEventListener('pointerleave', onLeave)
+      el.removeEventListener('focusin', onFocus)
+      cancelAnimationFrame(raf)
+    }]
     return () => {
       io.disconnect()
       pio.disconnect()
