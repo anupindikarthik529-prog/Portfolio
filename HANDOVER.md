@@ -233,6 +233,11 @@ Frame **`269:1422`** "Case Study — VYBE (Academic project) — Desktop 1440", 
 - 07 Process: gap between sketches and wireframes increased from 48 to 96.
 - 09 Final designs: **Home phone scrolls** too (screen extended to 865). Its TabBar was moved into the phone frame as the top child with `numberOfFixedChildren = 1`, so it stays pinned while the content scrolls.
 - The eyebrow, pen-note and hero rows in the 01 table above are out of date; this list wins. Pen highlights left: "85% had thought about a break", "the bet VYBE was built on", "no extra hardware to carry", "250 characters, then you’re done".
+**Round 2 (2026-10-13):**
+- The user confirmed the 85% story poll is theirs. The caption now reads "A story poll I ran during research".
+- **New section 10 · Prototype** `280:1197` after Final designs: "See VYBE in motion" / "A recording of the clickable prototype, playing on a loop." Video placeholder frame `280:1206` (1280×800, 16:10) uses the still `45:7456` from the current portfolio as its poster, plus an annotation pill "VIDEO PLACEHOLDER · existing VYBE prototype video · autoplay, muted, loop" (named "Annotation — … (hide before export)"). The user has the real video; it isn't Loom, so it gets embedded on the page and autoplays.
+- Outcomes renumbered to **11** and Reflection to **12**.
+- Interaction spec frame `281:1916` "VYBE case study — Interaction specs" sits below the case study: 1 · Prototype video (autoplay muted loop playsinline, pause out of view, reduced motion shows the poster), 2 · Scrollable phones.
 - Six pen highlights in total.
 - WhatsApp's icon is blank in the Social media usage screen. It's blank in the mirror too; the source image is missing.
 - The Adidas next-project link still points to AI Agent (frozen; left alone).
