@@ -307,7 +307,7 @@ The user confirmed all four case studies are done (VYBE included).
   - The signature line ("Signature line — circle to portrait") runs from the circle to just short of the glasses, with its arrowhead drawn in the same vector.
   - Rejected first: auto-tracing the photo (crude likeness), and Figma's text-only generate_image.
 - **Home interaction spec:** frame `333:1268` "Home — Interaction specs", below the desktop home. 1 · Signature line → portrait: on load, the circle draws (500ms), then the line (600ms), then the portrait strokes 01→23 (~1.2s, 40ms stagger, fills fade in); plays once; reduced motion shows the final drawing; the portrait is aria-hidden. 2 · Header links: hover/focus draw, the click map, nothing underlined at rest.
-- Mobile: the portrait isn't placed yet. The spec says below the CTAs at 60% size, with the line hidden.
+- Mobile: the portrait is placed below "About & resume" at 60% (centred; the mobile hero is now 852 tall). There's no line on mobile; the portrait draws on its own.
 
 ---
 
