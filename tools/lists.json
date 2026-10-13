@@ -1,0 +1,1126 @@
+{
+"raster": [
+[
+"adidas",
+"124:1242",
+"Opening illustration \u2014 scattered data \u2192 one view",
+null,
+null
+],
+[
+"adidas",
+"126:1221",
+"Impact\u2013effort matrix (sketch, real scoring)",
+640.0,
+440.0
+],
+[
+"adidas",
+"126:1299",
+"Before \u2014 KPIs and pipeline stages",
+410.0,
+212.321
+],
+[
+"adidas",
+"126:1304",
+"Before \u2014 Forecast",
+410.0,
+252.589
+],
+[
+"adidas",
+"126:1309",
+"Before \u2014 Reports and export",
+410.0,
+210.857
+],
+[
+"adidas",
+"185:1240",
+"Evidence \u2014 Sidebar with five places, alerts and a region switcher",
+796.0,
+492.263
+],
+[
+"adidas",
+"185:1562",
+"Evidence \u2014 Alert cards on the dashboard: what happened, how much, and one action",
+796.0,
+142.872
+],
+[
+"adidas",
+"185:1885",
+"Evidence \u2014 KPI tiles: value, change, a small chart and what the tick means",
+796.0,
+169.933
+],
+[
+"adidas",
+"185:2207",
+"Evidence \u2014 Opportunities with the Sports Direct deal open beside the table",
+796.0,
+439.966
+],
+[
+"adidas",
+"185:3150",
+"Evidence \u2014 Forecast notes, each with its source and a link to the deals behind it",
+600.0,
+539.568
+],
+[
+"adidas",
+"185:2867",
+"Evidence \u2014 Report preview with export, sections to include and an automatic Monday send",
+796.0,
+563.54
+],
+[
+"adidas",
+"226:2682",
+"Final \u2014 Dashboard",
+1280.0,
+910.222
+],
+[
+"adidas",
+"226:2994",
+"Final \u2014 Opportunities",
+620.0,
+440.889
+],
+[
+"adidas",
+"226:3381",
+"Final \u2014 Customers",
+620.0,
+440.889
+],
+[
+"adidas",
+"226:3654",
+"Final \u2014 Forecast",
+620.0,
+440.889
+],
+[
+"adidas",
+"226:3906",
+"Final \u2014 Reports",
+620.0,
+440.889
+],
+[
+"adidas",
+"129:1329",
+"Next project visual",
+null,
+332.711
+],
+[
+"indycar",
+"238:1406",
+"Opening illustration \u2014 redesigned INDYCAR 101 screens",
+640.0,
+620.0
+],
+[
+"indycar",
+"238:1455",
+"Old app \u2014 What is INDYCAR?",
+200.0,
+434.0
+],
+[
+"indycar",
+"238:1457",
+"Old app \u2014 Car specs",
+200.0,
+434.0
+],
+[
+"indycar",
+"238:1459",
+"Old app \u2014 Qualifying",
+200.0,
+434.0
+],
+[
+"indycar",
+"238:1461",
+"Old app \u2014 Flags",
+200.0,
+434.0
+],
+[
+"indycar",
+"239:1424",
+"Sitemap \u2014 INDYCAR 101",
+1024.0,
+563.0
+],
+[
+"indycar",
+"239:1454",
+"Sketches",
+657.0,
+398.0
+],
+[
+"indycar",
+"239:1455",
+"Lo-fi wireframes",
+583.0,
+398.0
+],
+[
+"indycar",
+"241:1425",
+"ITERATION 1 \u2014 screen 1",
+260.0,
+520.0
+],
+[
+"indycar",
+"241:1427",
+"ITERATION 1 \u2014 screen 2",
+260.0,
+520.0
+],
+[
+"indycar",
+"241:1429",
+"ITERATION 1 \u2014 screen 3",
+260.0,
+520.0
+],
+[
+"indycar",
+"241:1442",
+"ITERATION 2 \u2014 screen 1",
+260.0,
+560.0
+],
+[
+"indycar",
+"241:1444",
+"ITERATION 2 \u2014 screen 2",
+260.0,
+560.0
+],
+[
+"indycar",
+"241:1446",
+"ITERATION 2 \u2014 screen 3",
+260.0,
+560.0
+],
+[
+"indycar",
+"241:1453",
+"Final \u2014 Beginner\u2019s guide",
+296.0,
+642.0
+],
+[
+"indycar",
+"241:1457",
+"Final \u2014 Anatomy of a race car",
+296.0,
+642.0
+],
+[
+"indycar",
+"241:1461",
+"Final \u2014 Teams and behind the scenes",
+296.0,
+642.0
+],
+[
+"indycar",
+"241:1465",
+"Final \u2014 Driver profiles",
+296.0,
+642.0
+],
+[
+"indycar",
+"241:1474",
+"Final \u2014 rules and tracks 1",
+296.0,
+642.0
+],
+[
+"indycar",
+"241:1476",
+"Final \u2014 rules and tracks 2",
+296.0,
+642.0
+],
+[
+"indycar",
+"241:1478",
+"Final \u2014 rules and tracks 3",
+296.0,
+642.0
+],
+[
+"indycar",
+"241:1480",
+"Final \u2014 rules and tracks 4",
+296.0,
+642.0
+],
+[
+"indycar",
+"242:1491",
+"Next project visual",
+null,
+332.711
+],
+[
+"ai",
+"156:1290",
+"Opening illustration \u2014 scattered chat \u2192 one workspace",
+640.0,
+620.0
+],
+[
+"ai",
+"165:2989",
+"Evidence \u2014 BRD v2: added text underlined in place, with change notes and the agent\u2019s assumption in the margin",
+796.0,
+601.0
+],
+[
+"ai",
+"165:3249",
+"Evidence \u2014 Approval bar: version, approvers and status in one line",
+796.0,
+114.0
+],
+[
+"ai",
+"165:3509",
+"Evidence \u2014 Requirements Agent: two questions, each with \u201cwhy I am asking\u201d",
+725.0,
+470.0
+],
+[
+"ai",
+"165:3806",
+"Evidence \u2014 Prototype v1.1: one comment applied, one in progress",
+796.0,
+620.0
+],
+[
+"ai",
+"165:4073",
+"Evidence \u2014 Release v1.2: staging live, 12 checks, rollback ready",
+796.0,
+684.0
+],
+[
+"ai",
+"165:1482",
+"Walkthrough \u2014 Idea",
+416.0,
+277.333
+],
+[
+"ai",
+"165:1714",
+"Walkthrough \u2014 Requirements",
+416.0,
+277.333
+],
+[
+"ai",
+"165:2000",
+"Walkthrough \u2014 Spec",
+416.0,
+277.333
+],
+[
+"ai",
+"165:2249",
+"Walkthrough \u2014 Prototype and feedback",
+416.0,
+277.333
+],
+[
+"ai",
+"165:2505",
+"Walkthrough \u2014 Delivery",
+416.0,
+277.333
+],
+[
+"ai",
+"165:2737",
+"Walkthrough \u2014 Timeline",
+1280.0,
+853.333
+],
+[
+"ai",
+"158:1646",
+"Next project visual",
+null,
+332.711
+],
+[
+"vybe",
+"269:1437",
+"Opening illustration \u2014 VYBE final screens",
+640.0,
+492.16
+],
+[
+"vybe",
+"271:1208",
+"Research \u2014 story poll",
+200.0,
+401.0
+],
+[
+"vybe",
+"271:1209",
+"Research \u2014 post 1",
+300.0,
+195.0
+],
+[
+"vybe",
+"271:1210",
+"Research \u2014 post 2",
+300.0,
+282.0
+],
+[
+"vybe",
+"271:1211",
+"Competitor \u2014 Calm",
+160.0,
+124.0
+],
+[
+"vybe",
+"271:1212",
+"Competitor \u2014 Headspace",
+160.0,
+124.0
+],
+[
+"vybe",
+"271:1213",
+"Competitor \u2014 Stoic",
+160.0,
+124.0
+],
+[
+"vybe",
+"272:1202",
+"Synthesis \u2014 Empathy map",
+400.0,
+300.0
+],
+[
+"vybe",
+"272:1204",
+"Synthesis \u2014 Sorting the sticky notes",
+400.0,
+300.0
+],
+[
+"vybe",
+"272:1206",
+"Synthesis \u2014 Card sort, grouped by theme",
+400.0,
+300.0
+],
+[
+"vybe",
+"272:1211",
+"Concept test \u2014 preference split",
+null,
+null
+],
+[
+"vybe",
+"269:1518",
+"Sketches",
+518.0,
+620.0
+],
+[
+"vybe",
+"269:1519",
+"Lo-fi wireframes",
+454.0,
+620.0
+],
+[
+"vybe",
+"273:1208",
+"Iteration 1 \u2014 screens",
+471.0,
+640.0
+],
+[
+"vybe",
+"273:1209",
+"Iteration 2 \u2014 screens",
+840.0,
+675.0
+],
+[
+"vybe",
+"274:1200",
+"Final \u2014 Home",
+340.0,
+736.0
+],
+[
+"vybe",
+"274:1310",
+"Final \u2014 Check-in questions",
+340.0,
+736.0
+],
+[
+"vybe",
+"274:1411",
+"Final \u2014 Reflection space",
+340.0,
+736.0
+],
+[
+"vybe",
+"274:1492",
+"Final \u2014 Challenges and stats",
+340.0,
+736.0
+],
+[
+"vybe",
+"274:1661",
+"Final \u2014 Rewards",
+340.0,
+736.0
+],
+[
+"vybe",
+"274:1742",
+"Final \u2014 Social media usage",
+340.0,
+736.0
+],
+[
+"vybe",
+"280:1206",
+"Prototype video \u2014 placeholder (autoplay, muted, loop)",
+1280.0,
+800.0
+],
+[
+"vybe",
+"269:1637",
+"Next project visual",
+null,
+332.711
+],
+[
+"home",
+"121:1243",
+"Visual \u2014 How an Information Archi",
+null,
+302.464
+],
+[
+"home",
+"121:1259",
+"Visual \u2014 Designing Trust Into an",
+null,
+302.464
+],
+[
+"home",
+"121:1275",
+"Visual \u2014 Designing an Enterprise",
+null,
+302.464
+],
+[
+"home",
+"121:1291",
+"Visual \u2014 VYBE: Trading \u201cJournalin",
+null,
+302.464
+]
+],
+"pens": [
+[
+"adidas",
+"182:2540",
+"Step arrow"
+],
+[
+"adidas",
+"182:2544",
+"Step arrow"
+],
+[
+"adidas",
+"182:2548",
+"Step arrow"
+],
+[
+"adidas",
+"182:2552",
+"Step arrow"
+],
+[
+"adidas",
+"226:1278",
+"Pen arrow"
+],
+[
+"adidas",
+"129:1284",
+"Marker"
+],
+[
+"adidas",
+"129:1286",
+"Marker"
+],
+[
+"adidas",
+"129:1288",
+"Marker"
+],
+[
+"adidas",
+"129:1292",
+"Marker"
+],
+[
+"adidas",
+"129:1294",
+"Marker"
+],
+[
+"adidas",
+"129:1296",
+"Marker"
+],
+[
+"adidas",
+"129:1300",
+"Marker"
+],
+[
+"adidas",
+"129:1302",
+"Marker"
+],
+[
+"adidas",
+"223:1315",
+"Marker"
+],
+[
+"adidas",
+"129:1328",
+"Link underline"
+],
+[
+"indycar",
+"238:1437",
+"Pen arrow"
+],
+[
+"indycar",
+"238:1442",
+"Pen arrow"
+],
+[
+"indycar",
+"238:1447",
+"Pen arrow"
+],
+[
+"indycar",
+"238:1464",
+"Pen arrow"
+],
+[
+"indycar",
+"239:1427",
+"Pen arrow"
+],
+[
+"indycar",
+"241:1419",
+"Marker"
+],
+[
+"indycar",
+"241:1421",
+"Marker"
+],
+[
+"indycar",
+"241:1423",
+"Marker"
+],
+[
+"indycar",
+"241:1436",
+"Marker"
+],
+[
+"indycar",
+"241:1438",
+"Marker"
+],
+[
+"indycar",
+"241:1440",
+"Marker"
+],
+[
+"indycar",
+"241:1470",
+"Pen arrow"
+],
+[
+"indycar",
+"242:1490",
+"Link underline"
+],
+[
+"ai",
+"160:1357",
+"Step arrow"
+],
+[
+"ai",
+"160:1361",
+"Step arrow"
+],
+[
+"ai",
+"160:1365",
+"Step arrow"
+],
+[
+"ai",
+"160:1369",
+"Step arrow"
+],
+[
+"ai",
+"156:1842",
+"Ground (horizon)"
+],
+[
+"ai",
+"156:1843",
+"Brush banner"
+],
+[
+"ai",
+"156:1856",
+"Brush link"
+],
+[
+"ai",
+"156:1857",
+"Brush banner"
+],
+[
+"ai",
+"156:1870",
+"Brush link"
+],
+[
+"ai",
+"156:1871",
+"Brush banner"
+],
+[
+"ai",
+"156:1884",
+"Brush link"
+],
+[
+"ai",
+"156:1885",
+"Brush banner"
+],
+[
+"ai",
+"156:1898",
+"Brush link"
+],
+[
+"ai",
+"156:1899",
+"Brush banner"
+],
+[
+"ai",
+"156:1912",
+"Figure \u2014 stand"
+],
+[
+"ai",
+"156:1915",
+"Brush arrow"
+],
+[
+"ai",
+"157:1305",
+"Feeling line (expected)"
+],
+[
+"ai",
+"157:1306",
+"Ellipse"
+],
+[
+"ai",
+"157:1309",
+"Ellipse"
+],
+[
+"ai",
+"157:1312",
+"Ellipse"
+],
+[
+"ai",
+"157:1315",
+"Ellipse"
+],
+[
+"ai",
+"157:1318",
+"Ellipse"
+],
+[
+"ai",
+"157:1321",
+"Ellipse"
+],
+[
+"ai",
+"157:1324",
+"Ellipse"
+],
+[
+"ai",
+"157:1327",
+"Circle \u2014 lowest point"
+],
+[
+"ai",
+"157:1337",
+"Gate"
+],
+[
+"ai",
+"157:1339",
+"Down"
+],
+[
+"ai",
+"157:1340",
+"Yes \u2192"
+],
+[
+"ai",
+"157:1342",
+"Changes \u2193"
+],
+[
+"ai",
+"157:1346",
+"Gate"
+],
+[
+"ai",
+"157:1348",
+"Down"
+],
+[
+"ai",
+"157:1349",
+"Yes \u2192"
+],
+[
+"ai",
+"157:1351",
+"Changes \u2193"
+],
+[
+"ai",
+"157:1355",
+"Gate"
+],
+[
+"ai",
+"157:1357",
+"Down"
+],
+[
+"ai",
+"157:1358",
+"Yes \u2192"
+],
+[
+"ai",
+"157:1360",
+"Changes \u2193"
+],
+[
+"ai",
+"157:1364",
+"Gate"
+],
+[
+"ai",
+"157:1366",
+"Down"
+],
+[
+"ai",
+"157:1367",
+"Yes \u2192"
+],
+[
+"ai",
+"157:1369",
+"Changes \u2193"
+],
+[
+"ai",
+"157:1373",
+"Gate"
+],
+[
+"ai",
+"157:1375",
+"Down"
+],
+[
+"ai",
+"157:1376",
+"Changes \u2193"
+],
+[
+"ai",
+"167:1352",
+"Pen box / Agent / Idea Agent"
+],
+[
+"ai",
+"167:1353",
+"Pen box / Agent / Requirements Agent"
+],
+[
+"ai",
+"167:1354",
+"Pen box / Agent / Spec Agent"
+],
+[
+"ai",
+"167:1355",
+"Pen box / Agent / Prototyping Agent"
+],
+[
+"ai",
+"167:1356",
+"Pen box / Agent / Delivery Agent"
+],
+[
+"ai",
+"167:1357",
+"Pen box / Feedback Agent lane"
+],
+[
+"ai",
+"160:1378",
+"Sketch / A \u00b7 Chat only"
+],
+[
+"ai",
+"160:1386",
+"Struck"
+],
+[
+"ai",
+"160:1387",
+"Sketch / B \u00b7 Chat + drawer"
+],
+[
+"ai",
+"160:1400",
+"Struck"
+],
+[
+"ai",
+"160:1401",
+"Sketch / C \u00b7 Three panels"
+],
+[
+"ai",
+"160:1429",
+"Chosen circle"
+],
+[
+"ai",
+"158:1586",
+"Marker"
+],
+[
+"ai",
+"158:1588",
+"Marker"
+],
+[
+"ai",
+"158:1590",
+"Marker"
+],
+[
+"ai",
+"158:1592",
+"Marker"
+],
+[
+"ai",
+"158:1596",
+"Marker"
+],
+[
+"ai",
+"158:1598",
+"Marker"
+],
+[
+"ai",
+"158:1602",
+"Marker"
+],
+[
+"ai",
+"158:1645",
+"Link underline"
+],
+[
+"vybe",
+"269:1456",
+"Pen arrow"
+],
+[
+"vybe",
+"269:1461",
+"Pen arrow"
+],
+[
+"vybe",
+"269:1466",
+"Pen arrow"
+],
+[
+"vybe",
+"269:1480",
+"Pen arrow"
+],
+[
+"vybe",
+"269:1509",
+"Pen arrow"
+],
+[
+"vybe",
+"272:1212",
+"Legend dot"
+],
+[
+"vybe",
+"272:1216",
+"Legend dot"
+],
+[
+"vybe",
+"272:1220",
+"Legend dot"
+],
+[
+"vybe",
+"269:1527",
+"Marker"
+],
+[
+"vybe",
+"269:1529",
+"Marker"
+],
+[
+"vybe",
+"269:1542",
+"Marker"
+],
+[
+"vybe",
+"269:1544",
+"Marker"
+],
+[
+"vybe",
+"269:1546",
+"Marker"
+],
+[
+"vybe",
+"269:1573",
+"Pen arrow"
+],
+[
+"vybe",
+"269:1636",
+"Link underline"
+],
+[
+"home",
+"121:1303",
+"Tick"
+],
+[
+"home",
+"121:1307",
+"Tick"
+],
+[
+"home",
+"121:1311",
+"Tick"
+],
+[
+"home",
+"121:1315",
+"Tick"
+],
+[
+"home",
+"121:1352",
+"Link underline"
+]
+]
+}

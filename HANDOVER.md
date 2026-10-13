@@ -362,6 +362,14 @@ The user confirmed all four case studies are done (VYBE included).
   - Fonts come from @fontsource (Newsreader 300/500, Inter 400/500), loaded via delayRender.
 - For the site: port the same timeline to an SVG + Motion component in `web/` (or rebuild it in Rive). Play once, replay on hover, reduced motion shows the final frame.
 
+### 2.18 Full animated website in `web/` (2026-10-13)
+- The old `web/` home prototype (Lora / Instrument Sans, `fx.tsx`, `data.ts`, `src/assets`) was replaced by the full site: Home, About and the four case studies, built from the Figma pages. See `web/README.md` for routes, the animation list and the known gaps.
+- **Pipeline (in `tools/`):** `jsxparse.py` parses `get_design_context` JSX → `classify.py` / `lists.py` pick raster areas and pen SVGs (`lists.json`) → pen SVGs exported with `use_figma` `exportAsync({format:'SVG_STRING'})` into `tools/data/pens1–4.tsv` → raster areas screenshotted with `get_screenshot` (base64; the only route to disk) → `collect_shots.py` maps the screenshots from the session transcript to node ids and writes `web/public/shots/<id>.webp` + `tools/shots.json` → `gen.py` writes `web/src/pages/gen/*.tsx`. The About page context is saved in `tools/data/about_ctx.json`.
+- **Scrollable phones:** the full-length INDYCAR "Screen" rects and the VYBE Home / Social screens were exported from temporary unclipped clones (`TEMP EXPORT …`, deleted straight after).
+- **Hero:** `web/src/components/Untangle.tsx` is the Remotion timeline ported to a requestAnimationFrame clock (`src/lib/tween.ts` stands in for interpolate / spring / bezier; geometry copied to `src/lib/untangleGeometry.ts`).
+- **Fonts:** Newsreader must be the variable font with the optical-size axis (`@fontsource-variable/newsreader/opsz.css`); the static files set wider and broke Figma's line breaks.
+- Verified with Playwright (Chromium) at 1440 and 390: no console errors, hero plays and rests on frame 05, nav underline, row frame, page wipe, phone auto-scroll and Work-scroll all work, reduced motion shows everything.
+
 ---
 
 ## 3. Current state
