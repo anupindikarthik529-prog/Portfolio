@@ -287,8 +287,14 @@ The user confirmed all four case studies are done (VYBE included).
 - This propagates to all eight Nav instances: home, About, and all four case studies, plus the two backup copies.
 - Build spec (also in the component description): SVG path with stroke-dasharray/dashoffset, 350ms ease-out in and 200ms out; the same on keyboard focus; reduced motion shows the line instantly. Mobile uses "Menu", so it has no hover.
 - Prototype start points added: "Home — desktop" (03 — Homepage) and "About — desktop" (06 — About).
-- **Current-page state:** a third variant, State=Active, shows the line permanently with the label in Medium ink (like Contact), and has no hover reaction. Its label is bound to the Label property. Set per header: all case studies → Work Active; About page → About Active; Home → none.
-  - Gotcha: changing a nested instance's State resets its Label, so re-apply `setProperties({Label: name})` after any state swap.
+- **Current-page state was removed** at the user's request: no link is underlined at rest. The Active variant was deleted, and **Contact is now a Nav link instance too** (the old "Contact link" frame with its permanent underline is gone). Every link draws its line only on hover.
+- **Click actions** are set per Nav instance, on each nested link; the ON_HOVER CHANGE_TO reaction is kept alongside them.
+  - Work: on Home, SCROLL_TO Selected work `121:1229` (scroll-animate ease-out 500ms). Elsewhere, it opens the home frame's prototype URL in the same tab.
+  - About: opens the About frame's prototype URL (`…?node-id=290-1198`) in the same tab. Figma prototypes can't navigate across pages, so the URLs stand in until the site is built; there, these become `/#work` and `/about`.
+  - Resume: opens the Google Drive PDF in a new tab.
+  - Contact: `mailto:karthikanupindi98@gmail.com` with a pre-filled subject ("Hello Karthik, saw your portfolio") and a short draft body with placeholders for the sender.
+- **Home CTAs:** "See selected work ↓" (button and text) scrolls to Selected work; "About & resume" and "More about me →" open the About page. The contact "Email me" button and the email address use the same mailto draft.
+- Gotcha: changing a nested instance's State resets its Label, so re-apply `setProperties({Label: name})` after any state swap.
 
 ---
 
