@@ -33,6 +33,31 @@ curl -sS -o /dev/null -w "%{http_code}\n" -m 10 https://api.framer.com   # 000 /
 
 ---
 
+## 0b. Continuing in a LOCAL Claude Code session (user's own computer)
+
+The user is taking this file to a local session to work in Framer. Locally, the cloud blockers in §9.1 don't apply: there's no network policy, and the browser sign-in works.
+
+1. **Get the repo** (for `web/` source, `web/public/shots/` images and `tools/`):
+   ```bash
+   git clone https://github.com/anupindikarthik529-prog/Portfolio.git
+   cd Portfolio
+   git checkout claude/vibrant-turing-me78qp
+   ```
+2. **Node 24+:** run `node --version`. If it's older, install the current Node from nodejs.org (or with an existing package manager).
+3. **Framer agent:**
+   ```bash
+   npx @framer/agent@latest setup
+   npx @framer/agent@latest session new "https://framer.com/projects/Portfolio-Custom-Domain--xEzmmvrjgYHm5r7ClkfC-4nwp6"
+   ```
+   A browser window opens to authorise; approve it. Reuse the printed session ID with `-s <id>` for every later command. Then load the `framer` skill and read the generated `projects/<id>/index.md` task map before editing.
+4. **Permission:** the user said to **work on this project directly**; they have taken a backup. It is the live custom-domain project, so **ask before publishing**.
+5. **First task:** inventory the project (pages, components, styles, CMS) and report it. Then follow §10 step 3 to rebuild the new design in Framer, using §5 for copy and rules and §7 for which parts need code components.
+6. **To preview the reference site locally:** `cd web && npm install && npm run dev`. Or open the offline file `Karthik-Anupindi-Portfolio.html` (build it with `python3 tools/make_offline.py`).
+
+The Figma file `1PD7zKot98QgHWacUtWDLm` is the design source. A local session needs the Figma MCP connected to read it; it isn't required just to rebuild from `web/`.
+
+---
+
 ## 1. Project goal
 
 Redesign Karthik Anupindi's UX/UI portfolio and put it live.
